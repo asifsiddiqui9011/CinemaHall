@@ -1,8 +1,7 @@
-import "./Navbar.css"
+import "./Navbar.css";
 
 const Navbar = () => {
   return (
-
     <nav className="navbar">
       <div className="navbar-left">
         <a href="/" className="logo">
@@ -15,7 +14,7 @@ const Navbar = () => {
             <a href="/products">Booking</a>
           </li>
           <li>
-            <a href="/about">About Us</a>
+            <a href="/about">About</a>
           </li>
           <li>
             <a href="/contact">Contact</a>
@@ -32,7 +31,7 @@ const Navbar = () => {
         </a>
       </div>
     </nav>
-    )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

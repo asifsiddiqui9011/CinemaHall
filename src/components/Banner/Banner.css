@@ -1,0 +1,45 @@
+.banner-container{
+    border: 2px solid black;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content:end;
+    align-items: center;
+}
+
+
+.banner-flow{
+    width: 90vw;
+    display: flex;
+    justify-content:space-between;
+    align-items:end;
+}
+
+.flow-img{
+    background-color: aqua;
+    height: 400px;
+    width: 350px;
+    border-radius: 15px;
+
+}
+
+.flow-description{
+   height: 350px;
+   width: 550px;
+   text-align: justify;
+   padding-inline-start: 10px;
+   
+}
+
+.flow-dots{
+    background-color: aquamarine;
+   width: 400px;
+}
+
+.flow-btns{
+    display: flex;
+    justify-content:start;
+    gap: 50px;
+    padding: 10px;
+    margin: 5px;
+}
