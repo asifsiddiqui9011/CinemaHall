@@ -1,6 +1,6 @@
 import { useState } from "react"
 import "./Banner.css"
-
+import CardImg from "../../../public/card-image.jpg"
 const Banner = () => {
 
   const [banner,setBanner] = useState('')
@@ -11,7 +11,7 @@ const Banner = () => {
       {/* <img src="" alt="" className="banner-img"/> */}
       <div className="banner-flow">
         <div className="flow-img">
-          <img src="" alt="" />
+          {/* <img src={CardImg} alt=""  className="flow_img"/> */}
         </div>
         <div className="flow-description">
             <h1>

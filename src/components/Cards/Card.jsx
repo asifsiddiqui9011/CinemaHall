@@ -5,7 +5,7 @@ const Card = () => {
     <div className="card">
        <h3>Title of the movie</h3>
        <p>Action * (U/A) * Eng</p>
-        <p>Ratings *  * * *</p>
+        <polyline>Ratings *  * * *</polyline>
     </div>
   )
 }
