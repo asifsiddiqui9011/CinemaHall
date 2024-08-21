@@ -1,0 +1,277 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: http://localhost:5173/addtheater
+Subject: Vite + React
+Date: Sat, 17 Aug 2024 20:25:49 +0530
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--ImJ0DywknwXz9ywEEUhCp6AmYSoRqfpjyBpriUGer7----"
+
+
+------MultipartBoundary--ImJ0DywknwXz9ywEEUhCp6AmYSoRqfpjyBpriUGer7----
+Content-Type: text/html
+Content-ID: <frame-B4196801DD6D0DB715684379F92F084F@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://localhost:5173/addtheater
+
+<!DOCTYPE html><html lang=3D"en"><head><meta http-equiv=3D"Content-Type" co=
+ntent=3D"text/html; charset=3DUTF-8"><link rel=3D"stylesheet" type=3D"text/=
+css" href=3D"cid:css-eb19ffa3-1d4a-405b-904f-e0b00d75a1d3@mhtml.blink" /><l=
+ink rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-d8b2efc7-3e25-4a32=
+-a60d-6adf766df5c3@mhtml.blink" /><link rel=3D"stylesheet" type=3D"text/css=
+" href=3D"cid:css-33a3e764-e2be-45e4-9049-fac53c66f31c@mhtml.blink" /><link=
+ rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-e1e65896-1942-42b4-93=
+68-6036ea6dd620@mhtml.blink" /><link rel=3D"stylesheet" type=3D"text/css" h=
+ref=3D"cid:css-15f9d7d2-d118-45fc-9396-4034fcb1f071@mhtml.blink" /><link re=
+l=3D"stylesheet" type=3D"text/css" href=3D"cid:css-8cbc24be-fe40-45bc-8bd4-=
+654ca11518e3@mhtml.blink" /><link rel=3D"stylesheet" type=3D"text/css" href=
+=3D"cid:css-a5953469-4c93-437d-b300-dbda0e84f3bb@mhtml.blink" /><link rel=
+=3D"stylesheet" type=3D"text/css" href=3D"cid:css-09203ae7-2ce3-4ec7-baad-b=
+4d4db372af7@mhtml.blink" />
+   =20
+
+   =20
+
+   =20
+    <link rel=3D"icon" type=3D"image/svg+xml" href=3D"http://localhost:5173=
+/vite.svg">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1.0">
+    <title>Vite + React</title>
+  </head>
+  <body>
+    <div id=3D"root"><nav class=3D"navbar"><div class=3D"navbar-left"><a hr=
+ef=3D"http://localhost:5173/" class=3D"logo">CinemaHall Admin Panel</a></di=
+v><div class=3D"navbar-center"></div><div class=3D"navbar-right"></div></na=
+v><div class=3D"display-container"><div class=3D"sidebar-container"><a href=
+=3D"http://localhost:5173/addmovies"><div class=3D"icons"><h2>Add Movies</h=
+2></div></a><a href=3D"http://localhost:5173/addtheater"><div class=3D"icon=
+s"><h2>Add Theater</h2></div></a><a href=3D"http://localhost:5173/movieslis=
+t"><div class=3D"icons"><h2>Movies List</h2></div></a><a href=3D"http://loc=
+alhost:5173/theaterlist"><div class=3D"icons"><h2>Theater List</h2></div></=
+a></div><div class=3D"theater-container"><div><h1>Theater Add</h1><form><sp=
+an>Name Of Theater: <input type=3D"text" placeholder=3D"Enter name of your =
+theater" name=3D"name" id=3D"name" required=3D"" fdprocessedid=3D"ukj4a"></=
+span><span>Location: <input type=3D"text" placeholder=3D"Enter name of your=
+ theater" name=3D"location" id=3D"location" required=3D"" fdprocessedid=3D"=
+p5ivyg"></span><span>Capacity: <input type=3D"text" placeholder=3D"Enter na=
+me of your theater" name=3D"capacity" id=3D"capacity" required=3D"" fdproce=
+ssedid=3D"ibpccr"></span><span>Name Of Slots: <input type=3D"number" min=3D=
+"1" max=3D"4" placeholder=3D"Enter name of your theater" name=3D"slot" id=
+=3D"slot" required=3D"" value=3D"3" fdprocessedid=3D"v34vx"></span><button =
+type=3D"submit" fdprocessedid=3D"g1yr8lj">Add Theater</button></form></div>=
+<div class=3D"slots-seats-container"><div class=3D"seating-arrangement"><fo=
+rm action=3D"http://localhost:5173/addtheater" class=3D"slots-form"><span>E=
+nter slot timing: <input type=3D"time" name=3D"time" id=3D"time"></span><sp=
+an>Select View:<select name=3D"view" id=3D"view" fdprocessedid=3D"gvsb9e"><=
+option value=3D"2D">2D</option><option value=3D"3D">3D</option></select></s=
+pan></form><form action=3D"http://localhost:5173/addtheater" class=3D"slots=
+-form"><span>Enter slot timing: <input type=3D"time" name=3D"time" id=3D"ti=
+me"></span><span>Select View:<select name=3D"view" id=3D"view" fdprocessedi=
+d=3D"fwc2js"><option value=3D"2D">2D</option><option value=3D"3D">3D</optio=
+n></select></span></form><form action=3D"http://localhost:5173/addtheater" =
+class=3D"slots-form"><span>Enter slot timing: <input type=3D"time" name=3D"=
+time" id=3D"time"></span><span>Select View:<select name=3D"view" id=3D"view=
+" fdprocessedid=3D"xotycc"><option value=3D"2D">2D</option><option value=3D=
+"3D">3D</option></select></span></form></div><div class=3D"seating-containe=
+r"><div>____________Screen____________</div><div><div class=3D"normal"><inp=
+ut type=3D"checkbox" value=3D"0"><input type=3D"checkbox" value=3D"1"><inpu=
+t type=3D"checkbox" value=3D"2"><input type=3D"checkbox" value=3D"3"><input=
+ type=3D"checkbox" value=3D"4"><input type=3D"checkbox" value=3D"5"><input =
+type=3D"checkbox" value=3D"6"><input type=3D"checkbox" value=3D"7"><input t=
+ype=3D"checkbox" value=3D"8"><input type=3D"checkbox" value=3D"9"><input ty=
+pe=3D"checkbox" value=3D"10"><input type=3D"checkbox" value=3D"11"><input t=
+ype=3D"checkbox" value=3D"12"><input type=3D"checkbox" value=3D"13"><input =
+type=3D"checkbox" value=3D"14"><input type=3D"checkbox" value=3D"15"><input=
+ type=3D"checkbox" value=3D"16"><input type=3D"checkbox" value=3D"17"><inpu=
+t type=3D"checkbox" value=3D"18"><input type=3D"checkbox" value=3D"19"><inp=
+ut type=3D"checkbox" value=3D"20"><input type=3D"checkbox" value=3D"21"><in=
+put type=3D"checkbox" value=3D"22"><input type=3D"checkbox" value=3D"23"><i=
+nput type=3D"checkbox" value=3D"24"><input type=3D"checkbox" value=3D"25"><=
+input type=3D"checkbox" value=3D"26"><input type=3D"checkbox" value=3D"27">=
+<input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkbox">=
+<input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkbox">=
+<input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkbox">=
+<input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkbox">=
+</div><div class=3D"premium"><input type=3D"checkbox"><input type=3D"checkb=
+ox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkb=
+ox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkb=
+ox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkb=
+ox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkb=
+ox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkb=
+ox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkb=
+ox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkb=
+ox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkb=
+ox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkb=
+ox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkb=
+ox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkb=
+ox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkb=
+ox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkb=
+ox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkb=
+ox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkb=
+ox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkb=
+ox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkb=
+ox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkb=
+ox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkb=
+ox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkb=
+ox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkb=
+ox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkb=
+ox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkb=
+ox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkb=
+ox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkb=
+ox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"checkb=
+ox"></div><div class=3D"delux"><input type=3D"checkbox"><input type=3D"chec=
+kbox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"chec=
+kbox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"chec=
+kbox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"chec=
+kbox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"chec=
+kbox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"chec=
+kbox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"chec=
+kbox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"chec=
+kbox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"chec=
+kbox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"chec=
+kbox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"chec=
+kbox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"chec=
+kbox"><input type=3D"checkbox"><input type=3D"checkbox"><input type=3D"chec=
+kbox"><input type=3D"checkbox"><input type=3D"checkbox"></div></div></div><=
+/div></div></div></div>
+   =20
+ =20
+
+<span id=3D"PING_IFRAME_FORM_DETECTION" style=3D"display: none;"></span></b=
+ody></html>
+------MultipartBoundary--ImJ0DywknwXz9ywEEUhCp6AmYSoRqfpjyBpriUGer7----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-eb19ffa3-1d4a-405b-904f-e0b00d75a1d3@mhtml.blink
+
+@charset "utf-8";
+
+.display-container { display: flex; }
+
+input { height: 40px; background-color: aliceblue; border: none; outline: n=
+one; padding: 0px 5px; }
+------MultipartBoundary--ImJ0DywknwXz9ywEEUhCp6AmYSoRqfpjyBpriUGer7----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-d8b2efc7-3e25-4a32-a60d-6adf766df5c3@mhtml.blink
+
+@charset "utf-8";
+
+.addmovie-container { display: flex; align-items: center; flex-direction: c=
+olumn; margin: 20px; padding: 20px; }
+
+.form { width: 80vw; display: flex; justify-content: space-between; align-i=
+tems: center; flex-wrap: wrap; gap: 30px; padding: 30px; border: 1px solid =
+black; }
+
+.Addvalueinput { display: flex; flex-direction: row; justify-content: cente=
+r; align-items: center; background-color: transparent; gap: 5px; }
+------MultipartBoundary--ImJ0DywknwXz9ywEEUhCp6AmYSoRqfpjyBpriUGer7----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-33a3e764-e2be-45e4-9049-fac53c66f31c@mhtml.blink
+
+@charset "utf-8";
+
+.theater-container { display: flex; justify-content: center; align-items: c=
+enter; flex-direction: column; padding: 10px 100px; gap: 20px; }
+
+.slots-seats-container { display: flex; justify-content: center; align-item=
+s: center; gap: 50px; }
+
+.seating-container { display: flex; justify-content: center; align-items: c=
+enter; gap: 70px; flex-direction: column; border: 1px solid black; }
+
+.seating-arrangement { width: 30vw; display: flex; align-items: center; jus=
+tify-content: center; gap: 40px; flex-wrap: wrap; border: 1px solid black; =
+padding: 40px 10px; }
+
+.slots-form { display: flex; align-items: center; justify-content: center; =
+gap: 20px; }
+
+.normal { width: 400px; background-color: aliceblue; display: flex; flex-wr=
+ap: wrap; align-items: center; justify-content: center; padding: 0px 100px;=
+ }
+
+.premium { width: 400px; background-color: rgb(10, 101, 181); display: flex=
+; flex-wrap: wrap; align-items: center; justify-content: center; padding: 0=
+px 100px; }
+
+.delux { width: 400px; background-color: rgb(126, 13, 231); display: flex; =
+flex-wrap: wrap; align-items: center; justify-content: center; padding: 0px=
+ 100px; }
+------MultipartBoundary--ImJ0DywknwXz9ywEEUhCp6AmYSoRqfpjyBpriUGer7----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-e1e65896-1942-42b4-9368-6036ea6dd620@mhtml.blink
+
+@charset "utf-8";
+
+.card { height: 280px; width: 200px; border-radius: 15px; background-color:=
+ aquamarine; text-align: justify; margin: 5px; padding: 5px; }
+
+.card-desc { position: relative; top: 160px; bottom: 0px; }
+------MultipartBoundary--ImJ0DywknwXz9ywEEUhCp6AmYSoRqfpjyBpriUGer7----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-15f9d7d2-d118-45fc-9396-4034fcb1f071@mhtml.blink
+
+@charset "utf-8";
+
+.movieList-container { display: flex; flex-direction: column; align-items: =
+baseline; padding: 20px; margin: 20px; scroll-behavior: smooth; }
+
+.cards-container { display: flex; justify-content: center; align-items: cen=
+ter; flex-wrap: wrap; padding: 20px; }
+------MultipartBoundary--ImJ0DywknwXz9ywEEUhCp6AmYSoRqfpjyBpriUGer7----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-8cbc24be-fe40-45bc-8bd4-654ca11518e3@mhtml.blink
+
+@charset "utf-8";
+
+.navbar { display: flex; justify-content: space-between; align-items: cente=
+r; color: black; background-color: aliceblue; padding: 1rem; }
+
+.navbar-left .logo { font-size: 1.5rem; font-weight: bold; color: black; te=
+xt-decoration: none; }
+
+.navbar-center .nav-links { list-style-type: none; display: flex; margin: 0=
+px; padding: 0px; }
+
+.navbar-center .nav-links li { margin-right: 1rem; }
+
+.navbar-center .nav-links a { color: rgb(255, 255, 255); text-decoration: n=
+one; }
+
+.navbar-right { display: flex; align-items: center; }
+
+.navbar-right .cart-icon, .navbar-right .user-icon { color: rgb(255, 255, 2=
+55); text-decoration: none; margin-left: 1rem; position: relative; }
+
+.navbar-right .cart-count { background-color: rgb(244, 67, 54); color: rgb(=
+255, 255, 255); border-radius: 50%; padding: 0.2rem 0.5rem; font-size: 0.8r=
+em; position: absolute; top: -0.5rem; right: -0.5rem; }
+------MultipartBoundary--ImJ0DywknwXz9ywEEUhCp6AmYSoRqfpjyBpriUGer7----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-a5953469-4c93-437d-b300-dbda0e84f3bb@mhtml.blink
+
+@charset "utf-8";
+
+.sidebar-container { height: 90vh; width: 100px; border-radius: 15px; displ=
+ay: flex; flex-direction: column; justify-content: center; align-items: cen=
+ter; gap: 20px; margin: 5px; }
+
+.icons { background-color: rgba(189, 67, 255, 0.4); border-radius: 15px; bo=
+rder: 1px solid rgb(255, 255, 255); margin: 5px; backdrop-filter: blur(15px=
+); }
+------MultipartBoundary--ImJ0DywknwXz9ywEEUhCp6AmYSoRqfpjyBpriUGer7----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-09203ae7-2ce3-4ec7-baad-b4d4db372af7@mhtml.blink
+
+@charset "utf-8";
+=0A
+------MultipartBoundary--ImJ0DywknwXz9ywEEUhCp6AmYSoRqfpjyBpriUGer7------

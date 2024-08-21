@@ -1,0 +1,61 @@
+.Buy-conatiner{
+    height: 70vh;
+    width: 70vw;
+    border-radius: 15px;
+    /* background-color: white; */
+
+}
+
+.choose-city{
+    height: 70vh;
+    width: 30vw;
+    border-radius: 15px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.choose-theater-slot{
+    height: 70vh;
+    width: 70vw;
+    border-radius: 15px;
+    background-color: rgb(48, 189, 255);
+    display: flex;
+    flex-direction: column;
+   position: absolute;
+   top: 1600px;
+}
+
+.theater-slot{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+    background-color:white;
+    margin: 10px;
+    border-radius: 15px; 
+    color: black;  
+}
+
+.theater-desc{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.slots-container{
+    display: flex;
+    width: 40em;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.slot{
+    border: 1px solid black;
+    padding:5px;
+    display: flex;
+    flex-direction: column;
+}
