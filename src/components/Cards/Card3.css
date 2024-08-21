@@ -1,0 +1,17 @@
+.card3{
+    height: 34vh;
+    width: 88%;
+    border-radius: 15px;
+    background-color: rgb(184, 113, 37);
+    text-align:justify;
+    margin:1px;
+    padding: 5px;
+    margin-left: 10px;
+    margin-top: 20px;
+    background: url('./card3.jpg');
+    background-size: cover;
+   
+      
+ }
+ 
+ 

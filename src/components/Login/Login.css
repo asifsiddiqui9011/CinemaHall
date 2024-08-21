@@ -1,0 +1,12 @@
+h2{
+   color:aliceblue;
+   font-size: 30px;
+}
+.main_box{
+   height: 200px;
+   width: 600px;
+   background-color: rgb(103, 206, 206);
+}
+.form-container{
+   background-color: blue;
+}

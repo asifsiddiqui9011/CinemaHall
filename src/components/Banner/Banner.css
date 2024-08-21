@@ -40,7 +40,7 @@
 }
 
 .flow-dots{
-    background-color: aquamarine;
+    background: transparent;
    width: 400px;
 }
 
@@ -57,3 +57,28 @@
  background-size: contain;
  border-radius: 15px;
 } */
+ .buyticket_btn{
+    font-family: 'Ubuntu', sans-serif;
+ 
+  transform: translate(-50%, -50%);
+  
+  width: 170px;
+  height: 40px;
+  line-height: 1;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border: 3px solid #39355e;
+  background: #880808;
+  color: #fdfdfd;
+  border-radius: 40px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all .35s;
+  margin-left: 40px;
+  margin-top: 20px;
+ }
+ .buyticket_btn:hover{
+    background: #8C82FC;
+    color: #fff;
+  }

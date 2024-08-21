@@ -1,0 +1,21 @@
+.timing-bar{
+    background-color: aliceblue;
+    height: 15vh;
+
+}
+.discription-container{
+    background-color: antiquewhite;
+    height: 85vh;
+    display: flex;
+}
+.billing{
+    width: 38%;
+    height: 85vh;
+    background-color: aqua;
+}
+.seat{
+    width: 62%;
+    height: 85vh;
+    background-color: brown;
+}
+
