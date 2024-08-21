@@ -1,5 +1,5 @@
 import "./Navbar.css";
-
+import Login from '../Login/Login'
 const Navbar = () => {
   return (
     <nav className="navbar">
@@ -12,7 +12,11 @@ const Navbar = () => {
        
       </div>
       <div className="navbar-right">
-        
+        <div className="lgn_btn"><button className="btn" >Login</button>
+{/* onClick={()=>document.getElementById} */}
+
+        {/* <Login/> */}
+        </div>
       </div>
     </nav>
   );

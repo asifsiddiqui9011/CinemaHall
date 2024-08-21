@@ -15,7 +15,7 @@ const Banner = () => {
         </div>
         <div className="flow-description">
             <h1>
-               Title of the movie
+               Iron Man 3
             </h1>
             <p>
              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio maiores hic blanditiis a, rem voluptates dignissimos qui fugit suscipit quas quaerat.
@@ -23,8 +23,8 @@ const Banner = () => {
             <p><b>Action * (U/A) * Eng</b></p>
             <b>Ratings *  * * *</b>
             <div className="flow-btns">
-              <button>Buy Tickets</button>
-              <button>Trailer</button>
+              <button className="buyticket_btn">Buy Tickets</button>
+              <button className="buyticket_btn">Trailer</button>
             </div>
         </div>
         <div className="flow-dots">

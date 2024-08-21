@@ -1,0 +1,18 @@
+.card4{
+    background-color: burlywood;
+    width: 380px;
+    height: 210px;
+}
+.lf_movie_img{
+    width: 50%  ;
+    background-color: blue;
+    height: 100%;
+    float: left;
+    border-radius: 22px;
+}
+.rg_movie_detail{
+    background-color: rgb(59, 155, 94);
+    width: 50%;
+    height: 100%;
+    float: right;
+}
