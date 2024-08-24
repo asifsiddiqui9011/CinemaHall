@@ -23,8 +23,19 @@ exports.getScreenById = async (req, res) => {
 };
 
 // Create a new screen
+function generateMainId() {
+  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  let result = "";
+  for (let i = 0; i < 8; i++) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return result;
+}
+
 exports.createScreen = async (req, res) => {
-  const screen = new Screen(req.body);
+  const screenData = { ...req.body, mainId: generateMainId() }; // Add the generated mainId here
+  const screen = new Screen(screenData);
+
   try {
     const newScreen = await screen.save();
     res.status(201).json(newScreen);
