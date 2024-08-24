@@ -1,0 +1,75 @@
+.theaterlist-container{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    gap: 10px;
+    border: 2px soid black;
+}
+
+.select-container{
+    margin: 5px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 30vw;
+}
+
+.theater-card{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: aliceblue;
+   gap: 20px;
+   padding: 10px;
+}
+
+.theater-card:hover{
+    border: 2px solid blueviolet;
+}
+
+.theater-desc-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 58vw;
+}
+
+.theater-details-container{
+    display: flex;
+    justify-content:start;
+    align-items:start;
+    border: 2px solid red;
+    flex-direction: column;
+    width: 50vw;
+}
+
+.slots-desc-container{
+    display: flex;
+    justify-content:space-around;
+    align-items:baseline;
+    border: 2px solid blue;
+    flex-direction: column;
+    width: 50vw;
+    gap:5px;  
+}
+
+.slots-desc{
+    display: flex;
+    justify-content:space-around;
+    align-items:baseline;
+    gap: 50px;
+    padding: 5px;
+    background-color: aliceblue;
+    margin: 5px;
+    border: 2px solid greenyellow;
+}
+span{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

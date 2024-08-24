@@ -1,0 +1,15 @@
+.card{
+    height: 280px;
+    width: 200px;
+    border-radius: 15px;
+    background-color: aquamarine;
+    text-align:justify;
+    margin:5px;
+    padding: 5px;
+ }
+
+ .card-desc{
+    position:relative;
+    top: 160px;
+    bottom: 0px;
+ }

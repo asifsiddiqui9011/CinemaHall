@@ -1,0 +1,17 @@
+.movieList-container{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    padding: 20px;
+    margin: 20px;
+    scroll-behavior: smooth;
+}
+
+
+.cards-container{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+   padding: 20px;
+}

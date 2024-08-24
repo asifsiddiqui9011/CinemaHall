@@ -1,0 +1,61 @@
+.addToScreen-container{
+    /* border: 1px solid black; */
+    background-color: white;
+}
+
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+
+
+.Choose-theater{
+    height: 40vh;
+    width: 40vw;
+    border-radius: 10px;
+    /* border: 1px solid black; */
+}
+
+
+.slots-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.slots-div{
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.select-container{
+    display: flex;
+    justify-content:start;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 100px 10px;
+    /* border: 1px solid black; */
+}
+.select-card{
+    height: 50px;
+    width: 30vw;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 15px;
+}
+
+.select-card:hover{
+    border: 2px solid blueviolet;
+}
+
