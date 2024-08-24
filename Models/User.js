@@ -30,6 +30,15 @@ const userSchema = new mongoose.Schema({
     type: Number,
     min: 0,
   },
+  bookings: [
+    {
+      timing: { type: String, required: true },
+      seatnumbers: { type: [Number], required: true }, // Updated field to be an array of numbers
+      date: { type: Date, required: true },
+      theatername: { type: String, required: true },
+      numberOfPersons: { type: Number, required: true, min: 1 },
+    },
+  ],
   created_at: {
     type: Date,
     default: Date.now,
