@@ -83,6 +83,7 @@
 
 import { useState } from "react";
 import "./AddMovies.css";
+import axios from "axios";
 
 const AddMovies = () => {
   const [movie, setMovie] = useState({});
@@ -94,26 +95,32 @@ const AddMovies = () => {
   const addMovie = async (event) => {
     event.preventDefault();
     console.log(movie,"movie")
+    // try {
+    //   const response = await fetch("http://localhost:4000/api/movies", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(movie),
+    //   });
+    //   if (response.ok) {
+    //     const data = await response.json();
+    //     console.log(data.message);
+    //     alert("Movie added successfully!");
+    //   } else {
+    //     const errorData = await response.json();
+    //     console.error("Error:", errorData.message);
+    //     alert("Failed to add movie. Please check the input fields.");
+    //   }
+    // } catch (error) {
+    //   console.error("Error:", error);
+    //   alert("Something went wrong. Please try again later.");
+    // }
     try {
-      const response = await fetch("http://localhost:4000/api/movies", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(movie),
-      });
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data.message);
-        alert("Movie added successfully!");
-      } else {
-        const errorData = await response.json();
-        console.error("Error:", errorData.message);
-        alert("Failed to add movie. Please check the input fields.");
-      }
+      const response = await axios.post('http://localhost:4000/api/movies', movie);
+      console.log("Theater created successfully", response.data);
     } catch (error) {
-      console.error("Error:", error);
-      alert("Something went wrong. Please try again later.");
+      console.error("Error creating theater", error.response?.data || error.message);
     }
   };
 

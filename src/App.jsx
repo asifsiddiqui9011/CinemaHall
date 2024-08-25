@@ -2,7 +2,7 @@
 import './App.css'
 import AddMovies from './Components/AddMovies/AddMovies'
 import AddTheater from './Components/AddTheater/AddTheater'
-import AddToScreen from './Components/AddToScreen/AddToScreen'
+// import AddToScreen from './Components/AddToScreen/AddToScreen'
 import MovieDesc from './Components/MovieDesc/MovieDesc'
 import MoviesList from './Components/MoviesList/MoviesList'
 import Navbar from './Components/Navbar/Navbar'
@@ -37,6 +37,9 @@ function App() {
           path='/movieslist/desc'
           element={<MovieDesc/>}
         />
+         <Route path={"/movielist"} element={<MovieDesc/>}>
+                  <Route path=':mainId' element={<MovieDesc/>}/>
+             </Route>
         <Route
           path='/theaterlist'
           element={<TheaterList/>}

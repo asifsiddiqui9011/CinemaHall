@@ -3,7 +3,7 @@ import "./MovieDesc.css"
 import AddToScreen from "../AddToScreen/AddToScreen"
  let cardimg = "https://w0.peakpx.com/wallpaper/1020/783/HD-wallpaper-avengers-endgame-end-war.jpg"
 
-const MovieDesc = () => {
+const MovieDesc = (props) => {
 
     const [toggle,setToggle] = useState(false)
 
