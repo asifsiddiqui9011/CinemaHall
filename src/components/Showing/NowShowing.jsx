@@ -1,6 +1,6 @@
 import BuyTickets from "../BuyTickets/BuyTickets"
 import Card from "../Cards/Card"
-import "./NowShowing.css"
+// import "./NowShowing.css"
 
 const NowShowing = () => {
   return (
@@ -13,7 +13,7 @@ const NowShowing = () => {
        
         <Card/>
         <Card/>
-        <BuyTickets/>
+        {/* <BuyTickets/> */}
         <Card/>
         <Card/>
         <Card/>

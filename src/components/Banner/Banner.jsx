@@ -1,9 +1,11 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import "./Banner.css"
 import CardImg from "../../../public/card-image.jpg"
+import { CinemaContext } from "../../Contex/CinemaContext"
 const Banner = () => {
 
   const [banner,setBanner] = useState('')
+  const {cityToggleHandler} = useContext(CinemaContext)
 
 
   return (
@@ -23,7 +25,7 @@ const Banner = () => {
             <p><b>Action * (U/A) * Eng</b></p>
             <b>Ratings *  * * *</b>
             <div className="flow-btns">
-              <button className="buyticket_btn">Buy Tickets</button>
+              <button className="buyticket_btn" onClick={cityToggleHandler}>Buy Tickets</button>
               <button className="buyticket_btn">Trailer</button>
             </div>
         </div>

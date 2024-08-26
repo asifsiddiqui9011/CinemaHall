@@ -1,0 +1,13 @@
+
+
+.choose-city{
+    height: 70vh;
+    width: 30vw;
+    border-radius: 15px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+
+}
+
+

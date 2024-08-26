@@ -1,103 +1,48 @@
 .navbar {
+  height: 60px;
+    width: 91%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background-color: #333; */
-    color: #fff;
-    padding: 1rem;
+    padding: 0px 100px ;
+    /* color: white; */
+    /* margin:-10px -8px 0px -8px; */
     position: fixed;
-    margin-top: -5px;
+    z-index: 7;
   }
-  
-  .navbar-left .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .navbar-center .nav-links {
-    list-style-type: none;
+
+  .model-container{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(128, 128, 128, 0.45);
     display: flex;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .navbar-center .nav-links li {
-    margin-right: 1rem;
-  }
-  
-  .navbar-center .nav-links a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .navbar-right {
-    display: flex;
+    flex-direction: column;
     align-items: center;
-  }
-  
-  .navbar-right .cart-icon,
-  .navbar-right .user-icon {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 1rem;
-    position: relative;
-  }
-  
-  .navbar-right .cart-count {
-    background-color: #f44336;
-    color: #fff;
-    border-radius: 50%;
-    padding: 0.2rem 0.5rem;
-    font-size: 0.8rem;
-    position: absolute;
-    top: -0.5rem;
-    right: -0.5rem;
-  }
-  .navbar-right{
-   
-   
-    
-    
-    border-radius: 15px;
-  }
-  .lgn_btn{
     justify-content: center;
-    text-align: center;
+    position:fixed;
+    left: -1px;
+    top: 0px;
+    position: absolute;
+    z-index: 7;
+}
+
+.model{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    position: fixed;
+}
+
+#icon{
     font-size: 30px;
-  }
-  button {
-    cursor: pointer;
-    border: 0;
-    border-radius: 4px;
-    font-weight: 600;
-    margin: 0 10px;
-    width: 150px;
-    padding: 10px 0;
-    
-    transition: 0.4s;
-  }
-  .lgn_btn{
-    .container {
-      min-height: 100vh;
-      justify-content: center;
-      align-items: center;
-      display: flex;
-      text-align: center;
-      
-    }
-  }
-  .btn{
-    font-size: 24px;
-    color: rgb(255, 255, 255);
-  background: transparent;
-  margin-left: 1150px;
-  
-  }
-  button:hover {
-    color: rgb(255, 255, 255);
-    width:150px;
-    box-shadow: 0 0 20px rgba(199, 87, 62, 0.6);
-    background-color: #880808;
-  }
+    background-color:white;
+    border-radius: 50%;
+    color:rgba(128, 128, 128, 0.534);
+    margin-right: -20px;
+
+}
+
+.logo{
+  color: white;
+}

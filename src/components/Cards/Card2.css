@@ -3,13 +3,14 @@
     width: 90%;
     border-radius: 15px;
     background-color: aquamarine;
-    text-align:justify;
+    text-align:end;
     margin:5px;
     padding: 5px;
     margin-left: 30px;
     margin-top: 20px;
     background: url('./card2.jpg');
     background-size: cover;
+    color: white;
     
  }
  
@@ -24,8 +25,8 @@
     background-image: url(../../../public/card-image.jpg);
     background-size: cover;
  } */
-  .card-disc{
+  .card-dis{
    position: relative;
-   top: 160px;
-   bottom: 0px;
+   top: 400px;
+   right: 20px;
   }

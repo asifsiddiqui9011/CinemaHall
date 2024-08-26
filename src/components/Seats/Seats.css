@@ -1,26 +1,27 @@
 .seats-container{
-    height: 90vh;
-    width: 40vw;
+    /* height: 90vh; */
+    /* width: 40vw; */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     border: 2px solid black;
-    background-color: rgba(207, 201, 201, 0.812);
+     background-color: rgba(0, 0, 0, 0.9);
     padding: 20px;
 }
 
 .screen{
-    height: 10vh;
-    background-color: aliceblue;
+    height: 2vh;
+    background-color: rgba(125, 195, 255, 0.885);
     text-align: center;
     margin-bottom: 100px;
+    box-shadow: 0px 15px 40px 2px rgb(39, 15, 255);
 }
 
 .normal{
     height: 12vh;
     width: 28vw;
-    background-color: rgb(45, 206, 168);
+    /* background-color: rgb(45, 206, 168); */
     display: flex;
     flex-wrap: wrap;
 
@@ -29,7 +30,7 @@
 .premium{
     height: 35vh;
     width: 30vw;
-    background-color: rgb(68, 44, 255);
+    /* background-color: rgb(68, 44, 255); */
     display: flex;
     flex-wrap: wrap;
 }
@@ -37,7 +38,7 @@
 .delux{
     height: 18vh;
     width: 30vw;
-    background-color: rgb(236, 53, 148); 
+    /* background-color: rgb(236, 53, 148);  */
     display: flex;
     flex-wrap: wrap;
 }
@@ -52,14 +53,18 @@
 }
 
 .seat:hover{
-    background-color: rgb(0, 255, 21);
+    background-color: rgb(11, 176, 253);
 }
 
 .vacant{
     height: 20px;
     width: 20px;
-    background-color: rgb(68, 44, 255);
+    /* background-color: rgb(68, 44, 255); */
     margin: 10px;
     color: #ffffff;
     text-align: center;
+}
+
+#selected{
+    background-color: rgb(15, 244, 79);
 }

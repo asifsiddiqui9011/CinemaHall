@@ -1,22 +1,3 @@
-.Buy-conatiner{
-    height: 70vh;
-    width: 70vw;
-    border-radius: 15px;
-    /* background-color: white; */
-
-}
-
-.choose-city{
-    height: 70vh;
-    width: 30vw;
-    border-radius: 15px;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-
-}
-
-
 .choose-theater-slot{
     height: 70vh;
     width: 70vw;

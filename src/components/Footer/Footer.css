@@ -68,10 +68,10 @@ a{
     color: white;
     font-weight: 600;
 }
-.hr{
+/* .hr{
     color: white !important;
     width: 100%;
-}
+} */
 .sb-footer-copyright p{
     font-size: 13px;
     line-height: 15px;
