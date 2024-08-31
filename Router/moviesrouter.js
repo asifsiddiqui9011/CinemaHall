@@ -8,13 +8,13 @@ const {
   updateMovie,
   deleteMovie,
   searchMovies,
-} = require("../Controllers/MoviesController");
+} = require("../controllers/MoviesController");
 
 // Create a new movie
 router.post("/movies", createMovie);
 
 // Get all movies
-router.get("/movies", getAllMovies);
+router.get("/getmovies", getAllMovies);
 
 // Get a movie by ID
 router.get("/movies/:id", getMovieById);

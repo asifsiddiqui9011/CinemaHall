@@ -1,11 +1,39 @@
 const Movie = require("../Models/Movies");
 
+// Create a new movieid
+// function generateMainId() {
+//   const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+//   let result = "";
+//   for (let i = 0; i < 8; i++) {
+//     result += characters.charAt(Math.floor(Math.random() * characters.length));
+//   }
+//   return result;
+// }
+
+
+// Function to generate a unique mainId (simple example, you might want a more sophisticated method)
+const generateMainId = () => {
+  return `Movie-${Math.random().toString(36).substr(2, 9)}`;
+};
+
 exports.createMovie = async (req, res) => {
   try {
-    const movie = new Movie(req.body);
+    // Ensure that the required fields in the request body are properly formatted
+    const movieData = {
+      ...req.body,
+      mainId: generateMainId(), // Generate a unique mainId
+    };
+
+    // Create a new Movie instance with the movie data
+    const movie = new Movie(movieData);
+
+    // Save the movie to the database
     await movie.save();
-    res.status(201).json({ message: "Movie created successfully" });
+
+    // Send a success response
+    res.status(201).json({ message: "Movie created successfully", movie });
   } catch (error) {
+    // Handle any errors that occur during the movie creation
     res.status(400).json({ message: "Error creating movie", error });
   }
 };

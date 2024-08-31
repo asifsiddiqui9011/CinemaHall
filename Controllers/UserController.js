@@ -26,9 +26,17 @@ exports.createUser = async (req, res) => {
       phone,
       age,
     });
+    
 
+    const token = jwt.sign({ id: user._id, email: user.email }, JWT_SECRET, {
+      expiresIn: "1h",
+    });
     const savedUser = await user.save();
-    res.status(201).json(savedUser);
+    res.status(201).json({
+      success:true,
+      token,
+      user:{...savedUser},
+    });
   } catch (error) {
     console.error("Error creating user:", error); // Log the error details
     res.status(500).json({
@@ -61,6 +69,7 @@ exports.loginUser = async (req, res) => {
     });
 
     res.status(200).json({
+      success:true,
       token,
       user: { id: user._id, email: user.email, name: user.name },
     });
