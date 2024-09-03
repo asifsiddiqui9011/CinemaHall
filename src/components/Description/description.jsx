@@ -1,11 +1,39 @@
+import { useContext } from "react"
 import Seats from "../Seats/Seats"
 
 import "./Description.css"
+import { CinemaContext } from "../../Contex/CinemaContext"
 
 const Description =()=>{
+
+    const {ticket,TicketHandler} = useContext(CinemaContext)
     return(
         <div className="main-description">
-            <div className="timing-bar"></div>
+            <div className="timing-bar">
+                <div>
+                    Dates: 
+                    <select name="date" id="date" onChange={TicketHandler}>
+                    <option value="1/09/2024"> 1 </option>
+                    <option value="2/09/2024"> 2 </option>
+                    <option value="3/09/2024">3</option>
+                    <option value="4/09/2024">4</option>
+                    <option value="5/09/2024">5</option>
+                    <option value="6/09/2024">6</option>
+                    <option value="7/09/2024">7</option>
+                    <option value="8/09/2024">8</option>
+                    <option value="9/09/2024">9</option>
+                   </select>
+                </div>
+                <div>
+                    <div>
+                        <p>Slot1 9:00-12:00</p>  
+                    </div>
+                    <div>
+                       <p>Slot1 9:00-12:00</p> 
+                    </div>
+                </div>
+               
+            </div>
             <div className="discription-container">
                 <div className="billing">
                     <div>

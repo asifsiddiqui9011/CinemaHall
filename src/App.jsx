@@ -1,6 +1,5 @@
 
 import './App.css'
-import Banner from './components/Banner/Banner';
 import Navbar from "./components/Navbar/Navbar";
 import Footer from './components/Footer/Footer'
 import Description from './components/Description/Description'

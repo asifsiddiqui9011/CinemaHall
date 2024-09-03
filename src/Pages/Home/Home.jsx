@@ -8,7 +8,6 @@ import "./Home.css"
 import { CinemaContext } from "../../Contex/CinemaContext"
 import { RxCross2 } from "react-icons/rx";
 import TheaterSlot from "../../components/BuyTickets/TheaterSlot"
-
 const Home = () => {
 
   const {cityToggle,cityToggleHandler,ticket,slotToggle,slotToggleHandler} = useContext(CinemaContext)

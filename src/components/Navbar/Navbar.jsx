@@ -4,6 +4,7 @@ import Signup from "../Login/Signup"
 import { CgProfile } from "react-icons/cg";
 import { useState } from "react";
 import { RxCross2 } from "react-icons/rx";
+import Profile from "../Profile/Profile";
 const Navbar = () => {
 
 
@@ -30,7 +31,7 @@ const Navbar = () => {
          <h2>CinemaHall</h2>
       </div>
       <div>
-          <CgProfile onClick={ProfileToggle} id="icon"/>:<button onClick={handleToggle}>Login</button>
+         {localStorage.getItem('auth-token')?<CgProfile onClick={ProfileToggle} id="icon"/>:<button onClick={handleToggle}>Login</button>}
           {loginToggle &&(
           <div className="model-container">
           {/* > */}
@@ -45,7 +46,7 @@ const Navbar = () => {
           <div className="model-container" style={{backgroundColor:"transparent"}}>
             <div className="model">
               <RxCross2 onClick={ProfileToggle} id="icon"/>
-                {/* <Profile toggle={ProfileToggle}/> */}
+                <Profile toggle={ProfileToggle}/>
             </div>
           </div>
       

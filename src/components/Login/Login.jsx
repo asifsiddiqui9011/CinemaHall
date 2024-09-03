@@ -17,9 +17,28 @@ const Login = (props) => {
   
 
 
-  const login=(event)=>{
+  const login= async (event)=>{
     event.preventDefault()
-    console.log(userData,"logindetails")
+    try {
+      let responseData;
+		await fetch('http://localhost:4000/api/login',{
+			method:'POST',
+			headers:{
+				Accept:'application/form-data',
+				'Content-Type':'application/json',
+			},
+			body:JSON.stringify(userData),
+		}).then((response)=>response.json()).then((data)=>responseData=data)
+     console.log(responseData.success,"success")
+		if(responseData.success){
+			localStorage.setItem('auth-token',responseData.token);
+			props.toggle()
+    }
+    } catch (error) {
+      console.log(error,"error")
+      alert(error)
+    }
+		
   }
 
   return (
@@ -27,10 +46,10 @@ const Login = (props) => {
     <div className="login-container">
      
       <div className="login-img-container">
-          <img src={""} alt="" className="login-img" />
-      </div>
+      <h2>Login  <hr /></h2>
+      <p>Doesn't have an account Click to <b onClick={props.signup}>SignUp</b></p>      </div>
       <div className="login-form-container">
-        <h2>Login  <hr /></h2>
+        {/* <h2>Login  <hr /></h2> */}
           <form  onSubmit={login} className="login-form">
             <span>
               <p>Email: </p>
@@ -45,7 +64,7 @@ const Login = (props) => {
               <p>Signup</p>
             </span>
             <button type="submit">Login</button>
-            <p>Doesn't have an account Click to <b onClick={props.signup}>SignUp</b></p>
+           
           </form>
       </div>
       

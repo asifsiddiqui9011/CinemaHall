@@ -1,87 +1,18 @@
+import { useContext } from "react"
 import "./Seats.css"
 import { useState } from "react"
+import { CinemaContext } from "../../Contex/CinemaContext"
+import { useEffect } from "react"
+
 
 const Seats = () => {
+    
+    const {selectedScreen,setSelectedScreen,bookedseat}= useContext(CinemaContext)
+    
+   
+    const[seats,setseats] = useState(selectedScreen.booleanArrays)
 
-    const[seats,setseats] = useState({
-        N:{
-          0:true,
-          1:true,
-          2:true,
-          3:true,
-          4:true,
-          5:true,
-          6:true,
-          7:true,
-          8:false,
-          9:true,
-        15:true
-        },
-        P:{
-          0: true,
-          1: false,
-          2: true,
-          3: true,
-          4: false,
-          5: true,
-          6: true,
-          7: false,
-          8: true,
-          9: false,
-          10: true,
-          11: false,
-          12: true,
-          13: false,
-          14: true,
-          15: true,
-          16: false,
-          17: true,
-          18: false,
-          19: true,
-          20: false,
-          21: true,
-          22: true,
-          23: false,
-          24: true,
-          25: false,
-          26: true,
-          27: true,
-          39: true,
-       },
-        D:{
-          0: true,
-          1: false,
-          2: true,
-          3: true,
-          4: false,
-          5: true,
-          6: true,
-          7: false,
-          8: true,
-          9: false,
-          10: true,
-          11: false,
-          12: true,
-          13: false,
-          14: true,
-          15: true,
-          16: false,
-          17: true,
-          18: false,
-          19: true,
-          20: false,
-          21: true,
-          22: true,
-          23: false,
-          24: true,
-          25: false,
-          26: true,
-          27: true,
-          28: false,
-          29: true,
-        }
-    })
-  
+
 
   const addMissingKeys = (obj, maxRange) => {
     for (let i = 1; i <= maxRange; i++) {
@@ -93,9 +24,9 @@ const Seats = () => {
   };
 
 
-  const N = addMissingKeys(seats.N,20)
-  const P = addMissingKeys(seats.P,40);
-  const D = addMissingKeys(seats.D,30);
+  const N = addMissingKeys(seats.n,20)
+  const P = addMissingKeys(seats.p,40);
+  const D = addMissingKeys(seats.d,30);
 
   const Normal = Object.values(N);
   const Premium = Object.values(P);
@@ -139,12 +70,17 @@ const Seats = () => {
       
             let N = select.N
             if(value){
-                return(
+                  console.log(bookedseat.n[i],"nononono",i)
+                  if(!bookedseat.n[i]){
+                    return(
                     <div key={i} className="seat" onClick={()=>{handleNSelect(`${i}`)}} id={N[`${i}`]===true ?"selected" :""} >
-                       <p></p>  
-                    </div>
-    
-                )}
+                    </div>)
+                  }else{
+                    return(
+                      <div key={i} className="booked">  
+                      </div>)
+                  }
+                }
              else{
                 return(
                     <div key={i} className="vacant">
@@ -162,12 +98,15 @@ const Seats = () => {
        {Premium.map((e,i)=>{
           let P = select.P
         if(e){
+          if(!bookedseat.p[i]){
             return(
-                <div key={i} className="seat" onClick={()=>{handlePSelect(`${i}`)}} id={P[`${i}`]===true ?"selected" :""}  >
-                <p></p>  
-                </div>
-
-            )}
+            <div key={i} className="seat" onClick={()=>{handlePSelect(`${i}`)}} id={P[`${i}`]===true ?"selected" :""} >
+            </div>)
+          }else{
+            return(
+              <div key={i} className="booked">  
+              </div>)
+          }}
         else{
             return(
                 <div key={i} className="vacant">
@@ -184,12 +123,15 @@ const Seats = () => {
        {Delux.map((e,i)=>{
               let D = select.D
         if(e){
+          if(!bookedseat.d[i]){
             return(
-                <div key={i} className="seat" onClick={()=>{handleDSelect(`${i}`)}} id={D[`${i}`]===true ?"selected" :""} >
-                <p></p>  
-                </div>
-
-            )}
+            <div key={i} className="seat" onClick={()=>{handleDSelect(`${i}`)}} id={D[`${i}`]===true ?"selected" :""} >
+            </div>)
+          }else{
+            return(
+              <div key={i} className="booked">  
+              </div>)
+          }}
         else{
             return(
                 <div key={i} className="vacant">
