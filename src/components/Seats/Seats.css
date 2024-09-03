@@ -20,7 +20,7 @@
 
 .normal{
     height: 12vh;
-    width: 28vw;
+    width: 40vw;
     /* background-color: rgb(45, 206, 168); */
     display: flex;
     flex-wrap: wrap;
@@ -29,7 +29,7 @@
 
 .premium{
     height: 35vh;
-    width: 30vw;
+    width: 40vw;
     /* background-color: rgb(68, 44, 255); */
     display: flex;
     flex-wrap: wrap;
@@ -37,7 +37,7 @@
 
 .delux{
     height: 18vh;
-    width: 30vw;
+    width: 40vw;
     /* background-color: rgb(236, 53, 148);  */
     display: flex;
     flex-wrap: wrap;
@@ -47,7 +47,7 @@
     height: 20px;
     width: 20px;
     background-color: white;
-    margin: 10px;
+    margin: 5px;
     color: black;
     text-align: center;
 }
@@ -60,7 +60,7 @@
     height: 20px;
     width: 20px;
     /* background-color: rgb(68, 44, 255); */
-    margin: 10px;
+    margin: 5px;
     color: #ffffff;
     text-align: center;
 }
@@ -73,6 +73,6 @@
     height: 20px;
     width: 20px;
     background-color: rgb(60, 60, 60);
-    margin: 10px;
+    margin: 5px;
     text-align: center; 
 }

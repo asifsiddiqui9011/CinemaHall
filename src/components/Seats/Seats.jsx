@@ -74,6 +74,7 @@ const Seats = () => {
                   if(!bookedseat.n[i]){
                     return(
                     <div key={i} className="seat" onClick={()=>{handleNSelect(`${i}`)}} id={N[`${i}`]===true ?"selected" :""} >
+                      {i}
                     </div>)
                   }else{
                     return(
