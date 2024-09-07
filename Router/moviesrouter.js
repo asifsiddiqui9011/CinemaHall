@@ -8,6 +8,7 @@ const {
   updateMovie,
   deleteMovie,
   searchMovies,
+  searchMoviesByTags,
 } = require("../Controllers/MoviesController");
 
 // Create a new movie
@@ -25,7 +26,10 @@ router.put("/movies/:id", updateMovie);
 // Delete a movie
 router.delete("/movies/:id", deleteMovie);
 
-// Search movies
+// for the fillerting the movies
 router.get("/moviessearch", searchMovies);
+
+// for the search bar
+router.get("/searchmoviesbytags", searchMoviesByTags);
 
 module.exports = router;
