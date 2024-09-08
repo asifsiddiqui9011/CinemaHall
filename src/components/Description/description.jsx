@@ -1,13 +1,40 @@
 import { useContext } from "react"
 import Seats from "../Seats/Seats"
 import { useEffect } from "react"
+import { useParams } from "react-router-dom"
 
 import "./Description.css"
 import { CinemaContext } from "../../Contex/CinemaContext"
 
 const Description =()=>{
 
-    const {TicketHandler,selectSeat,ticket,setTicket,selectedScreen,setSelectedSlot} = useContext(CinemaContext)
+    const {TicketHandler,selectSeat,ticket,setTicket,setSelectedSlot,allMovies,allTheater} = useContext(CinemaContext)
+   
+    const {movieId} = useParams();
+    const {theaterId} = useParams();
+    const {slotId} = useParams();
+    
+    if(allMovies[0] && allTheater[0]){
+        const movie = allMovies.filter((movie) => {
+            return movie._id === movieId; 
+          });
+       
+          const screen = allTheater.filter((screen) => {
+            return screen._id === theaterId ; 
+          });  
+    
+          const slots = screen.slot
+          console.log(slots,"slots",screen)
+        
+          const selectedSlot = slots.filter((selectedSlot) => {
+            return selectedSlot._id === slotId ; 
+          });
+    }
+         
+       
+    
+    
+
 
     let date = new Date().toISOString().slice(0, 10)
     let maxDate = new Date(new Date().getTime() + 20 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10)
@@ -45,36 +72,25 @@ const Description =()=>{
                   
                 </div>
                 <div className="timebar-slots-container">
-                {selectedScreen.slot
-                                .filter((slot) => {
-                                    const currentTime = new Date().toLocaleTimeString('en-GB', { hour12: false }); // Get current time in HH:MM:SS format
-                                    const slotStartTime = new Date(slot.start).toLocaleTimeString('en-GB', { hour12: false }); // Convert slot.start to time format
-
-                                    return slotStartTime > currentTime &&  // Compare times (HH:MM:SS)
-                                            slot.movieId === ticket.movieId;    // Filter where slot.movieId matches ticket.movieId
-            })
-                            .map((slot,index)=>{
-                                return(
-                                   <div className="slot" key={index} onClick={()=>{setSelectedSlot(slot)}}>
-                                        Slot {index+1}
-                                        <span>{slot.time} {slot.start}- {slot.end}</span>
-                                        <span>{selectedScreen.screenType}</span>
-                                   </div>
-                                )
-                            })}
-                    {/* <div className="slot">
-                        <p>Slot1 9:00-12:00</p>  
-                    </div>
-                    <div className="slot">
-                       <p>Slot1 9:00-12:00</p> 
-                    </div> */}
+                {slots.map((slot,index)=>{
+                    if(slot.movieId == movieId){
+                        return(
+                            <div className="slot" key={index} onClick={()=>{setSelectedSlot(slot)}}>
+                                 Slot {index+1}
+                                 <span>{slot.time} {slot.start}- {slot.end}</span>
+                                 <span>{screen.screenType}</span>
+                            </div>
+                         )
+                    }
+                                
+                })}
                 </div>
                
             </div>
             <div className="discription-container">
                 <div className="billing">
                     <div>
-                       <h2>Movie description</h2>
+                       <h2>{movie.movieName}</h2>
                        
                     </div>
                     <div className="ticket-desc">

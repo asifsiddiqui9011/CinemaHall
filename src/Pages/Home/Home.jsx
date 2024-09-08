@@ -7,7 +7,6 @@ import "./Home.css"
 import { CinemaContext } from "../../Contex/CinemaContext"
 import { RxCross2 } from "react-icons/rx";
 import TheaterSlot from "../../components/BuyTickets/TheaterSlot"
-import MovieDesc from "../../components/MovieDesc/MovieDesc"
 const Home = () => {
 
   const {cityToggle,cityToggleHandler,ticket,slotToggle,slotToggleHandler} = useContext(CinemaContext)
@@ -25,17 +24,18 @@ const Home = () => {
         <Banner/>
         <Recent/>
         <ComingSoon/>
-        {/* <Interesting/> */}
-        {/* <TheaterSlot/> */}
         {cityToggle &&(
-              <City/>    
+          <div className="theater-toggle-containerr">
+          <RxCross2 onClick={cityToggleHandler} id="icon"/>
+              <City/> 
+          </div>   
         )}
         {slotToggle &&(
-          
-            
-             <TheaterSlot/>
-    
-                
+          <div className="theater-toggle-containerr">
+          <RxCross2 onClick={slotToggleHandler} id="icon" style={{marginRight:"-1120px"}}/>
+         
+             <TheaterSlot/>   
+             </div>  
          )}
         
     </div>

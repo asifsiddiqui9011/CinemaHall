@@ -2,10 +2,11 @@
 import "./MovieDesc.css"
 import axios from 'axios'
 import { useState,useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import City from "../BuyTickets/City";
 import TheaterSlot from "../BuyTickets/TheaterSlot";
 import { CinemaContext } from "../../Contex/CinemaContext";
+import { RxCross2 } from "react-icons/rx";
 
 const MovieDesc = () => {
     
@@ -29,25 +30,24 @@ const MovieDesc = () => {
   
   useEffect(() => {
     if(ticket.city){
-      cityToggleHandler()
-      slotToggleHandler()
-
+      locationHandler()
+      theaterToggleaHandler()
     }
       fetchMovie();
 
   },[movieId,ticket.city]);
   
-    // if (loading) {
-    //   return <div>Loading...</div>;
-    // }
-  
-    // if (error) {
-    //   return <div>{error}</div>;
-    // }
-  
-    // if (!movie) {
-    //   return <div>Movie not found</div>;
-    // }
+   const [location,setlocation] = useState(false)
+
+   const locationHandler = ()=>{
+    setlocation(!location)
+   }
+
+   const [theatertoggle,setTheaterToggle] = useState(false)
+
+   const theaterToggleaHandler = ()=>{
+    setTheaterToggle(!theatertoggle)
+   }
 
     
   return (
@@ -60,7 +60,7 @@ const MovieDesc = () => {
                          <h3>{movie.genre}</h3>
                         <h3>{movie.industry}</h3>
                         <h3>Retings:9.5/10</h3>
-                        <button onClick={()=>{cityToggleHandler("66c9c0fabeb76af288f23968")}}>Book Ticket</button> 
+                       <button onClick={locationHandler}>Book Ticket</button>
                        &nbsp; <button>Watch Trailer</button>
                     </div>
             </div>
@@ -77,11 +77,19 @@ const MovieDesc = () => {
             </div>
         </div>
       
-        {cityToggle &&(
-              <City/>   
+        {location &&(
+          <div className="city-toggle-container">
+               <RxCross2 onClick={locationHandler} id="icon"/>
+                <City/>   
+          </div>
+             
         )}
-        {slotToggle &&(
-             <TheaterSlot/>      
+        {theatertoggle &&(
+           
+             <div className="theater-toggle-containerr">
+               <RxCross2 onClick={theaterToggleaHandler} id="icon"/>
+               <TheaterSlot/>    
+            </div>  
          )}
     </div>
   )

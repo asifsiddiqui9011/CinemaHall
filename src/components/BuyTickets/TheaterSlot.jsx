@@ -29,34 +29,31 @@ const TheaterSlot = () => {
     //                 theater.slot.some(slot => slot.movieId === ticket.movieId))
  
     return (
-<div className="theater-toggle-containerr">
-        <RxCross2 onClick={slotToggleHandler} id="icon" style={{marginRight:"-1120px"}}/>
-       
+
     
         <div className="choose-theater-slot">
              {allTheater
                 .filter((theater) => theater.location === ticket.city.toLowerCase())
                 .map((theater, index) => (
-                    <Link to={`${theater._id}/seatbooking/${selectedSlot._id}`} key={index}>
-                    <div className="theater-slot" onClick={() => SelectScreenHandler(theater)}>
+                    
+                    <div className="theater-slot" onClick={() => SelectScreenHandler(theater)} key={index}>
                         <div className="theater-desc">
                         <span>{theater.name}</span>
                         <p>{theater.location}</p>
                         </div>
                         <div className="slots-container">
                         {theater.slot && theater.slot.map((slot, i) => (
-                            <div className="slot" key={i} onClick={() => setSelectedSlot(slot)}>
-                                    Slot {index + 1}
-                                    <span>{slot.time} {slot.start} - {slot.end}</span>
-                                    <span>{theater.screenType}</span>
-                                    
-                                    
-                        </div>
-                     
+                            <Link to={`${theater._id}/seatbooking/${slot._id}` }  key={index}> 
+                                <div className="slot" key={i} onClick={() => setSelectedSlot(slot)}>
+                                        Slot {index + 1}
+                                        <span>{slot.time} {slot.start} - {slot.end}</span>
+                                        <span>{theater.screenType}</span>
+                                </div>   
+                            </Link>
                         ))}
                         </div>
                     </div>
-                    </Link>
+                 
                 ))}
 
             {/* {allTheater 
@@ -120,7 +117,7 @@ const TheaterSlot = () => {
              </div> */}
             {/* </Link> */}
         </div>
-        </div>
+      
   )
 }
 

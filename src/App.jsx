@@ -24,7 +24,7 @@ function App()
         element={<Home/>}
       />
       <Route
-        path='/:movieId/:theaterId/seatbooking/:slotId'
+        path='/description/:movieId/:theaterId/seatbooking/:slotId'
         element={<Description/>}
       />
       <Route

@@ -17,11 +17,12 @@ const  Recent=()=>{
             </a>
              <a href="#" className="next round"><GrNext /></a></div>
             <hr></hr>
-          {/* <Link to="/description">  <div className="left_div"><Card2/></div></Link> */}
-          <div className="left_div">
+          {allMovies[0] &&( 
+            <div className="left_div">
              <Link to={`/description/${movieId}`}> <Card2 movieName={allMovies[0].movieName} genre={allMovies[0].genre} language={allMovies[0].language}  image={allMovies[0].imageMainUrl} bgimg={allMovies[0].imageBackgroundUrl}/></Link>
-            </div>
+            </div>  )}
 
+           {allMovies[0] &&(
             <div className="right_div">
                 {allMovies.slice(1).map((movie,index)=>{
                     if(new Date(movie.releaseDate) <= new Date()){
@@ -33,11 +34,8 @@ const  Recent=()=>{
                 
                     )}
              })}
-             {/* <div className='right_div1'><Card3/></div> */}
-                {/* <div className='right_div1'><Card3/></div>
-                <div className='right_div1'><Card3/></div>
-                <div className='right_div1'><Card3/></div> */}
             </div>
+           )} 
         </div>
     )
 }

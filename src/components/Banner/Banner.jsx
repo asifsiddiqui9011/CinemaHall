@@ -14,10 +14,9 @@ const Banner = () => {
 
   return (
     <div className="banner-container">
-      {/* <img src="" alt="" className="banner-img"/> */}
       <div className="banner-flow">
         <div className="flow-img">
-          {/* <img src={CardImg} alt=""  className="flow_img"/> */}
+
         </div>
         <div className="flow-description">
             <h1>
@@ -36,7 +35,6 @@ const Banner = () => {
         <div className="flow-dots">
            <h1>* * * * * * * </h1>
         </div>
-        
 
       </div>
 

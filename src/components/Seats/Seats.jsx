@@ -3,15 +3,20 @@ import "./Seats.css"
 import { useState } from "react"
 import { CinemaContext } from "../../Contex/CinemaContext"
 import { useEffect } from "react"
+import { useParams } from "react-router-dom"
 
 
 const Seats = () => {
     
-    const {handlebooking,booking,selectedScreen,setSelectedScreen,bookedseat,selectSeat,handleDSelect,handleNSelect,handlePSelect}= useContext(CinemaContext)
+    const {handlebooking,booking,selectedScreen,bookedseat,selectSeat,handleDSelect,handleNSelect,handlePSelect}= useContext(CinemaContext)
     
-   
-    const[seats,setseats] = useState(selectedScreen.booleanArrays)
+     const {movieId} = useParams();
+     const {theaterId} = useParams();
+     const {slotId} = useParams();
+     console.log(movieId,"mm",theaterId,"thr",slotId,"slot")
 
+    const[seats,setseats] = useState(selectedScreen.booleanArrays)
+    
 
 
   const addMissingKeys = (obj, maxRange) => {
@@ -32,33 +37,6 @@ const Seats = () => {
   const Premium = Object.values(P);
   const Delux =  Object.values(D);
    
-
-  // const [select,setSelect]=useState({
-  //   N:{},
-  //   P:{},
-  //   D:{}
-  // })
-
-  // const handleNSelect =(number)=>{
-  //   setSelect((prev)=>({...prev,N:{...prev.N,[number]:!prev.N[number]}}))
-  // }
-  // const handlePSelect =(number)=>{
-  //   setSelect((prev)=>({...prev,P:{...prev.P,[number]:!prev.P[number]}}))
-  // }
-  // const handleDSelect =(number)=>{
-  //   setSelect((prev)=>({...prev,D:{...prev.D,[number]:!prev.D[number]}}))
-  // }
-
-  // const[booking,setbooking] = useState({
-  //   movieMainId:"",
-  //   seatNumber:selectSeat
-    
-  // }) 
-
-  // const handlebooking =()=>{
-  //   setbooking((prev)=>({...prev,seatNumber:selectSeat}))
-  //   console.log(booking,"booking")
-  // }
       
   return (
     <div className="seats-container">
@@ -74,7 +52,6 @@ const Seats = () => {
                   if(!bookedseat.n[i]){
                     return(
                     <div key={i} className="seat" onClick={()=>{handleNSelect(`${i}`)}} id={N[`${i}`]===true ?"selected" :""} >
-                      {i}
                     </div>)
                   }else{
                     return(
@@ -102,7 +79,6 @@ const Seats = () => {
           if(!bookedseat.p[i]){
             return(
             <div key={i} className="seat" onClick={()=>{handlePSelect(`${i}`)}} id={P[`${i}`]===true ?"selected" :""} >
-              {i}
             </div>)
           }else{
             return(

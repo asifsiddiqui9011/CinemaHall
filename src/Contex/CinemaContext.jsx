@@ -1,7 +1,7 @@
 import { createContext, useEffect } from "react";
 import { useState } from "react";
 import axios from 'axios'
-import slot from '../../data/theaterData'
+
 
 
 export const CinemaContext = createContext(null);
@@ -73,26 +73,26 @@ const movie = slot.slot1.movie;
   const [bookedseat, setBookedSeat] = useState({ n: {}, p: {}, d: {} });
   console.log(bookedseat,"bookedseat")
 
-  // Function to check booking
+ 
   function checkBooking(seat, targetDate) {
-    const indices = []; // Array to store indices where the date is found
+    const indices = [];
     let newArray = {}
 
     Object.keys(seat).forEach(key => {
-      const seats = seat[key]; // Get the array of seats for the current key
-      const dateArray = seats.map(seat => seat.date); // Collect dates
+      const seats = seat[key]; 
+      const dateArray = seats.map(seat => seat.date); 
 
-      if (dateArray.includes(targetDate)) { // Check if the targetDate is in dateArray
+      if (dateArray.includes(targetDate)) { 
         indices.push(parseInt(key));
-        newArray[key]= true // Add the key to the result array
+        newArray[key]= true 
       }
     });
 
-    return newArray; // Return the array of indices where the date was found
+    return newArray; 
   }
 
   useEffect(() => {
-    // Example usage of checkBooking
+   
     if(nSeat){
       const nSeatResult = checkBooking(nSeat, ticket.date);
       setBookedSeat(prev => ({...prev,n:{...nSeatResult}}));
