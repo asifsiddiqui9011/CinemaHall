@@ -1,11 +1,20 @@
 import Seats from "../Seats/Seats"
 
-import "./Description.css"
+import "./description.css"
+
 
 const Description =()=>{
     return(
         <div className="main-description">
-            <div className="timing-bar"></div>
+
+
+            <div className="timing-bar">
+                <div className="timing-slot">1</div>
+                <div className="timing-slot">2</div>
+                <div className="timing-slot">3</div>         
+            </div>
+
+
             <div className="discription-container">
                 <div className="billing">
                     <div>

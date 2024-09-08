@@ -1,8 +1,15 @@
 .cs_cards-container{
 
-    /* display: grid;
-    grid-template-columns: 1fr 1fr 1fr; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     display: flex;
     color: white;
-    flex-wrap: wrap;
+    width: 100%;
+    overflow: scroll;
+    scroll-behavior: smooth;
+ /* scrollBehavior: smooth; */
+    /* flex-wrap: wrap; */
+}
+h1{
+    color: white;
 }

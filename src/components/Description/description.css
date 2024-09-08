@@ -6,11 +6,7 @@
 }
 
 
-.timing-bar{
-    background-color: aliceblue;
-    height: 15vh;
 
-}
 .discription-container{
     background-color: antiquewhite;
     /* height: 85vh; */
@@ -51,5 +47,18 @@ table,tr{
     color:white;
     font-size: 1rem;
 }
+/* 
+Timing Bar */
+.timing-bar{
+    background-color: rgb(23, 127, 218);
+    height: 15vh;
+    
 
+}
 
+.timing-slot{
+    height: 15vh;
+    background-color: aqua;
+    width: 20vh;
+    border: solid black 5px;
+}
