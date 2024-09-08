@@ -4,8 +4,12 @@ const userRoutes = require("./Router/userroutes");
 const movieRoutes = require("./Router/moviesrouter");
 const screenRoutes = require("./Router/theaterroutes");
 const ticketRoutes = require("./Router/ticketroutes");
+const slotRoutes = require('./Router/slotRoute')
+const jwt = require('jsonwebtoken')
 const cors = require("cors")
 
+
+const adminUserRoutes = require("./Router/adminUserRoutes");
 const app = express();
 
 // Set the port to 4000
@@ -29,6 +33,8 @@ app.use("/api", userRoutes);
 app.use("/api", movieRoutes);
 app.use("/api", screenRoutes);
 app.use("/api", ticketRoutes);
+app.use("/api", adminUserRoutes);
+app.use('/api',slotRoutes);
 
 // Start the server
 

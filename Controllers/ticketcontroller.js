@@ -1,4 +1,4 @@
-const Ticket = require("../Models/Ticket"); // Adjust the path as necessary
+const Ticket = require("../models/Ticket"); // Adjust the path as necessary
 
 // Create a new ticket
 // Assuming bookSeat is exported as a named export from the same file or a separate module

@@ -1,10 +1,10 @@
-const Screen = require("../Models/Theater");
-const User = require("../Models/User");
+const Screen = require("../models/Theater");
+// const User = require("../models/User");
 
 // Get all screens
 exports.getAllScreens = async (req, res) => {
   try {
-    const screens = await Screen.find();
+    const screens = await Screen.find().populate("slot");
     res.status(200).json(screens);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -33,7 +33,10 @@ function generateMainId() {
 }
 
 exports.createScreen = async (req, res) => {
-  const screenData = { ...req.body, mainId: generateMainId() }; // Add the generated mainId here
+
+  const userName = req.userId.userId
+  console.log(userName,"userid")
+  const screenData = { ...req.body, mainId: generateMainId(),userName}; // Add the generated mainId here
   const screen = new Screen(screenData);
 
   try {

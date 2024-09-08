@@ -1,4 +1,7 @@
-const Movie = require("../Models/Movies");
+// const Movie = require("../models/Movies.js");
+const Movie = require('../models/Movies.js')
+const Slot = require('../models/Slot.js')
+const mongoose = require('mongoose')
 
 // Create a new movieid
 // function generateMainId() {
@@ -23,7 +26,7 @@ exports.createMovie = async (req, res) => {
       ...req.body,
       mainId: generateMainId(), // Generate a unique mainId
     };
-
+     console.log(movieData,"moviedata")
     // Create a new Movie instance with the movie data
     const movie = new Movie(movieData);
 
@@ -79,13 +82,32 @@ exports.updateMovie = async (req, res) => {
 
 exports.deleteMovie = async (req, res) => {
   try {
-    const id = req.params.id;
-    await Movie.findByIdAndRemove(id).exec();
-    res.json({ message: "Movie deleted successfully" });
+    const {id} =req.params
+  
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ message: "Invalid movie ID" });
+    }
+
+    const movieObjectId = new mongoose.Types.ObjectId(id);
+
+    const slots = await Slot.updateMany(
+      { movieId: movieObjectId },
+      { $unset: { movieId: "" } }, 
+     { new: true, runValidators: true }
+    );
+
+    if (slots.length === 0) {
+      return res.status(404).json({ message: "No slots found with the given movieId" });
+    }
+
+    await Movie.findByIdAndDelete(id);
+    res.status(200).json({ success: true, message: "Slots found with the given movieId" });
   } catch (error) {
-    res.status(500).json({ message: "Error deleting movie", error });
+    console.error("Error:", error);
+    res.status(500).json({ message: "Server error", error });
   }
 };
+
 
 exports.searchMovies = async (req, res) => {
   try {

@@ -8,6 +8,7 @@ const movieSchema = new mongoose.Schema(
     language: { type: String, required: true },
     rating: { type: Number, min: 0, max: 10 },
     releaseDate: { type: Date, required: true },
+    lastScreenDate: { type: Date, required: true },
     duration: { type: String, required: true }, // Format like '2h 30m'
     directors: { type: String, required: true },
     mainCasts: { type: String, required: true },
@@ -35,3 +36,6 @@ movieSchema.index({
 });
 
 module.exports = mongoose.model("Movie", movieSchema);
+// const Movie = mongoose.models.Movie || mongoose.model('Movie', movieSchema);
+
+// module.exports = Movie;

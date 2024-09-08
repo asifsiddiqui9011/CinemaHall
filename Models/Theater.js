@@ -86,6 +86,12 @@ const screenSchema = new mongoose.Schema({
   location: String,
   capacity: Number,
   screenType: String,
+  userName: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "adminUser",
+    default: null,
+  },
+  
   numberOfBookings: { type: Number, default: 0 },
   available: { type: Boolean, default: true },
   slots: {
@@ -131,5 +137,10 @@ const screenSchema = new mongoose.Schema({
     p: { type: [Boolean], default: [] },
     d: { type: [Boolean], default: [] },
   },
+  slot: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "slot",
+    default: null,
+  }],
 });
 module.exports = mongoose.model("Screen", screenSchema);

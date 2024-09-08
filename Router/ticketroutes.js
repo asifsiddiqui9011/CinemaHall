@@ -2,7 +2,7 @@
 
 const express = require("express");
 const router = express.Router();
-const ticketController = require("../Controllers/ticketcontroller");
+const ticketController = require("../controllers/ticketcontroller");
 
 // Route to create a new ticket
 router.post("/tickets", ticketController.createTicket);

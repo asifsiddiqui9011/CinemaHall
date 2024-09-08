@@ -1,6 +1,6 @@
 const express = require("express");
-const userController = require("../Controllers/UserController");
-const movieController = require("../Controllers/MoviesController");
+const userController = require("../controllers/UserController");
+const movieController = require("../controllers/MoviesController");
 const router = express.Router();
 
 // Create a new user
