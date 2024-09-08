@@ -9,6 +9,9 @@
 .timing-bar{
     background-color: rgba(0, 229, 255, 0.74);
     height: 15vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 
 }
 .discription-container{
@@ -52,4 +55,21 @@ table,tr{
     font-size: 1rem;
 }
 
+.timebar-slots-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
 
+.timebar-dates-container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.seatnumbers{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

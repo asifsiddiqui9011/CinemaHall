@@ -1,13 +1,14 @@
 import "./Card2.css"
 
-const Card2 = () => {
+const Card2 = (props) => {
   return (
-    <div className="card">
+    <div className="card" style={{backgroundImage:`url(${props.bgimg})`}}>
+       <img src={props.image} alt="" className="card2-img" />
        
         <div className="card-dis"> 
-          <h3>Title of the movie</h3>
-          <p>Action * (U/A) * Eng</p> 
-          <p>Ratings *  * * *</p>
+          <h3>{props.movieName}</h3>
+          <p>{props.genre}</p> 
+          <p>{props.language}</p>
         </div>
     </div>
   )

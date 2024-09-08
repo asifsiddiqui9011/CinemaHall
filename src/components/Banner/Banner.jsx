@@ -2,11 +2,15 @@ import { useContext, useState } from "react"
 import "./Banner.css"
 import CardImg from "../../../public/card-image.jpg"
 import { CinemaContext } from "../../Contex/CinemaContext"
+import { Link } from "react-router-dom"
+
+
 const Banner = () => {
 
   const [banner,setBanner] = useState('')
-  const {cityToggleHandler} = useContext(CinemaContext)
-
+  const {cityToggleHandler,TicketHandler,ticket,setTicket} = useContext(CinemaContext)
+  
+  const movieId = "Movie0001"
 
   return (
     <div className="banner-container">
@@ -25,7 +29,7 @@ const Banner = () => {
             <p><b>Action * (U/A) * Eng</b></p>
             <b>Ratings *  * * *</b>
             <div className="flow-btns">
-              <button className="buyticket_btn" onClick={cityToggleHandler}>Buy Tickets</button>
+           <Link to={`/${movieId}`}><button className="buyticket_btn"  onClick={()=>{cityToggleHandler("66c9c0fabeb76af288f23968")}} >Buy Tickets</button></Link>   
               <button className="buyticket_btn">Trailer</button>
             </div>
         </div>

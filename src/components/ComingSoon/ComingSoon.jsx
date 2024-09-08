@@ -1,25 +1,29 @@
 import Card from "../Cards/Card"
 import "./ComingSoon.css"
+import { useContext } from "react"
+import { CinemaContext } from "../../Contex/CinemaContext"
+
 
 const ComingSoon = () => {
+
+  const{allMovies} = useContext(CinemaContext)
   return (
     <div className="comingsoon-container">
-      <h1>Coming Soon</h1><div className="next_btn"><a href="#" class="previous round">&#8249;</a>
-      <a href="#" class="next round">&#8250;</a></div>
+      <h1>Coming Soon</h1><div className="next_btn">
+      </div>
       <hr />
       <div className="cs_cards-container">
-        <div className="cs_cards"><Card/></div>
-        <div className="cs_cards"><Card/></div>
-        <div className="cs_cards"><Card/></div>
-        <div className="cs_cards"><Card/></div>
-        <div className="cs_cards"><Card/></div>
-        <div className="cs_cards"><Card/></div>
-        <div className="cs_cards"><Card/></div>
-        <div className="cs_cards"><Card/></div>
-        <div className="cs_cards"><Card/></div>
-        <div className="cs_cards"><Card/></div>
-        <div className="cs_cards"><Card/></div>
-        <div className="cs_cards"><Card/></div>
+        
+        {allMovies.map((movie,index)=>{
+            if(new Date(movie.releaseDate) >= new Date()){
+              return(
+                  <div className="cs_cards" key={index}><Card movieName={movie.movieName} genre={movie.genre} language={movie.language} image={movie.imageMainUrl}/></div>
+              )
+            }
+        })}
+      
+        
+        
         
       </div>
     </div>

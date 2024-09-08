@@ -11,7 +11,10 @@
     background: url('./card2.jpg');
     background-size: cover;
     color: white;
-    
+    display: flex;
+    align-items:end;
+    justify-content: space-around;
+    box-shadow: inset 20px 20px 40px rgba(0,0,0,0.8);
  }
  
  /* .flow_img2{
@@ -27,6 +30,14 @@
  } */
   .card-dis{
    position: relative;
-   top: 400px;
    right: 20px;
+   bottom: 40px;
+  }
+
+  .card2-img{
+   position: relative;
+   bottom: 20px;
+         height: 40vh;
+         border-radius: 10px;
+
   }

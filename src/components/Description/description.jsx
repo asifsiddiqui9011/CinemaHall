@@ -1,36 +1,73 @@
 import { useContext } from "react"
 import Seats from "../Seats/Seats"
+import { useEffect } from "react"
 
 import "./Description.css"
 import { CinemaContext } from "../../Contex/CinemaContext"
 
 const Description =()=>{
 
-    const {ticket,TicketHandler} = useContext(CinemaContext)
+    const {TicketHandler,selectSeat,ticket,setTicket,selectedScreen,setSelectedSlot} = useContext(CinemaContext)
+
+    let date = new Date().toISOString().slice(0, 10)
+    let maxDate = new Date(new Date().getTime() + 20 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10)
+    console.log(date,"adaa")
+    let N = selectSeat.N
+    let P = selectSeat.P
+    let D = selectSeat.D
+
+    let nCount = Object.values(N).filter(value => value === true).length;
+    let pCount = Object.values(P).filter(value => value === true).length
+    let dCount = Object.values(D).filter(value => value === true).length
+
+    let totalPrice = nCount*200+pCount*200+dCount*200
+
+    useEffect(()=>{
+        if(totalPrice){
+            setTicket((prev)=>({...prev,totalPrice:totalPrice}))
+        }
+       
+    },[totalPrice])
+    
+    
+    console.log(N,"N")
+
+    console.log(selectSeat,"selectseatdesc")
     return(
         <div className="main-description">
             <div className="timing-bar">
-                <div>
+                <div className="timebar-dates-container">
                     Dates: 
-                    <select name="date" id="date" onChange={TicketHandler}>
-                    <option value="1/09/2024"> 1 </option>
-                    <option value="2/09/2024"> 2 </option>
-                    <option value="3/09/2024">3</option>
-                    <option value="4/09/2024">4</option>
-                    <option value="5/09/2024">5</option>
-                    <option value="6/09/2024">6</option>
-                    <option value="7/09/2024">7</option>
-                    <option value="8/09/2024">8</option>
-                    <option value="9/09/2024">9</option>
-                   </select>
+                   <span>
+                     <label for="date">Select a date:</label>
+                    <input type="date" id="date" name="date" defaultValue={date}  min={date} max={maxDate} onChange={TicketHandler}/>
+                   </span>
+                  
                 </div>
-                <div>
-                    <div>
+                <div className="timebar-slots-container">
+                {selectedScreen.slot
+                                .filter((slot) => {
+                                    const currentTime = new Date().toLocaleTimeString('en-GB', { hour12: false }); // Get current time in HH:MM:SS format
+                                    const slotStartTime = new Date(slot.start).toLocaleTimeString('en-GB', { hour12: false }); // Convert slot.start to time format
+
+                                    return slotStartTime > currentTime &&  // Compare times (HH:MM:SS)
+                                            slot.movieId === ticket.movieId;    // Filter where slot.movieId matches ticket.movieId
+            })
+                            .map((slot,index)=>{
+                                return(
+                                   <div className="slot" key={index} onClick={()=>{setSelectedSlot(slot)}}>
+                                        Slot {index+1}
+                                        <span>{slot.time} {slot.start}- {slot.end}</span>
+                                        <span>{selectedScreen.screenType}</span>
+                                   </div>
+                                )
+                            })}
+                    {/* <div className="slot">
                         <p>Slot1 9:00-12:00</p>  
                     </div>
-                    <div>
+                    <div className="slot">
                        <p>Slot1 9:00-12:00</p> 
-                    </div>
+                    </div> */}
                 </div>
                
             </div>
@@ -41,9 +78,39 @@ const Description =()=>{
                        
                     </div>
                     <div className="ticket-desc">
-                        <div>
-                            <h4>seats Numbers</h4>
-                            N0, N1, P1, P2, D1, D2
+                    <h4>seats Numbers</h4>
+                        <div className="seatnumbers">
+                       
+                            { N && (
+                                Object.keys(N).map((key, i) => {
+                                    if (N[key]) {
+
+                                        return (
+                                            <p key={i}> N{key} &nbsp; </p>
+                                        );
+                                    }
+                                })
+                                ) }
+                                { P && (
+                                Object.keys(P).map((key, i) => {
+                                    if (P[key]) {
+                                        return (
+                                            <p key={i}> P{key}&nbsp; </p>
+                                        );
+                                    }
+                                })
+                                ) }
+                                { D && (
+                                Object.keys(D).map((key, i) => {
+                                    if (D[key]) {
+                                        return (
+                                            <p key={i}> D{key}&nbsp; </p>
+                                        );
+                                    }
+                                })
+                                ) }
+                                </div>
+                            <div className="table-container">
                             <table >
                                 <caption>seats</caption>
                                 <thead>
@@ -59,32 +126,33 @@ const Description =()=>{
                                     <tr>
                                         <td>1</td>
                                         <td>N</td>
-                                        <td>2</td>
+                                        <td>{nCount}</td>
                                         <td>200</td>
-                                        <td>400</td>
+                                        <td>{nCount*200}</td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
                                         <td>P</td>
-                                        <td>2</td>
+                                        <td>{pCount}</td>
                                         <td>200</td>
-                                        <td>400</td>
+                                        <td>{pCount*200}</td>
                                     </tr>
                                     <tr>
                                         <td>3</td>
                                         <td>D</td>
-                                        <td>2</td>
+                                        <td>{dCount}</td>
                                         <td>200</td>
-                                        <td>400</td>
+                                        <td>{dCount*200}</td>
                                     </tr>
                                     <tr>
                                         <td colSpan={3}>Total</td>
-                                        <td colSpan={2}>600</td>
+                                        <td colSpan={2}>{totalPrice}</td>
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>
-                        <button>Confirm Boking </button>
+                            </div>
+                        
+                        <button >Confirm Boking </button>
                     </div>
                 </div>
                 <div className="seat-box">

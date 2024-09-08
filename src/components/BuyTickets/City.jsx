@@ -1,13 +1,16 @@
 import { useContext, useState } from "react"
 import "./City.css"
 import { CinemaContext } from "../../Contex/CinemaContext"
+import { RxCross2 } from "react-icons/rx";
 
 const City = () => {
 
-    const {ticket,TicketHandler} = useContext(CinemaContext)
+    const {ticket,TicketHandler,cityToggleHandler} = useContext(CinemaContext)
    
   return (
-        <div className="choose-city">
+    <div className="city-toggle-container">
+             <RxCross2 onClick={cityToggleHandler} id="icon"/>
+             <div className="choose-city">
             <select name="city" id="city" value={ticket.city} onChange={TicketHandler}>
                 <option value="">Slect City</option>
                 <option value="lucknow">lucknow</option>
@@ -22,6 +25,8 @@ const City = () => {
                 <option value="hyderabad">hyderabad</option>
             </select>
         </div>
+          </div>
+       
   )
 }
 
