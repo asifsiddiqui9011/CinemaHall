@@ -1,0 +1,16 @@
+.Edit-slot-div{
+    background-color: white;
+    width: 20vw;
+    height: 10vh;
+    border-radius: 15px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2)
+}
+
+.editSlot-Model{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}

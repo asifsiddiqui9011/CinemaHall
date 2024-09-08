@@ -36,7 +36,7 @@
     border: 1px solid black;
 }
 
-.select-container{
+.select-container-ats{
     display: flex;
     justify-content:start;
     flex-direction: column;

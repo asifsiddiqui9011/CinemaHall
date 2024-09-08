@@ -1,42 +1,97 @@
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import "./MovieDesc.css"
 import AddToScreen from "../AddToScreen/AddToScreen"
- let cardimg = "https://w0.peakpx.com/wallpaper/1020/783/HD-wallpaper-avengers-endgame-end-war.jpg"
+import {useParams} from "react-router-dom"
+import axios from "axios"
+import { useContext } from "react"
+import { AdminContext } from "../../Context/AdminContext"
+import { Link } from "react-router-dom"
 
-const MovieDesc = (props) => {
+const MovieDesc = () => {
+    
+    const { setEditMovie,Authorization} = useContext(AdminContext)
 
-    const [toggle,setToggle] = useState(false)
 
-    const Toggle =()=>{
-        setToggle(!toggle)
+    const { mainId } = useParams(); // Get the movie ID from the URL
+    const [toggle, setToggle] = useState(false);
+    const [movie, setMovie] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const Toggle = () => {
+      setToggle(!toggle);
+    };
+  
+    useEffect(() => {
+      // Fetch the movie data using axios
+      const fetchMovie = async () => {
+        try {
+          const response = await axios.get(`http://localhost:4000/api/movies/${mainId}`);
+          setMovie(response.data);
+          setLoading(false);
+        } catch (err) {
+          setError("Error fetching movie data");
+          setLoading(false);
+        }
+      };
+  
+      fetchMovie();
+      console.log(movie,"movie")
+    }, [mainId]);
+  
+    if (loading) {
+      return <div>Loading...</div>;
+    }
+  
+    if (error) {
+      return <div>{error}</div>;
+    }
+  
+    if (!movie) {
+      return <div>Movie not found</div>;
+    }
+
+    const deleteMovie = async()=>{
+       try {
+         await axios.delete(`http://localhost:4000/api/movies/${mainId}`)
+         console.log('movie Deleted successfully');
+       } catch (error) {
+         console.error('Error deleting movie', error);
+       }finally {
+        console.log('Delete operation completed');
+      }
     }
   return (
-    <div className="moviedesc-container">
+    <div className="moviedesc-container" style={{backgroundImage: `url(${movie.imageBackgroundUrl})`}}>
         <div className="blur">
             <div className="movie-details">
-                    <img src={cardimg} alt="" className="movie-card" />
+                    <img src={movie.imageMainUrl} alt="" className="movie-card" />
                     <div className="movie-title">
-                        <h2>Avengers End Game</h2>
-                        <h3>Action/Sci-Fi</h3>
-                        <h3>Eng/Hin</h3>
+                        <h2>{movie.movieName}</h2>
+                        <h3>{movie.genre}</h3>
+                        <h3>{movie.industry}</h3>
                         <h3>Retings:9.5/10</h3>
-                        <button onClick={Toggle}>Add to your Screen</button>
+                       
+                        {Authorization?
+                         <div>
+                         <Link to={`edit`}><button onClick={()=>{setEditMovie(movie)}}>Edit</button></Link>
+                         <button onClick={()=>{deleteMovie(movie._id)}}>Delete</button>
+                         </div>: <button onClick={Toggle}>Add to your Screen</button>}
+                       
+                       
                     </div>
             </div>
             <div className="theater-schedule">
                 <div className="movie-description">
-                    <p>Description Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ducimus reprehenderit blanditiis quia adipisci aut ut officia vero iusto quaerat? Ducimus labore voluptate enim impedit placeat iure assumenda dicta sit? ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae est autem dolor numquam incidunt dolore aliquam debitis quo, tenetur quia architecto facilis facere voluptates veniam exercitationem libero tempore consequuntur atque?</p>
-                    <h3>Director: Anthony Russo, Joe Russo</h3>
-                    <h4>Cast: Robert Downey Jr., Chris Evans</h4>
-                    <h3>Language</h3>
-                    <h3>Schedule:</h3>
-                    <h3>ReleaseDate: 26 April 2019 (India)</h3>
-                    <h3>No of bookings till now:</h3>
+                    <p>{movie.description}</p>
+                    <h3>Director: {movie.directors}</h3>
+                    <h4>Cast: {movie.mainCasts}</h4>
+                    <h3>Languege: {movie.language}</h3>
+                    <h3>Schedule: </h3>
+                    <h3>ReleaseDate: </h3>
+                    <h3>No of bookings till now:{movie.numberOfBookings}</h3>
                 </div>
-                {/* <div>
-                    <button>Add to your Screen</button>
-                </div> */}
-
+                {/* {movie.releaseDate.slice(0,10)} ----------- { movie.lastScreenDate.slice(0,10)}
+                {movie.releaseDate.slice(0,10) ||""} */}
             </div>
         </div>
         {toggle &&(

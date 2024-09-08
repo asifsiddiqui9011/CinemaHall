@@ -34,15 +34,24 @@ const [allMovies,setAllMovies] = useState([])
        {/* <Link to={"/movieslist/desc"}> <Card/></Link> */}
        {allMovies.map((movie,index)=>{
         console.log(movie,"movieeee")
+        if(new Date(movie.releaseDate) <= new Date()){
         return(
-          <Link to={`/movieslist/${movie._id}`} key={index}> <Card key={index} name={movie.movieName} /></Link>
-        )
+          <Link to={`/movieslist/${movie._id}`} key={index}> <Card key={index} name={movie.movieName} img={movie.imageMainUrl} genre={movie.genre} 
+          certification={movie.certification} videoDimension={movie.videoDimension} language={movie.language}/></Link>
+        )}
        })}
        
       </div>
       <h1>coming Soon</h1>
       <div className="cards-container">
-        <Card/>
+      {allMovies.map((movie,index)=>{
+        console.log(movie,"movieeee")
+        if(new Date(movie.releaseDate) >= new Date()){
+        return(
+          <Link to={`/movieslist/${movie._id}`} key={index}> <Card key={index} name={movie.movieName} img={movie.imageMainUrl} genre={movie.genre} 
+          certification={movie.certification} videoDimension={movie.videoDimension} language={movie.language}/></Link>
+        )}
+       })}
       </div>
     </div>
   )

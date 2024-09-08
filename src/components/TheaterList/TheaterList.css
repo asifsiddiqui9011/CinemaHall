@@ -8,22 +8,39 @@
 
 .select-container{
     margin: 5px;
-    border: 1px solid black;
+    border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 20px;
-    width: 30vw;
+    width: 25vw;
+    height: 80vh;
+    overflow: scroll;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    padding: 100px 20px 10px;
+} 
+
+.select-tag{
+    position:absolute;
+    top: 45px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    padding: 2px 20px;
+
+   
 }
 
 .theater-card{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
    gap: 20px;
    padding: 10px;
+   border:1px solid black;
+   border-radius: 15px;
 }
 
 .theater-card:hover{
@@ -35,26 +52,33 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 1px solid black;
-    width: 58vw;
+    border-radius: 15px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    /* width: 58vw; */
 }
 
 .theater-details-container{
     display: flex;
     justify-content:start;
     align-items:start;
-    border: 2px solid red;
+    /* border: 1px solid black; */
     flex-direction: column;
-    width: 50vw;
+    margin: 2px;
+    padding: 10px;
+    width: 20vw;
+    border: 1px solid blueviolet;
+    border-radius: 15px;
+    margin: 10px;
 }
 
 .slots-desc-container{
     display: flex;
     justify-content:space-around;
     align-items:baseline;
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     flex-direction: column;
-    width: 50vw;
+    /* width: 50vw; */
+    padding: 20px;
     gap:5px;  
 }
 
@@ -64,12 +88,31 @@
     align-items:baseline;
     gap: 50px;
     padding: 5px;
-    background-color: aliceblue;
-    margin: 5px;
-    border: 2px solid greenyellow;
+    border: 1px solid black ;
+    margin: 20px;
+    border-radius: 15px;
 }
 span{
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.add-slot-container{
+    display: flex;
+    justify-content: space-betwee;
+    gap: 20px;
+}
+
+.add-slot-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    padding: 10px;
+    gap: 10px;
+    border: 1px solid blueviolet;
+    border-radius: 15px;
+    width: 20vw;
+    margin: 10px;
 }

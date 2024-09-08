@@ -2,14 +2,17 @@
     height: 280px;
     width: 200px;
     border-radius: 15px;
-    background-color: aquamarine;
     text-align:justify;
     margin:5px;
     padding: 5px;
+    background-size: cover;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px rgba(0,0,0,0.2);
+    border: 1px solid black;
  }
 
  .card-desc{
     position:relative;
-    top: 160px;
+    top: 120px;
     bottom: 0px;
  }

@@ -5,6 +5,10 @@
     color: black;
     background-color: aliceblue;
     padding: 1rem;
+    position: fixed;
+    width: 97vw;
+    margin: -10px;
+    z-index: 7;
   }
   
   .navbar-left .logo {
@@ -52,4 +56,11 @@
     position: absolute;
     top: -0.5rem;
     right: -0.5rem;
+  }
+
+  .model-container{
+    position: absolute;
+    top: 100px;
+    left: 400px;
+    z-index: 5;
   }
