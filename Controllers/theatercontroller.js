@@ -1,7 +1,5 @@
 const Screen = require("../models/Theater");
-// const User = require("../models/User");
 
-// Get all screens
 exports.getAllScreens = async (req, res) => {
   try {
     const screens = await Screen.find().populate("slot");
@@ -11,7 +9,7 @@ exports.getAllScreens = async (req, res) => {
   }
 };
 
-// Get a single screen by ID
+
 exports.getScreenById = async (req, res) => {
   try {
     const screen = await Screen.findById(req.params.id);
@@ -22,7 +20,7 @@ exports.getScreenById = async (req, res) => {
   }
 };
 
-// Create a new screen
+
 function generateMainId() {
   const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
   let result = "";
@@ -36,7 +34,7 @@ exports.createScreen = async (req, res) => {
 
   const userName = req.userId.userId
   console.log(userName,"userid")
-  const screenData = { ...req.body, mainId: generateMainId(),userName}; // Add the generated mainId here
+  const screenData = { ...req.body, mainId: generateMainId(),userName}; 
   const screen = new Screen(screenData);
 
   try {
@@ -47,7 +45,7 @@ exports.createScreen = async (req, res) => {
   }
 };
 
-// Update a screen by ID
+
 exports.updateScreen = async (req, res) => {
   try {
     const updatedScreen = await Screen.findByIdAndUpdate(
@@ -63,7 +61,7 @@ exports.updateScreen = async (req, res) => {
   }
 };
 
-// Delete a screen by ID
+
 exports.deleteScreen = async (req, res) => {
   try {
     const deletedScreen = await Screen.findByIdAndDelete(req.params.id);
@@ -80,7 +78,7 @@ exports.bookSeats = async (req, res) => {
   const userId = req.user.id;
   console.log(userId);
 
-  // Validate the seatNumbers field
+
   if (!Array.isArray(seatNumbers) || seatNumbers.length === 0) {
     return res
       .status(400)
@@ -155,20 +153,19 @@ exports.bookSeats = async (req, res) => {
       date: date,
     };
 
-    // Check if the user already has bookings for the same date and slot
     const existingBooking = user.bookings.find(
       (b) => b.date.toISOString() === date.toISOString() && b.timing === slot
     );
 
     if (existingBooking) {
-      // Update existing booking
+    
       existingBooking.seatnumbers = seatNumbers;
       existingBooking.numberOfPersons = seatNumbers.length;
       existingBooking.theatername = screen.name;
       existingBooking.timing = slot;
       existingBooking.date = date;
     } else {
-      // Add new booking
+    
       user.bookings.push(bookingDetails);
     }
 

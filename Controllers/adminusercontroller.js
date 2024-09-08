@@ -65,9 +65,9 @@ exports.login = async (req, res) => {
 
 exports.getUser = async (req, res) => {
   try {
-    console.log(req.user.userId); // Using userId as per login token payload
+    console.log(req.user.userId); 
 
-    const user = await adminUser.findById(req.user.userId).select('-password'); // Exclude password
+    const user = await adminUser.findById(req.user.userId); 
 
     if (!user) return res.status(404).json({ message: 'User not found' });
     

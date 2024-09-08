@@ -1,6 +1,7 @@
+
+
+
 exports.fetchTheater = (req, res, next) => {
-    // const authHeader = req.headers["authorization"];
-    // const token = authHeader && authHeader.split(" ")[1];
     const token = req.header("auth-token");
     if (!token) {
       return res

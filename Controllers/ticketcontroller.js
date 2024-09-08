@@ -1,7 +1,6 @@
-const Ticket = require("../models/Ticket"); // Adjust the path as necessary
+const Ticket = require("../models/Ticket"); 
 
-// Create a new ticket
-// Assuming bookSeat is exported as a named export from the same file or a separate module
+
 const { bookSeat } = require("./theatercontroller");
 
 exports.createTicket = async (req, res) => {
@@ -9,33 +8,33 @@ exports.createTicket = async (req, res) => {
     req.body;
 
   try {
-    // Iterate over each seat to book them
+    
     for (let seat of seats_booked) {
       const seatBooking = await bookSeat({
         body: {
           screenId,
-          slot: seat.slot, // Assume `slot` is part of each seat in seats_booked
+          slot: seat.slot, 
           seatNumber: seat.seatNumber,
           userId: user_id,
-          movieMainId: seat.movieMainId, // Assume this is part of each seat in seats_booked
-          date: seat.date, // Assume this is part of each seat in seats_booked
+          movieMainId: seat.movieMainId, 
+          date: seat.date, 
         },
       });
 
-      // If the booking failed, respond with an error
+     
       if (!seatBooking.success) {
         return res.status(400).json({ message: seatBooking.message });
       }
     }
 
-    // Create the ticket after booking seats
+   
     const ticket = new Ticket({
       user_id,
       screenId,
-      seats_booked: seats_booked.length, // Assuming seats_booked is an array of seat numbers
+      seats_booked: seats_booked.length, 
       total_price,
       number_of_person,
-      // booking_time and created_at are automatically set
+     
     });
 
     const newTicket = await ticket.save();
@@ -45,7 +44,7 @@ exports.createTicket = async (req, res) => {
   }
 };
 
-// Get all tickets
+
 exports.getAllTickets = async (req, res) => {
   try {
     const tickets = await Ticket.find()
@@ -57,7 +56,7 @@ exports.getAllTickets = async (req, res) => {
   }
 };
 
-// Get a single ticket by ID
+
 exports.getTicketById = async (req, res) => {
   try {
     const ticket = await Ticket.findById(req.params.id)
@@ -70,7 +69,7 @@ exports.getTicketById = async (req, res) => {
   }
 };
 
-// Update a ticket by ID (e.g., cancel a ticket)
+
 exports.updateTicket = async (req, res) => {
   try {
     const updatedTicket = await Ticket.findByIdAndUpdate(
@@ -86,7 +85,7 @@ exports.updateTicket = async (req, res) => {
   }
 };
 
-// Delete a ticket by ID
+
 exports.deleteTicket = async (req, res) => {
   try {
     const deletedTicket = await Ticket.findByIdAndDelete(req.params.id);

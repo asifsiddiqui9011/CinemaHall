@@ -107,12 +107,11 @@ exports.deleteMovie = async (req, res) => {
     res.status(500).json({ message: "Server error", error });
   }
 };
-<<<<<<< HEAD
 
 
-=======
-// filter the movies
->>>>>>> 0bec7cffebea9a548335f8dcf25f9f7892043c80
+
+
+
 exports.searchMovies = async (req, res) => {
   try {
     const { query } = req;
@@ -124,7 +123,7 @@ exports.searchMovies = async (req, res) => {
     if (query.genre) {
       searchQuery.genre = { $in: query.genre };
     }
-    // Add more search fields as needed
+ 
 
     const movies = await Movie.find(searchQuery);
     res.json(movies);
@@ -133,28 +132,28 @@ exports.searchMovies = async (req, res) => {
   }
 };
 
-// for the search bar
+
 exports.searchMoviesByTags = async (req, res) => {
   try {
-    // Extract tags from request body
+
     const { tags } = req.body;
 
-    // Validate if tags are provided
+
     if (!tags || !tags.length) {
       return res.status(400).json({ message: "Tags are required for search" });
     }
 
-    // Search for movies that match any of the tags
+    
     const movies = await Movie.find({ tags: { $in: tags } });
 
-    // If no movies found, return a message
+    
     if (!movies.length) {
       return res
         .status(404)
         .json({ message: "No movies found with the provided tags" });
     }
 
-    // Return the movies in the response
+  
     res.status(200).json(movies);
   } catch (error) {
     console.error("Error searching movies:", error);
