@@ -2,7 +2,6 @@
 import './App.css'
 import AddMovies from './Components/AddMovies/AddMovies'
 import AddTheater from './Components/AddTheater/AddTheater'
-// import AddToScreen from './Components/AddToScreen/AddToScreen'
 import MovieDesc from './Components/MovieDesc/MovieDesc'
 import MoviesList from './Components/MoviesList/MoviesList'
 import Navbar from './Components/Navbar/Navbar'
@@ -39,10 +38,6 @@ function App() {
           path='/movieslist'
           element={<MoviesList/>}
         />
-        {/* <Route
-          path='/movieslist/desc'
-          element={<MovieDesc/>}
-        /> */}
       <Route path="/movieslist">
         <Route path=":mainId" element={<MovieDesc />} />
         <Route path=":mainId/edit" element={<EditMovie />} />

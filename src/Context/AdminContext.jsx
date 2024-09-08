@@ -85,7 +85,7 @@ const editModelToggler =()=>{
 const [editMovie, setEditMovie] = useState({});
  
 
-   const contextValue = {allTheater,Authorization,userData,setUserData,editModel,editModelToggler,allTheater,getAllScreen,editMovie, setEditMovie,selectedTheater,handleSelectTheater}
+   const contextValue = {Authorization,userData,setUserData,editModel,editModelToggler,allTheater,getAllScreen,editMovie, setEditMovie,selectedTheater,handleSelectTheater}
     return (
         <AdminContext.Provider value={contextValue}>
             {props.children}

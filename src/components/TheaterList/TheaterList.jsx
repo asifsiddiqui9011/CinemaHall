@@ -69,78 +69,8 @@ const TheaterList = () => {
                 </div></Link>
                   ) 
                 })} 
-{/*            
-              <div className="theater-card">
-                <h3>TH001</h3> 
-                <p>Pheonix</p> 
-                <p>Pune 400041</p> 
-             </div>
-           
-             
-             <div className="theater-card">
-                <h3>TH001</h3> 
-                <p>Pheonix</p> 
-                <p>Pune 400041</p>
-             </div> */}
-        </div>
-        {/* <div className="theater-desc-container">
-          <div className="add-slot-container">
-               <div className="theater-details-container">
-                   <span><h3>Theater Id: </h3><p>TH001 {selectedTheater.mainId}</p></span> 
-                    <span><h3>Name: </h3><p></p>Pheonix {selectedTheater.name}</span>
-                    <span><h3>Capacity: </h3>100</span>
-                    <span><h3>Location: </h3>Pune 400041 {selectedTheater.location}</span>
-                    <span><h3>No of slots: </h3><p>4</p></span> 
-                    <div><button>Edit</button> <button>Delete</button></div>
-                </div>
-                <div className="add-slot-div">
-                  <h2>Add New Slot</h2>
-                  <form onSubmit={add}>
-                  <h3>Time </h3>
-                    <span>Start:<input type="time" name="start"  onChange={newSlotHandler}/></span>
-                    <span>End:<input type="time" name="end"  onChange={newSlotHandler}/></span>
-                  <button type="submit">Add Slot</button>
-                  </form>
-                </div>
-          </div>
-             
-              <div className="slots-desc-container">
 
-               {slots[0] &&(
-                       slots.map((slot,index)=>{
-                        console.log(slot,"sllllll")
-                              return(
-                                <div className="slots-desc" key={index}>
-                                <h3>Slot{index+1}{slot.start}{slot.end}</h3>
-                                <h3>2D</h3>
-                                <h3>Deadpool (Hin){slot.movieId}</h3>
-                               
-                                <button>Remove Movie</button>
-                                <button>edit</button>
-                                <button onClick={()=>{deleteSlot(slot._id)}}>Delete slot</button>
-                            </div>
-                              )
-                            })
-               )}
-                  
-                 <div className="slots-desc">
-                    <h3>Slot1 9:00-12:00</h3>
-                    <h3>Stree (Hin)</h3>
-                    <h3>2D</h3>
-                    <button>Remove Movie</button>
-                    <button>edit</button>
-                    <button>Delete slot</button>
-                </div>
-                <div className="slots-desc">
-                    <h3>Slot1 9:00-12:00</h3>
-                    <h3>2D</h3>
-                    <h3>____Available_____</h3>                 
-                    <button>Add Movie</button>
-                    <button>edit</button>
-                    <button>Delete slot</button>
-                </div> 
-              </div>
-        </div> */}
+        </div>
         {selectedTheater._id &&(
               <TheaterDesc/>
         )}

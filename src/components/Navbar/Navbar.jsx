@@ -41,7 +41,7 @@ const Navbar = () => {
           {localStorage.getItem('auth-token')?<CgProfile onClick={ProfileToggle} id="icon"/>:<button onClick={handleToggle}>Login</button>}
           {loginToggle &&(
           <div className="model-container">
-          {/* > */}
+         
               <div className="model">
                 <RxCross2 onClick={handleToggle} id="icon"/>
                 {login == true?<Login signup={handleSwitch} toggle={handleToggle} />:<Signup login={handleSwitch} toggle={handleToggle}/>}

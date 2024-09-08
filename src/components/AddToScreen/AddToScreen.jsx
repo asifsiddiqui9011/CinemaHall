@@ -51,9 +51,7 @@ const AddToScreen = () => {
 
     
 
-    
-    
-   
+
     
   return (
     <div className="center">

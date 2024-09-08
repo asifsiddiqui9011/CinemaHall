@@ -5,9 +5,8 @@ import { AdminContext } from "../../Context/AdminContext"
 
 const Sidebar = () => {
 
-    const {userData,Authorization} = useContext(AdminContext)
+    const {Authorization} = useContext(AdminContext)
 
-    // const authorization = Authorization(`${userData.email}`)
   return (
     <div className="sidebar-container">
      

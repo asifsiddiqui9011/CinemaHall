@@ -6,7 +6,7 @@ import { AdminContext } from "../../Context/AdminContext";
 const Profile = (props) => {
 
   const{userData} = useContext(AdminContext)
-  // console.log(userData,"userdata")
+
 
   const logout = ()=>{
     localStorage.removeItem('auth-token')
