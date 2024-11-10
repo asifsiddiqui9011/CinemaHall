@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 
-const JWT_SECRET = "Movie_ticket";
+const JWT_SECRET = process.env.JWT_SECRETKEY;
 
 
 exports.createUser = async (req, res) => {

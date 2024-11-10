@@ -2,7 +2,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const adminUser = require("../models/adminUser.js");
 
-const JWT_SECRET = "admin_user_key";
+const JWT_SECRET = process.env.JWT_ADMINSECRETKEY;
 
 // Signup Controller
 exports.signup = async (req, res) => {

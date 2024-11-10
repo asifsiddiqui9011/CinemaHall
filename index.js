@@ -1,5 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
+require('dotenv').config();
+const path = require('path')
 const userRoutes = require("./Router/userroutes");
 const movieRoutes = require("./Router/moviesrouter");
 const screenRoutes = require("./Router/theaterroutes");
@@ -9,16 +11,15 @@ const jwt = require('jsonwebtoken')
 const cors = require("cors")
 
 
+
 const adminUserRoutes = require("./Router/adminUserRoutes");
 const app = express();
 
 
-const PORT = 4000;
+const PORT = (process.env.PORT || 4000)
 app.use(express.json());
 app.use(cors())
-const mongoDBURL =
-  "mongodb+srv://asifsiddiqui9011:w4HFuJgk3mMgOukQ@cluster0.61qhz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-
+const mongoDBURL = process.env.DATABASE_URL;
 mongoose
   .connect(mongoDBURL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {

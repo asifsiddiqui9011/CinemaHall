@@ -43,7 +43,7 @@
 
 
 const jwt = require('jsonwebtoken');
-const JWT_SECRET = "Movie_ticket"; // Make sure to store this in an environment variable for production
+const JWT_SECRET = process.env.JWT_SECRETKEY; // Make sure to store this in an environment variable for production
 
 const fetchUser = (req, res, next) => {
   // Get the token from the request header
