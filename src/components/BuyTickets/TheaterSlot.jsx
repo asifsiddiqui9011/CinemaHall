@@ -3,12 +3,13 @@ import "./TheaterSlot.css"
 import { CinemaContext } from "../../Contex/CinemaContext"
 import { Link } from "react-router-dom"
 import { RxCross2 } from "react-icons/rx";
+import { useParams } from "react-router-dom";
 
-const TheaterSlot = () => {
+const TheaterSlot = (props) => {
 
     const {ticket,TicketHandler,allTheater,selectedScreen,setSelectedScreen,setSelectedSlot,selectedSlot,slotToggleHandler} = useContext(CinemaContext)
 
-
+    let { movieId } = useParams();
     const SelectScreenHandler =(e)=>{
         setSelectedScreen(e)
         console.log(selectedScreen,"selectedSCreen")
@@ -22,7 +23,7 @@ const TheaterSlot = () => {
         if(selectedSlot.n){
             console.log(selectedSlot,"selected Slot")
         }
-    },[selectedSlot.n])
+    },[selectedSlot])
     
     // && 
     //                 Array.isArray(theater.slot) && 
@@ -31,11 +32,14 @@ const TheaterSlot = () => {
     return (
 
     
-        <div className="choose-theater-slot">
+        <div className="choose-theater-slot" style={props.style}>
              {allTheater
                 .filter((theater) => theater.location === ticket.city.toLowerCase())
-                .map((theater, index) => (
+                .map((theater, index) =>{ 
+                   if(theater.slot.some((data) => data.movieId === movieId)){
                     
+                    return (
+                   
                     <div className="theater-slot" onClick={() => SelectScreenHandler(theater)} key={index}>
                         <div className="theater-desc">
                         <span>{theater.name}</span>
@@ -43,18 +47,20 @@ const TheaterSlot = () => {
                         </div>
                         <div className="slots-container">
                         {theater.slot && theater.slot.map((slot, i) => (
-                            <Link to={`${theater._id}/seatbooking/${slot._id}` }  key={index}> 
+                            <Link to={`${theater._id}/seatbooking/${slot._id}` }  key={slot._id}> 
                                 <div className="slot" key={i} onClick={() => setSelectedSlot(slot)}>
                                         Slot {index + 1}
                                         <span>{slot.time} {slot.start} - {slot.end}</span>
                                         <span>{theater.screenType}</span>
                                 </div>   
                             </Link>
-                        ))}
+                        )
+                        )}
                         </div>
                     </div>
-                 
-                ))}
+                    
+                )
+}})}
 
             {/* {allTheater 
             .filter((theater) => 

@@ -6,7 +6,7 @@ import LinkedIn from '../../assets/linkedin.png'
 import inst from '../../assets/instagram.png'
 const Footer = () => {
   return (
-    <div className='footer'>
+    <footer className='footer' id="contact">
         <div className="sb-footer-section-padding">
             <div className="sb-footer-links">
                 <div className="sb-footer-links-div">
@@ -81,7 +81,7 @@ const Footer = () => {
                     </div>
                 </div>
         </div>
-    </div>
+    </footer>
   
   )
 }

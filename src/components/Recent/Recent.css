@@ -10,6 +10,9 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 0;
+    overflow: scroll;
+    scrollbar-width:none;
+    scrollbar-color: black;
     
 }
 .left_div{

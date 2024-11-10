@@ -1,43 +1,35 @@
-import { useContext, useEffect } from "react"
+import { useContext, useEffect,useState } from "react"
 import Banner from "../../components/Banner/Banner"
-import City from "../../components/BuyTickets/City"
+
 import ComingSoon from "../../components/ComingSoon/ComingSoon"
 import Recent from "../../components/Recent/Recent"
 import "./Home.css"
 import { CinemaContext } from "../../Contex/CinemaContext"
-import { RxCross2 } from "react-icons/rx";
-import TheaterSlot from "../../components/BuyTickets/TheaterSlot"
+
+import Ticket from "../../components/Tickets/Ticket"
+import Tkts from "../../components/T/Tkts"
 const Home = () => {
 
-  const {cityToggle,cityToggleHandler,ticket,slotToggle,slotToggleHandler} = useContext(CinemaContext)
+  const {ticket,allTicket,setTicket} = useContext(CinemaContext)
 
-  useEffect(()=>{
-    if(ticket.city){
-      cityToggleHandler()
-      slotToggleHandler()
 
-    }
-  },[ticket.city])
+  
+  // useEffect(()=>{
+  //   if(ticket.city){
+  //     cityToggleHandler()
+  //     slotToggleHandler()
+
+  //   }
+  // },[ticket.city])
+
+  
   
   return (
     <div>
         <Banner/>
+        <Tkts/>
         <Recent/>
         <ComingSoon/>
-        {cityToggle &&(
-          <div className="theater-toggle-containerr">
-          <RxCross2 onClick={cityToggleHandler} id="icon"/>
-              <City/> 
-          </div>   
-        )}
-        {slotToggle &&(
-          <div className="theater-toggle-containerr">
-          <RxCross2 onClick={slotToggleHandler} id="icon" style={{marginRight:"-1120px"}}/>
-         
-             <TheaterSlot/>   
-             </div>  
-         )}
-        
     </div>
   )
 }

@@ -11,4 +11,4 @@ const Card3 = (props) => {
   )
 }
 
-export default Card3
+export default Card3;

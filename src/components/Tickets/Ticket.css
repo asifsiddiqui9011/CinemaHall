@@ -1,0 +1,38 @@
+.ticket-card{
+  /* width: 20vw; */
+  border: 1px solid black;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content:start;
+  align-items: start;
+  padding: 5px;
+  margin: 5px;
+  background-color: white;
+}
+
+.ticket-card p {
+  margin: 5px;
+}
+
+.cancel-tkt-btn{
+  width:95%;
+  margin: 5px;
+  height: 40px;
+  text-align: center;
+  background-color: white;
+  color: blueviolet;
+  border: none;
+  outline: none;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+  border-radius: 25px;
+}
+
+.cancel-tkt-btn:hover{
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+}
+
+.cancel-tkt-btn:active{
+  background-color: blueviolet;
+  color: white;
+}

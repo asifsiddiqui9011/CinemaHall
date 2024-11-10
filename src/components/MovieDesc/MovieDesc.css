@@ -68,3 +68,30 @@
     width: 90vw;
     height: 95vh;
 }
+
+
+.buyticketbtn{
+  font-family: 'Ubuntu', sans-serif;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 45px;
+  line-height: 1;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border: 3px solid #ffffff8b;
+  background-color: white;
+  color: blueviolet;
+ border-radius: 40px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all .35s;
+ }
+
+ .btn-div{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding-left: 70px;
+    padding-top: 20px;
+ }

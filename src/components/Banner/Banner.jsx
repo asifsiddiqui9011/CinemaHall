@@ -3,17 +3,36 @@ import "./Banner.css"
 import CardImg from "../../../public/card-image.jpg"
 import { CinemaContext } from "../../Contex/CinemaContext"
 import { Link } from "react-router-dom"
-
+// import Carousel from 'react-multi-carousel';
+import { Carousel } from 'react-responsive-carousel';
+import Bann from "./Bann"
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const Banner = () => {
 
   const [banner,setBanner] = useState('')
-  const {cityToggleHandler,TicketHandler,ticket,setTicket} = useContext(CinemaContext)
-  
-  const movieId = "Movie0001"
+ 
+  const{allMovies} = useContext(CinemaContext)
+  console.log(allMovies[0])
+
+
 
   return (
-    <div className="banner-container">
+    <Carousel autoPlay={true} infiniteLoop={true} autoFocus={true} useKeyboardArrows={true}>
+      {allMovies.map((movie,index)=>{
+        return(
+          <Bann key={index} movie={movie}/>
+        )
+      })}
+    </Carousel>
+  )
+    
+}
+
+export default Banner
+
+
+{/* <div className="banner-container">
       <div className="banner-flow">
         <div className="flow-img">
 
@@ -39,8 +58,5 @@ const Banner = () => {
       </div>
 
       
-    </div>
-  )
-}
-
-export default Banner
+    </div> */}
+    

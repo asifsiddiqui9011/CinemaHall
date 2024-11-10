@@ -7,6 +7,7 @@ import {Routes,Route} from "react-router-dom"
 import Home from './Pages/Home/Home';
 import MovieDesc from './components/MovieDesc/MovieDesc';
 import TheaterSlot from './components/BuyTickets/TheaterSlot';
+import City from './components/BuyTickets/City';
 function App() 
 {
   
@@ -34,6 +35,10 @@ function App()
       <Route
         path='/description/:movieId'
         element={<TheaterSlot/>}
+      />
+      <Route
+        path='/:movieId'
+        element={<City/>}
       />
      </Routes>
      <Footer/>

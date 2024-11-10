@@ -6,9 +6,18 @@
     align-items: center;
     padding: 0px 100px ;
     /* color: white; */
-    /* margin:-10px -8px 0px -8px; */
+    margin:-10px -8px 0px -8px;
     position: fixed;
     z-index: 7;
+  }
+
+  .nav-btns-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    gap: 30px;
+    font-size: medium;
   }
 
   .model-container{
@@ -43,6 +52,13 @@
 
 }
 
+
+
 .logo{
   color: white;
+}
+
+.navbar-scrolled{
+   /* backdrop-filter: blur(20px); */
+   background-color: black;
 }

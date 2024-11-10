@@ -1,6 +1,10 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { CinemaContext } from "../../Contex/CinemaContext"
 
 const Signup = (props) => {
+
+
+  const{fetchUser}= useContext(CinemaContext)
 
   const [signupData,setSignupData] = useState ({
     
@@ -37,6 +41,7 @@ const Signup = (props) => {
      console.log(responseData.success,"success")
 		if(responseData.success){
 			localStorage.setItem('auth-token',responseData.token);
+      fetchUser()
 			props.toggle()
     }
     } catch (error) {
