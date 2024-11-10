@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(cors())
 const mongoDBURL = process.env.DATABASE_URL;
 mongoose
-  .connect(mongoDBURL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(mongoDBURL, {})
   .then(() => {
     console.log("Connected to MongoDB");
   })
