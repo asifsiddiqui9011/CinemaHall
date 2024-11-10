@@ -1,6 +1,7 @@
 .card{
     height: 78vh;
     width: 90%;
+    min-width: 320px;
     border-radius: 15px;
     background-color: aquamarine;
     text-align:end;
@@ -15,6 +16,14 @@
     justify-content: space-around;
     box-shadow: inset 20px 20px 40px rgba(0,0,0,0.8);
  }
+
+ @media (max-width:1000px) {
+    .card{
+        width: 90vw;
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+ }
  
  
   .card-dis{
@@ -23,10 +32,17 @@
    bottom: 40px;
   }
 
+
+  @media (max-width:600px) {
+     .card-dis{
+        bottom: 50px;
+     }
+  }
+
   .card2-img{
    position: relative;
    bottom: 20px;
-         height: 40vh;
-         border-radius: 10px;
+    height: 40vh;
+    border-radius: 10px;
 
   }

@@ -9,6 +9,9 @@ const Card2 = (props) => {
           <h3>{props.movieName}</h3>
           <p>{props.genre}</p> 
           <p>{props.language}</p>
+          <p>{props.industry}</p>
+          <p>{props.mainCasts}</p>
+
         </div>
     </div>
   )

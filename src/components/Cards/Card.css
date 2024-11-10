@@ -1,6 +1,8 @@
 .card_1{
-   height: 220px;
-   width: 340px;
+   max-height: 220px;
+   max-width: 340px;
+   min-width: 200px;
+   min-height: 120px;
    border-radius: 15px;
    text-align:justify;
    margin:10px;
@@ -12,4 +14,15 @@
 .card-text{
    position: relative;
    top: 80px;
+}
+
+@media (max-width:600px) {
+   .card-text{
+      top:30px;
+   }
+    .card-text h3,p{
+      font-size: medium;
+      margin: 2px;
+   }
+   
 }

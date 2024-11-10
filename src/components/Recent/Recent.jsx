@@ -19,28 +19,28 @@ const  Recent=()=>{
             </a>
              <a href="#" className="next round"><GrNext /></a></div>
             <hr></hr>
-            <div style={{display:"flex", flexWrap:"wrap"}}>
+            
+            <div className='newrelease-cards-conatiner'>
 
-           
-          {allMovies[0] &&( 
-            <div className="left_div">
-             <Link to={`/description/${allMovies[0]._id}`}> <Card2 movieName={allMovies[0].movieName} genre={allMovies[0].genre} language={allMovies[0].language}  image={allMovies[0].imageMainUrl} bgimg={allMovies[0].imageBackgroundUrl}/></Link>
-            </div>  )}
+                        {allMovies[0] &&( 
+                        <div className="left_div">
+                            <Link to={`/description/${allMovies[0]._id}`}> <Card2 movieName={allMovies[0].movieName} genre={allMovies[0].genre} language={allMovies[0].language}  image={allMovies[0].imageMainUrl} bgimg={allMovies[0].imageBackgroundUrl}/></Link>
+                        </div>  )}
 
-          
-           {allMovies[0] &&(
-            <div className="right_div">
-    
-                {allMovies.slice(1).map((movie,index)=>{
-                    if(new Date(movie.releaseDate) <= new Date()){
-                    return(
+                        
+                        {allMovies[0] &&(
+                        <div className="right_div">
 
-                        <div className='right_div1' key={index}>
-                           <Link to={`/description/${movie._id}`}> <Card3 movieName={movie.movieName} genre={movie.genre} language={movie.language} image={movie.imageMainUrl}/></Link>
-                        </div>
-                       
-                    )}
-             })}
+                            {allMovies.slice(1).map((movie,index)=>{
+                                if(new Date(movie.releaseDate) <= new Date()){
+                                return(
+
+                                    <div className='right_div1' key={index}>
+                                        <Link to={`/description/${movie._id}`}> <Card3 movieName={movie.movieName} genre={movie.genre} language={movie.language} image={movie.imageMainUrl}/></Link>
+                                    </div>
+                                    
+                                )}
+                            })}
               
             </div>
 
