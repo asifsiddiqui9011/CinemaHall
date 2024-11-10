@@ -4,7 +4,7 @@ const JWT_SECRET = "admin_user_key";
 
  
 
-exports.authenticateToken = (req, res, next) => {
+const authenticateToken = (req, res, next) => {
   const token = req.header('auth-token');
   
   if (!token) return res.status(401).json({ message: 'Access Denied. No Token Provided.' });
@@ -17,3 +17,5 @@ exports.authenticateToken = (req, res, next) => {
     res.status(400).json({ message: 'Invalid Token' });
   }
 };
+
+module.exports = authenticateToken;

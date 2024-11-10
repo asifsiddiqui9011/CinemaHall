@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 
-const JWT_SECRET = process.env.JWT_SECRET || "Movie_ticket";
+const JWT_SECRET = "Movie_ticket";
 
 
 exports.createUser = async (req, res) => {
@@ -52,7 +52,7 @@ exports.loginUser = async (req, res) => {
     const { email, password } = req.body;
 
 
-    const user = await User.findOne({ email });
+    const user = await User.findOne({email});
     if (!user) {
       return res.status(400).json({ message: "Invalid email or password" });
     }
@@ -96,22 +96,63 @@ exports.getAllUsers = async (req, res) => {
 };
 
 
+// exports.getUserById = async (req, res) => {
+//   try {
+//     const user = await User.findById(req.user._id);
+//     console.log(user.$assertPopulated,"user")
+//     if (!user) {
+//       return res.status(404).json({ message: "User not found" });
+//     }
+//     res.status(200).json(user);
+//   } catch (error) {
+//     console.error("Error retrieving user:", error); 
+//     res.status(500).json({
+//       message: "Error retrieving user",
+//       error: error.message || error,
+//     });
+//   }
+// };
+// exports.getUserById = async (req, res) => {
+//   try {
+//     const user = await User.findById(req.user.id);
+//     if (!user) {
+//       return res.status(404).json({ message: "User not found" });
+//     }
+//     res.send(user);
+//   } catch (error) {
+//     res.status(500).json({ message: "Error retrieving user", error });
+//   }
+// };
+
 exports.getUserById = async (req, res) => {
   try {
-    const user = await User.findById(req.params.id);
+    // Find the user by the ID from the token (req.user should have been set by fetchUser)
+    const userId = req.user.id
+    // const user = await User.findById(userId).populate('tickets');
+    const user = await User.findById(userId).populate({
+      path: 'tickets',
+      populate: [
+        { path: 'screenId', model: 'Screen' },
+        { path: 'movieId', model: 'Movie' },
+        { path: 'slotId', model: 'slot' }
+      ]
+    });
+
+    console.log("User data with populated tickets:", user); // Log result to verify
+
+
+    // If the user is not found, return 404
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
-    res.status(200).json(user);
+
+    // Send the user data if found
+    res.json(user);
   } catch (error) {
-    console.error("Error retrieving user:", error); 
-    res.status(500).json({
-      message: "Error retrieving user",
-      error: error.message || error,
-    });
+    console.error("Error retrieving user:", error);
+    return res.status(500).json({ message: "Error retrieving user", error });
   }
 };
-
 
 exports.updateUser = async (req, res) => {
   try {

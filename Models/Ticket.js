@@ -44,7 +44,7 @@ const ticketSchema = new mongoose.Schema({
     required: true,
   },
   location:{type:String},
-  seats:{type:String,require:true},
+  seats:{type:[String],require:true},
   total_seats_booked: { type:Number, required: true  },
   totalPrice: { type: Number, required: true },
   date: { type: Date, default: Date.now },

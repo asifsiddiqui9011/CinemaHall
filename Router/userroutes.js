@@ -1,7 +1,10 @@
 const express = require("express");
 const userController = require("../controllers/UserController");
 const movieController = require("../controllers/MoviesController");
+const fetchUser = require('../middleware/fetchUser')
 const router = express.Router();
+
+
 
 
 router.post("/users", userController.createUser);
@@ -13,7 +16,7 @@ router.post("/login", userController.loginUser);
 router.get("/users", userController.getAllUsers);
 
 
-router.get("/users/:id", userController.getUserById);
+router.get("/getuser",fetchUser, userController.getUserById);
 
 
 router.put("/users/:id", userController.updateUser);

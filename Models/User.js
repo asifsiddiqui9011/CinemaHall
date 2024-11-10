@@ -39,6 +39,10 @@ const userSchema = new mongoose.Schema({
       numberOfPersons: { type: Number, required: true, min: 1 },
     },
   ],
+  tickets:[{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:"Ticket"
+}],
   created_at: {
     type: Date,
     default: Date.now,

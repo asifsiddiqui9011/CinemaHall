@@ -48,8 +48,8 @@ exports.createTicket = async (req, res) => {
 exports.getAllTickets = async (req, res) => {
   try {
     const tickets = await Ticket.find()
-      .populate("user_id")
-      .populate("screenId");
+      .populate("user_id");
+      // .populate("screenId");
     res.status(200).json(tickets);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -68,6 +68,50 @@ exports.getTicketById = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+// exports.getUserTickets = async (req, res) => {
+//   try {
+//     // Assuming req.user.id contains the user's ID from the auth token
+//     const ticket = await Ticket.find({user_id: req.user.id });
+//     console.log(ticket,"ticket")
+//     if (!ticket) return res.status(404).json({ message: "Ticket not found" });
+
+//     res.json(ticket);
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// };
+
+exports.getUserTickets = async (req, res) => {
+  try {
+    // Assuming req.user.id contains the user's ID from the auth token
+    const tickets = await Ticket.find({ user_id: req.user.id })
+      .populate('movieId', 'movieName')  // Populate only the 'name' field from Movie model
+      .populate('slotId', 'start end time')   // Populate only the 'time' field from Slot model
+      .populate('screenId','location name') // Populate only the 'screen_number' field from Screen model
+
+    if (!tickets.length) return res.status(404).json({ message: "No tickets found" });
+    
+    res.json(tickets); // Return the populated tickets array
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+
+// exports.getUserTickets = async (req, res) => {
+//   try {
+//     console.log(req.user.id,"userid ")
+//     const userId = req.user.id
+//     const ticket = await Ticket.find({'user_id._id':userId})
+//     const tt = await Ticket.find().populate("user_id")
+//     console.log(ticket,tt)
+//     if (!ticket) return res.status(404).json({ message: "Ticket not found" });
+//     res.status(200).json(ticket);
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// };
 
 
 exports.updateTicket = async (req, res) => {
