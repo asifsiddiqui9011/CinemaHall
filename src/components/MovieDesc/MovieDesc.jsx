@@ -12,14 +12,14 @@ const MovieDesc = () => {
     
 
 
-  const {slotToggle,cityToggle,cityToggleHandler,ticket,slotToggleHandler,handleToggle} = useContext(CinemaContext)
+  const {slotToggle,cityToggle,cityToggleHandler,ticket,slotToggleHandler,url,handleToggle} = useContext(CinemaContext)
   let { movieId } = useParams();
   const [movie, setMovie] = useState({});
   // console.log(movie)
   
   const fetchMovie = async () => {
     try {
-      const response = await axios.get(`http://localhost:4000/api/movies/${movieId}`);
+      const response = await axios.get(`${url}/movies/${movieId}`);
       setMovie(response.data);
     } catch (err) {
       console.log(err);

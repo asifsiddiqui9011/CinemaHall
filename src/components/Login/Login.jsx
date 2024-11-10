@@ -6,7 +6,7 @@ import { CinemaContext } from "../../Contex/CinemaContext"
 const Login = (props) => {
 
 
-  const{fetchUser,getAllTicket}=useContext(CinemaContext)
+  const{fetchUser,getAllTicket,url}=useContext(CinemaContext)
 
   const [userData,setUserdata] = useState ({
    
@@ -24,7 +24,7 @@ const Login = (props) => {
   const login = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch('http://localhost:4000/api/login', {
+      const response = await fetch(`${url}/login`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',

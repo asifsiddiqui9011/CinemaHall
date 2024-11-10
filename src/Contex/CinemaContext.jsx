@@ -11,6 +11,10 @@ export const CinemaContext = createContext(null);
 
  
 const CinemaContextProvider = (props) => {
+
+
+
+  const url = "http://localhost:4000/api";
     
 const [allTheater,setAllTheater] = useState([]) 
 const [allMovies,setAllMovies] = useState([])
@@ -48,7 +52,7 @@ console.log(fetchedUserData,"fetchuser data")
 // }, []); 
 const fetchUser = async () => {
   try {
-    const response = await fetch('http://localhost:4000/api/getuser', {
+    const response = await fetch(`${url}/api/getuser`, {
       method: "GET", // Changed to GET request
       headers: {
         'Accept': 'application/json', // Correct content type
@@ -76,7 +80,7 @@ const [allTicket, setAllTicket] = useState([]);
 
 const getAllTicket = async () => {
   try {
-    const response = await fetch('http://localhost:4000/api/getUserTickets', {
+    const response = await fetch(`${url}/getUserTickets`, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -100,7 +104,7 @@ useEffect(() => {
 
 useEffect(()=>{
 
-    axios.get("http://localhost:4000/api/screens")
+    axios.get(`${url}/api/screens`)
     .then((response) => {
         setAllTheater(response.data);
     })
@@ -108,7 +112,7 @@ useEffect(()=>{
         console.error("There was an error fetching the Thater", error);
     });  
     
-    axios.get("http://localhost:4000/api/movies")
+    axios.get(`${url}/api/movies`)
     .then((response) => {
         setAllMovies(response.data);
     })
@@ -249,7 +253,7 @@ const TicketHandler = (e)=>{
 
 
 
-   const contextValue = {login,loginToggle,handleSwitch,handleToggle,allTicket,getAllTicket,fetchedUserData,fetchUser,handlebooking,booking,selectSeat,handleDSelect,handleNSelect,handlePSelect,setTicket,ticket,TicketHandler,allTheater,selectedScreen,setSelectedScreen,setSelectedSlot,selectedSlot,bookedseat,allMovies,checkBooking};
+   const contextValue = {url,login,loginToggle,handleSwitch,handleToggle,allTicket,getAllTicket,fetchedUserData,fetchUser,handlebooking,booking,selectSeat,handleDSelect,handleNSelect,handlePSelect,setTicket,ticket,TicketHandler,allTheater,selectedScreen,setSelectedScreen,setSelectedSlot,selectedSlot,bookedseat,allMovies,checkBooking};
     
     return (
         <CinemaContext.Provider value={contextValue}>

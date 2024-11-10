@@ -4,7 +4,7 @@ import { CinemaContext } from "../../Contex/CinemaContext"
 const Signup = (props) => {
 
 
-  const{fetchUser}= useContext(CinemaContext)
+  const{fetchUser,url}= useContext(CinemaContext)
 
   const [signupData,setSignupData] = useState ({
     
@@ -30,7 +30,7 @@ const Signup = (props) => {
 		// console.log("signup Function Executed",signupData);\
     try {
       let responseData;
-		await fetch('http://localhost:4000/api/users',{
+		await fetch(`${url}/users`,{
 			method:'POST',
 			headers:{
 				Accept:'application/form-data',

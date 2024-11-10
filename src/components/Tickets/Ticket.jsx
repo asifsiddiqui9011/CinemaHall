@@ -5,13 +5,13 @@ import axios from "axios"
 
 const Ticket = ({ticket,style}) => {
 
-  const{fetchedUserData} = useContext(CinemaContext)
+  const{fetchedUserData,url} = useContext(CinemaContext)
 
   console.log(ticket,"tt")
 
   const cancelTicket = async (ticketId) => {
     try {
-      const response = await axios.delete(`http://localhost:4000/api/tickets/cancel/${ticketId}`, {
+      const response = await axios.delete(`${url}/tickets/cancel/${ticketId}`, {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',

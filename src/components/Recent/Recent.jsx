@@ -11,7 +11,7 @@ import { CinemaContext } from '../../Contex/CinemaContext';
 const  Recent=()=>{
     
     const{allMovies} = useContext(CinemaContext)
-    const movieId = "66c9d349d764708725d7ee9c";
+    // const movieId = "66c9d349d764708725d7ee9c";
     return(
         <section className="main_container" id='newRelease'>
           
@@ -24,7 +24,7 @@ const  Recent=()=>{
            
           {allMovies[0] &&( 
             <div className="left_div">
-             <Link to={`/description/${movieId}`}> <Card2 movieName={allMovies[0].movieName} genre={allMovies[0].genre} language={allMovies[0].language}  image={allMovies[0].imageMainUrl} bgimg={allMovies[0].imageBackgroundUrl}/></Link>
+             <Link to={`/description/${allMovies[0]._id}`}> <Card2 movieName={allMovies[0].movieName} genre={allMovies[0].genre} language={allMovies[0].language}  image={allMovies[0].imageMainUrl} bgimg={allMovies[0].imageBackgroundUrl}/></Link>
             </div>  )}
 
           

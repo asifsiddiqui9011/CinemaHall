@@ -9,7 +9,7 @@ import { CinemaContext } from "../../Contex/CinemaContext"
 
 const Description =()=>{
 
-    const {ticket,getAllTicket,TicketHandler,selectSeat,handlebooking,setTicket,allMovies,allTheater,booking,checkBooking,} = useContext(CinemaContext)
+    const {ticket,url,getAllTicket,TicketHandler,selectSeat,handlebooking,setTicket,allMovies,allTheater,booking,checkBooking,} = useContext(CinemaContext)
    
     const {movieId} = useParams();
     const {theaterId} = useParams();
@@ -76,7 +76,7 @@ const Description =()=>{
     // console.log(selectSeat,"selectseatdesc")
     const bookTicket = async ()=>{
         try {
-          const response = await axios.post(`http://localhost:4000/api/bookTicket/${movieId}/${theaterId}/${slotId}`,booking
+          const response = await axios.post(`${url}/bookTicket/${movieId}/${theaterId}/${slotId}`,booking
             ,{ headers: { 'auth-token': `${localStorage.getItem('auth-token')}` }}
           );
           console.log(" Ticket Booked successfully", response.data);
