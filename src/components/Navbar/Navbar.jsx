@@ -66,7 +66,7 @@ const Navbar = () => {
      
       </div>
       <div>
-         {localStorage.getItem('auth-token')?<CgProfile onClick={ProfileToggle} id="icon"/>:<button onClick={handleToggle}>Login</button>}
+         {localStorage.getItem('auth-token')?<CgProfile onClick={ProfileToggle} id="icon"/>:<button onClick={handleToggle} className="buyticketbtn" style={{marginTop:"50px"}}>Login</button>}
           {loginToggle &&(
           <div className="model-container">
               <div className="model">

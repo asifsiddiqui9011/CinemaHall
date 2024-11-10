@@ -91,7 +91,7 @@ const Signup = (props) => {
               <label >Password: </label>
               <input type="password" placeholder="enter password" name="password" id="password" value={signupData.password} onChange={changeHandler} required/>
             </span>
-            <button type="submit">Signup</button>
+            <button type="submit" className="cancel-tkt-btn">Signup</button>
           </form>
       </div>
       

@@ -207,7 +207,7 @@ const Description =()=>{
                             </table>
                             </div>
                         
-                        <button onClick={handlebooking} >Confirm Boking </button>
+                        <button onClick={handlebooking} className="buyticketbtn" style={{marginLeft:"130px", marginTop:"20px"}} >Confirm Boking </button>
                     </div>
                 </div>
                 <div className="seat-box">

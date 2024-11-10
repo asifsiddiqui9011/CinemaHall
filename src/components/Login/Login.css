@@ -15,6 +15,10 @@
 .login-img-container{
    height: 400px;
    width: 370px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
    
 }
 .login-img{

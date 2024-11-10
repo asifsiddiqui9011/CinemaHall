@@ -52,9 +52,9 @@ const Profile = (props) => {
       <span><h3>Phone:</h3> &nbsp;  &nbsp; <p>{fetchedUserData.phone}</p></span>
       <span><h3>Email:</h3>&nbsp;&nbsp;&nbsp;<p>{fetchedUserData.email}</p></span>
       <span><h3>Location:</h3> &nbsp;  &nbsp; <p>{fetchedUserData.location}</p></span>
-      <div>
-        <button>Edit</button>
-        <button onClick={logout}>SignOut</button>
+      <div style={{display:"flex",alignItems:"center", justifyContent:"center", width:"100%"}}>
+        <button className="cancel-tkt-btn">Edit</button>
+        <button onClick={logout} className="cancel-tkt-btn">SignOut</button>
       </div>
     </div>
     <div>

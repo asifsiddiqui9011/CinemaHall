@@ -101,7 +101,7 @@ const Login = (props) => {
               <p>Forgot Password</p>
               <p>Signup</p>
             </span>
-            <button type="submit">Login</button>
+            <button type="submit" className="cancel-tkt-btn">Login</button>
            
           </form>
       </div>
