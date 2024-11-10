@@ -14,7 +14,7 @@ const CinemaContextProvider = (props) => {
 
 
 
-  const url = "http://localhost:4000/api";
+  const url = 'http://localhost:4000/api';
     
 const [allTheater,setAllTheater] = useState([]) 
 const [allMovies,setAllMovies] = useState([])
@@ -52,7 +52,7 @@ console.log(fetchedUserData,"fetchuser data")
 // }, []); 
 const fetchUser = async () => {
   try {
-    const response = await fetch(`${url}/api/getuser`, {
+    const response = await fetch(`${url}/getuser`, {
       method: "GET", // Changed to GET request
       headers: {
         'Accept': 'application/json', // Correct content type
@@ -104,7 +104,7 @@ useEffect(() => {
 
 useEffect(()=>{
 
-    axios.get(`${url}/api/screens`)
+    axios.get(`${url}/screens`)
     .then((response) => {
         setAllTheater(response.data);
     })
@@ -112,7 +112,7 @@ useEffect(()=>{
         console.error("There was an error fetching the Thater", error);
     });  
     
-    axios.get(`${url}/api/movies`)
+    axios.get(`${url}/movies`)
     .then((response) => {
         setAllMovies(response.data);
     })
