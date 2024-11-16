@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { Suspense, useContext, useState } from "react"
 import "./Banner.css"
 import CardImg from "../../../public/card-image.jpg"
 import { CinemaContext } from "../../Contex/CinemaContext"
@@ -7,6 +7,9 @@ import { Link } from "react-router-dom"
 import { Carousel } from 'react-responsive-carousel';
 import Bann from "./Bann"
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+
+import Loader from "../Loader/Loader"
+
 
 const Banner = () => {
 
@@ -18,10 +21,10 @@ const Banner = () => {
 
 
   return (
-    <Carousel autoPlay={true} infiniteLoop={true} autoFocus={true} useKeyboardArrows={true}>
+    <Carousel autoPlay={true} infiniteLoop={true} autoFocus={true} useKeyboardArrows={true} swipeable={false}>
       {allMovies.map((movie,index)=>{
         return(
-          <Bann key={index} movie={movie}/>
+            <Bann key={index} movie={movie}/>
         )
       })}
     </Carousel>
