@@ -62,7 +62,19 @@ const TheaterSlot = (props) => {
                 )
 }})}
 
-            {/* {allTheater 
+           
+        </div>
+      
+  )
+}
+
+export default TheaterSlot
+
+
+
+
+
+ {/* {allTheater 
             .filter((theater) => 
                     
                     theater.location == ticket.city.toLowerCase())
@@ -122,9 +134,3 @@ const TheaterSlot = (props) => {
                  </div>
              </div> */}
             {/* </Link> */}
-        </div>
-      
-  )
-}
-
-export default TheaterSlot

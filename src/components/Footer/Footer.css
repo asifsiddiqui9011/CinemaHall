@@ -1,9 +1,10 @@
-.sb-footer-section-padding{
-    padding: 2rem 2rem;
-}
+/* .sb-footer-section-padding{
+    padding: 1rem 1rem;
+} */
 .footer{
     background-color: rgb(7, 15, 8);
-    margin: -10px -10px;
+    width: 98vw;
+    padding: 10px;
 }
 .sb-footer{
     display: flex;

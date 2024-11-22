@@ -1,9 +1,10 @@
 .choose-theater-slot{
     width: 70vw;
     border-radius: 15px;
-   background-color: white;
+    background-color: white;
     display: flex;
     flex-direction: column;
+    margin-left: -50px;
 }
 
 .theater-toggle-containerr{
@@ -30,15 +31,16 @@
     margin: 10px;
     border-radius: 15px; 
     color: black;  
-    border: 1px solid black;
+    border:2px solid rgba(170, 51, 229, 0.49)
 }
 
 .theater-desc{
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
     border-radius: 10px;
     padding: 5px;
+    box-shadow: 1px 1px 5px rgba(211, 4, 243, 0.177);
+    color: rgb(137, 43, 226);
 }
 
 .slots-container{
@@ -50,11 +52,26 @@
 }
 
 .slot{
-    border: 1px solid blueviolet;
     padding:5px;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
     color: rgba(137, 43, 226, 0.581);
+    box-shadow: 1px 1px 5px rgba(211, 4, 243, 0.177);
+}
 
+.slot:hover{
+    box-shadow: 2px 2px 7px rgba(211, 4, 243, 0.277);
+
+}
+
+@media (max-width:768px) {
+
+    .choose-theater-slot{
+        width: 80vw;
+    }
+    .theater-slot{
+        font-size: 11px;
+    }
+    
 }

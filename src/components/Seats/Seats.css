@@ -76,3 +76,35 @@
     margin: 5px;
     text-align: center; 
 }
+
+
+@media (max-width:770px) {
+    .screen h1{
+        font-size:20px;
+    }
+    .seat,.vacant,.booked{
+        height: 15px;
+        width: 15px;
+        margin: 3px;
+    }
+    .normal,.delux,.premium{
+        width: 85vw;
+        height: fit-content;
+        margin-bottom: 10px;
+    }
+
+}
+
+@media (max-width:405px) {
+    .normal,.delux,.premium{
+        width: 96vw;
+        height: fit-content;
+        margin-bottom: 10px;
+    }
+
+    .seat,.vacant,.booked{
+        height: 12px;
+        width: 12px;
+        margin: 3px;
+    }
+}

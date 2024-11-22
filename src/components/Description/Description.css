@@ -86,7 +86,7 @@ table,tr{
 }
 
 #selectedslot{
-    border: 4px solid skyblue;
+   box-shadow: 0.5px 0.5px 10px rgba(12, 147, 244, 0.577);
     color: blueviolet;
 }
 

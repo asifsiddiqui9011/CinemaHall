@@ -62,3 +62,68 @@
    /* backdrop-filter: blur(20px); */
    background-color: black;
 }
+
+.menu-toggle-btn{
+ display: none;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle-btn {
+    display: block;
+  }
+}
+
+@media (max-width:768px) {
+  .nav-btns-container{
+    display: none;
+  }
+
+  .menu-toggle-btn{
+    display: block;
+  }
+
+
+  .navbar-scrolled{
+    padding-left: 10px;
+  }
+
+  .navbar{
+    padding-left: 10px;
+  }
+}
+
+.menu-toggle-btn{
+  color:white;
+  font-size: x-large;
+  background-color:transparent;
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+
+/* Keyframe Animation for Sliding */
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* For the container when menu is toggled open */
+.nav-btns-container.open {
+  display: flex;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  background-color: black;
+  width: 50vw;
+  color: white;
+  flex-direction: column;
+  height: fit-content;
+  animation: slideInFromLeft 1s ease-in-out; /* Apply sliding animation */
+  z-index: 1000;
+}
