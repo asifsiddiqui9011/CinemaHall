@@ -14,10 +14,15 @@
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(1px);
+    flex-wrap: wrap;
+    height: fit-content;
 }
 
+
+
 .movie-details{
-    height: 80vh;
+    /* height: 80vh; */
+    height: fit-content;
     width: 40vw;
     display: flex;
     justify-content: center;
@@ -28,12 +33,12 @@
     color: white;
     font-size: 20px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
-
+    flex-wrap:nowrap;
 }
 
 .theater-schedule{
-    height: 80vh;
-    width: 50vw;
+    /* height: 80vh; */
+    /* width: 50vw; */
     color: white;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
 }
@@ -95,3 +100,35 @@
     padding-left: 70px;
     padding-top: 20px;
  }
+
+
+ @media (max-width:768px) {
+    .blur{
+        width: 80vw;
+        flex-wrap: wrap;
+    }
+    .movie-details{
+        width:375px;
+        height: fit-content;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        font-size: medium;
+    }
+    .movie-title{
+        width:80%;
+        height: max-content;
+        }
+    .movie-description{
+        width:100%;
+        font-size: smaller;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .btn-div{
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+}

@@ -99,10 +99,10 @@ const Description =()=>{
     return(
         <div className="main-description">
             <div className="timing-bar">
+
                 <div className="timebar-dates-container">
-                    Dates: 
                    <span>
-                     <label for="date">Select a date:</label>
+                     <label for="date">Select date: </label>
                     <input type="date" id="date" name="date" defaultValue={date}  min={date} max={maxDate} onChange={TicketHandler}/>
                    </span>
                   

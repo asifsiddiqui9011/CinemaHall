@@ -54,7 +54,9 @@ const MovieDesc = () => {
     <div className="moviedesc-container" style={{backgroundImage:`url(${movie.imageBackgroundUrl})`}}>
         <div className="blur">
             <div className="movie-details">
+                    
                     <img src={movie.imageMainUrl} alt="" className="movie-card" />
+                   
                     <div className="movie-title">
                       <h3>{movie.movieName}</h3>
                          <h3>{movie.genre}</h3>
@@ -70,7 +72,6 @@ const MovieDesc = () => {
                        
                         <Link to={`${movie.trailerLink}` }target="_blank" rel="noopener noreferrer"> <button className="buyticketbtn" >Watch Trailer</button></Link>
                         </div>
-                    
                     </div>
             </div>
             <div className="theater-schedule">
