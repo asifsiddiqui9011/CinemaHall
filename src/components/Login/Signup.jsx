@@ -1,6 +1,6 @@
 import { useContext, useState } from "react"
 import { CinemaContext } from "../../Contex/CinemaContext"
-
+import './Login.css'
 const Signup = (props) => {
 
 
@@ -75,20 +75,16 @@ const Signup = (props) => {
               <p>Mobile: </p>
               <input type="text" placeholder="enter email" name="phone" id="phone" value={signupData.phone} onChange={changeHandler} required />
             </span>
-            
-            <span>
                 <span>
-                  <label >Age: &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                  <input type="number" placeholder="enter age" name="age" id="age" value={signupData.age} onChange={changeHandler} required style={{width:"40px"}}/>
+                  <p>Age:</p>
+                  <input type="number" placeholder="enter age" name="age" id="age" value={signupData.age} onChange={changeHandler} required/>
                 </span>
                 <span>
-                  <label >City:&nbsp;&nbsp; </label>
-                  <input type="text" placeholder="enter city" name="location" id="location" value={signupData.location} onChange={changeHandler} required style={{width:"150px"}}/>
+                  <p>City:</p>
+                  <input type="text" placeholder="enter city" name="location" id="location" value={signupData.location} onChange={changeHandler} required />
                 </span>
-            </span>
-            
             <span>
-              <label >Password: </label>
+              <p>Password: </p>
               <input type="password" placeholder="enter password" name="password" id="password" value={signupData.password} onChange={changeHandler} required/>
             </span>
             <button type="submit" className="cancel-tkt-btn">Signup</button>

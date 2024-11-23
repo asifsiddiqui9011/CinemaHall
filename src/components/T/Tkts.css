@@ -2,4 +2,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: scroll;
+    width:90vw;
+    flex-wrap: wrap;
+    height: 500px;
+    scrollbar-width: none;
+}
+
+@media (max-width:765px) {
+    .txt-container{
+    
+       flex-direction: column;
+       flex-wrap: wrap;
+    }
+    
 }

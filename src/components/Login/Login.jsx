@@ -84,8 +84,9 @@ const Login = (props) => {
     <div className="login-container">
      
       <div className="login-img-container">
-      <h2>Login  <hr /></h2>
-      <p>Doesn't have an account Click to <b onClick={props.signup}>SignUp</b></p>      </div>
+          <h2>Login  <hr /></h2>
+          <p>Doesn't have an account Click to <b onClick={props.signup}>SignUp</b></p>     
+      </div>
       <div className="login-form-container">
         {/* <h2>Login  <hr /></h2> */}
           <form  onSubmit={login} className="login-form">
@@ -94,7 +95,7 @@ const Login = (props) => {
               <input type="text" placeholder="enter email" name="email" id="email" value={userData.email} onChange={changeHandler} required />
             </span>
             <span>
-              <label >Password: </label>
+              <p>Password: </p>
               <input type="password" placeholder="enter password" name="password" id="password" value={userData.password} onChange={changeHandler} required/>
             </span>
             <span>
