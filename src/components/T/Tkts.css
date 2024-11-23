@@ -5,7 +5,6 @@
     overflow: scroll;
     width:90vw;
     flex-wrap: wrap;
-    height: 500px;
     scrollbar-width: none;
 }
 
