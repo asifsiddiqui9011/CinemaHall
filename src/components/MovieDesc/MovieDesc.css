@@ -130,5 +130,10 @@
         flex-wrap: wrap;
         gap: 20px;
     }
+
+    .buyticketbtn{
+        width: 100px;
+        height: 40px;   
+    }
     
 }

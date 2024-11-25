@@ -249,6 +249,12 @@ const TicketHandler = (e)=>{
     setLogin(!login)
 
   }
+
+  if(loginToggle){
+    document.body.classList.add("active-model")
+  }else{
+    document.body.classList.remove("active-model")
+  }
   
 
 
