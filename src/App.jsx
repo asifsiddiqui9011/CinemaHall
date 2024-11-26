@@ -8,13 +8,14 @@ import Home from './Pages/Home/Home';
 import MovieDesc from './components/MovieDesc/MovieDesc';
 import TheaterSlot from './components/BuyTickets/TheaterSlot';
 import City from './components/BuyTickets/City';
+import Loader from './components/Loader/Loader';
 function App() 
 {
   
   return (
     <>
      <Navbar />
-     
+     {/* <Loader></Loader> */}
      <Routes> 
      <Route
         path='/'

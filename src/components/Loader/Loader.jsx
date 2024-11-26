@@ -6,6 +6,7 @@ import CircularProgress, {
   circularProgressClasses,
 } from '@mui/material/CircularProgress';
 
+import './Loader.css'
 
 
 function Loader() {

@@ -1,19 +1,30 @@
 import './Recent.css'
 import { GrNext } from "react-icons/gr";
 import { GrPrevious } from "react-icons/gr";
-import Card2 from '../Cards/Card2'
-import Card3 from '../Cards/Card3'
+//import Card2 from '../Cards/Card2'
+//import Card3 from '../Cards/Card3'
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
+import { Suspense, useContext } from 'react';
 import { CinemaContext } from '../../Contex/CinemaContext';
+import { lazy } from 'react';
+import Loader from '../Loader/Loader'
 
+
+// const Card2 = lazy(() => import('../Cards/Card2'));
+// const Card3 = lazy(() => import('../Cards/Card3'));
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const Card2 = lazy(() => delay(1000).then(() => import('../Cards/Card2')));
+const Card3 = lazy(() => delay(2000).then(() => import('../Cards/Card3')));
 
 const  Recent=()=>{
     
     const{allMovies} = useContext(CinemaContext)
-    // const movieId = "66c9d349d764708725d7ee9c";
+   
+
     return(
         <section className="main_container" id='newRelease'>
+
           
             <h2>Now Showing</h2><div className="next_btn"><a href="#" className="previous round"><GrPrevious />
             </a>
@@ -23,8 +34,19 @@ const  Recent=()=>{
             <div className='newrelease-cards-conatiner'>
 
                         {allMovies[0] &&( 
+                            
                         <div className="left_div">
-                            <Link to={`/description/${allMovies[0]._id}`}> <Card2 movieName={allMovies[0].movieName} genre={allMovies[0].genre} language={allMovies[0].language}  image={allMovies[0].imageMainUrl} bgimg={allMovies[0].imageBackgroundUrl}/></Link>
+                            <Link to={`/description/${allMovies[0]._id}`}> 
+                            <Suspense fallback={<Loader/>}>
+                                <Card2 
+                                    movieName={allMovies[0].movieName} 
+                                    genre={allMovies[0].genre} 
+                                    language={allMovies[0].language}  
+                                    image={allMovies[0].imageMainUrl} 
+                                    bgimg={allMovies[0].imageBackgroundUrl}
+                                />
+                            </Suspense>
+                            </Link>
                         </div>  )}
 
                         
@@ -36,7 +58,16 @@ const  Recent=()=>{
                                 return(
 
                                     <div className='right_div1' key={index}>
-                                        <Link to={`/description/${movie._id}`}> <Card3 movieName={movie.movieName} genre={movie.genre} language={movie.language} image={movie.imageMainUrl}/></Link>
+                                        <Link to={`/description/${movie._id}`}> 
+                                        <Suspense fallback={<Loader/>}>
+                                            <Card3 
+                                                movieName={movie.movieName} 
+                                                genre={movie.genre} 
+                                                language={movie.language} 
+                                                image={movie.imageMainUrl}
+                                            />
+                                        </Suspense>
+                                        </Link>
                                     </div>
                                     
                                 )}

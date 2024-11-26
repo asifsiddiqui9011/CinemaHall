@@ -1,10 +1,9 @@
 .loader-container{
-    min-width: 200px;
+    min-width: 275px;
     min-height: 200px;
-    max-height: 500px;
+    max-height: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: aqua;
     padding: 50px;
 }

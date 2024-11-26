@@ -1,6 +1,8 @@
 import "./Card.css"
 
 const Card = (props) => {
+
+
   return (
     <div className="card_1" style={{backgroundImage:`url(${props.image})`}}>
       <div className="card-text">

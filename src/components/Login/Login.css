@@ -53,12 +53,9 @@ span{
 }
 
 input,#age{
-   max-height: 40px;
-   min-height: 25px;
-   /* background-color:aliceblue; */
+   height: 40px;
    padding: 0px 5px;
-   max-width: 250px;
-   min-width: 100px;
+   width: 250px;
    outline: none;
    border: none;
    background-color: white;
@@ -84,8 +81,9 @@ input,#age{
       height: 35px;
    }
 
-   .login-form input{
+   .login-form input,#age{
       width: 150px;
+      height: 25px;
       color: blueviolet
    };
 
@@ -121,9 +119,6 @@ input,#age{
       height: 35px;
    }
 
-   .login-form input{
-      width: 150px
-   };
 
    .login-img-container{
       height: fit-content;
