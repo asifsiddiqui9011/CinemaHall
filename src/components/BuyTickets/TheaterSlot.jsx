@@ -38,7 +38,6 @@ const TheaterSlot = (props) => {
  
     return (
 
-    
         <div className="choose-theater-slot" style={props.style}>
              {allTheater
                 .filter((theater) => theater.location === ticket.city.toLowerCase())
@@ -53,16 +52,23 @@ const TheaterSlot = (props) => {
                         <p>{theater.location}</p>
                         </div>
                         <div className="slots-container">
-                        {theater.slot && theater.slot.map((slot, i) => (
-                            <Link to={`${theater._id}/seatbooking/${slot._id}` }  key={slot._id}> 
-                                <div className="slot" key={i} onClick={() => setSelectedSlot(slot)}>
-                                        Slot {index + 1}
-                                        <span>{slot.time} {slot.start} - {slot.end}</span>
-                                        <span>{theater.screenType}</span>
-                                </div>   
-                            </Link>
+                        {theater.slot && theater.slot.map((slot, i) => {
+                            if(slot.movieId == movieId){
+                                return(
+                                    <Link to={`${theater._id}/seatbooking/${slot._id}` }  key={slot._id}> 
+                                        <div className="slot" key={i} onClick={() => setSelectedSlot(slot)}>
+                                                Slot {index + 1}
+                                                <span>{slot.time} {slot.start} - {slot.end}</span>
+                                                <span>{theater.screenType}</span>
+                                        </div>   
+                                    </Link>
+                                )
+                            }
+                        }
+
+                            
                         )
-                        )}
+                        }
                         </div>
                     </div>
                     
