@@ -16,7 +16,7 @@ const Recent = lazy(() => new Promise(resolve => {
   setTimeout(() => resolve(import('../../components/Recent/Recent')), 2000);
 }));
 const Banner = lazy(() => new Promise(resolve => {
-  setTimeout(() => resolve(import('../../components/Banner/Banner')), 2000);
+  setTimeout(() => resolve(import('../../components/Banner/Banner')), 4000);
 }));
 const ComingSoon = lazy(() => new Promise(resolve => {
   setTimeout(() => resolve(import('../../components/ComingSoon/ComingSoon')), 2000);
@@ -47,6 +47,7 @@ const Home = () => {
           <Banner/>
         </Suspense>
         <Tkts/>
+      
         <Suspense fallback={<Loader/>}>
         <Recent/>
         <ComingSoon/>

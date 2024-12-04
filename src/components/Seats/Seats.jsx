@@ -5,7 +5,7 @@ import { CinemaContext } from "../../Contex/CinemaContext"
 import { useEffect } from "react"
 import { useParams } from "react-router-dom"
 
-
+import { RiSofaFill } from "react-icons/ri";
 
 
 const Seats = () => {
@@ -154,9 +154,8 @@ const Seats = () => {
         else{
             return(
                 <div key={i} className="vacant">
-                <p></p>   
+                {/* <RiSofaFill key={i}  fontSize={"25px"} style={{transform:'rotateX(10deg)'}}/>    */}
                 </div>
-    
             )
             }
         })} 

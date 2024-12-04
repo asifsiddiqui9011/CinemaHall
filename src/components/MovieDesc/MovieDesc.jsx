@@ -12,10 +12,16 @@ const MovieDesc = () => {
     
 
 
-  const {slotToggle,cityToggle,cityToggleHandler,ticket,slotToggleHandler,url,handleToggle} = useContext(CinemaContext)
+  const {slotToggle,cityToggle,cityToggleHandler,setTicket,ticket,slotToggleHandler,url,handleToggle} = useContext(CinemaContext)
   let { movieId } = useParams();
   const [movie, setMovie] = useState({});
-  // console.log(movie)
+  
+  const [city,setCity] = useState('')
+  console.log(city,"moviedesc city")
+  const handleCity = (e)=>{
+    setCity(e.target.value)
+    setTicket((prev)=>({...prev,[e.target.name]:e.target.value}))
+  }
   
   const fetchMovie = async () => {
     try {
@@ -29,13 +35,13 @@ const MovieDesc = () => {
   };
   
   useEffect(() => {
-    if(ticket.city){
+    if(city){
       setlocation(false)
       setTheaterToggle(true)
     }
       fetchMovie();
 
-  },[movieId,ticket.city]);
+  },[movieId,city]);
   
    const [location,setlocation] = useState(false)
 
@@ -97,7 +103,7 @@ const MovieDesc = () => {
         {location==true ?(
           <div className="city-toggle-container">
                <RxCross2 onClick={()=>{setlocation(false)}} id="icon"/>
-                <City/>   
+                <City cityHandler={handleCity}/>   
           </div>
              
         ):''}

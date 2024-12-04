@@ -1,41 +1,46 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, useParams } from 'react-router-dom'
 import { CinemaContext } from '../../Contex/CinemaContext'
 import { useContext } from 'react'
 import { RxCross2 } from "react-icons/rx";
 import TheaterSlot from "../BuyTickets/TheaterSlot"
 import City from "../BuyTickets/City"
 import { useState } from 'react';
-import CustomDropdown from '../BuyTickets/CityDropdown';
 
 const Bann = ({movie}) => {
-    const {TicketHandler,ticket,setTicket,handleToggle} = useContext(CinemaContext)
+    const {setTicket,handleToggle} = useContext(CinemaContext)
 
-    const style = {
-      backgroundColor:"blue"
-    }
-    const[cityToggle,setCityToggle]= useState(false)  
+    
 
 
-    const[slotToggle,setSlotToggle]= useState(false)  
+    const[city,setCity]=useState('')
+    // console.log(city,"banner city ")
 
-    const thr = ()=>{
-      setCityToggle(false)
-      setSlotToggle(true)
-      console.log("thr clicked")
-    }
-    const slotToggleHandler = ()=>{
-        setSlotToggle(!slotToggle)
+    
+    const[cityselector,setCitySelector] = useState(false);
+    const[slotSelector,setSlotSelector] = useState(false);
 
+    const cityToggleHandle = ()=>{
+      setCitySelector(!cityselector)
     }
 
-    const cityToggleHandler = (e)=>{
-      setCityToggle(!cityToggle)
-    if(e){
-      setTicket((prev)=>({...prev,movieId:e}))
-    }
+    const slotTogglegHandle =()=>{
+      setSlotSelector(!slotSelector)
     }
 
+    const cityHandler = (e)=>{
+      setCity(e.target.value)
+      setTicket((prev)=>({...prev,[e.target.name]:e.target.value}))
+    }
+
+    useEffect(()=>{
+      if(city){
+        slotTogglegHandle();
+        cityToggleHandle();
+        
+      }
+    },[city])
+    
 
   return (
     <>
@@ -58,7 +63,7 @@ const Bann = ({movie}) => {
             <b>{movie.language}</b>
             <div className="flow-btns">
               {localStorage.getItem('auth-token')!==null?
-           <Link to={`/${movie._id}`}><button className="buyticket_btn"  onClick={()=>{cityToggleHandler(`${movie._id}`)}} >Buy Tickets</button></Link> :
+           <Link to={`/${movie._id}`}><button className="buyticket_btn"  onClick={cityToggleHandle} >Buy Tickets</button></Link> :
            <button className="buyticket_btn"  onClick={handleToggle} >Buy Tickets</button> }  
              <Link to={`${movie.trailerLink}` }target="_blank" rel="noopener noreferrer"> <button className="buyticket_btn">Trailer</button></Link>
             </div>
@@ -66,17 +71,16 @@ const Bann = ({movie}) => {
       </div>
       </div>
     </div>
-    {cityToggle &&(
+    {cityselector &&(
           <div className="theater-toggle-containerr">
-             <RxCross2 onClick={()=>{setCityToggle(false)}} id="icon"/>
-              {/* <City style={style} pop={thr}/>  */}
-              <CustomDropdown pop={thr}/>
+             <RxCross2 onClick={cityToggleHandle} id="icon"/>
+             <City  cityHandler={cityHandler} />
           </div>   
         )}
-        {slotToggle &&(
+        { slotSelector&&(
           <div className="theater-toggle-containerr">
-            <RxCross2 onClick={()=>{setSlotToggle(false)}} id="icon" style={{marginRight:"-1120px"}}/>
-             <TheaterSlot style={style}/>   
+            <RxCross2 onClick={slotTogglegHandle} id="icon" style={{marginRight:"-1120px"}}/>
+             <TheaterSlot/>   
              </div>  
          )}
     </>

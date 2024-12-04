@@ -15,19 +15,26 @@ const TheaterSlot = (props) => {
         console.log(selectedScreen,"selectedSCreen")
     }
 
-    const SelectSlotHandler =(e)=>{
-        setSelectedSlot(e)
-    }
-
+    // const SelectSlotHandler =(e)=>{
+    //     setSelectedSlot(e)
+    // }
+    const thtr = allTheater.filter((theater) => theater.location.toLowerCase() === ticket.city.toLowerCase() && theater.slot.some((data) => data.movieId === movieId) );
+    
+    
+    if (thtr.length === 0) {
+        return (
+            <div className="Not-found-container">
+                <h3>No theater found for your choosen city or movie</h3>
+            </div>
+        );
+    } 
+    
     useEffect(()=>{
         if(selectedSlot.n){
             console.log(selectedSlot,"selected Slot")
         }
     },[selectedSlot])
-    
-    // && 
-    //                 Array.isArray(theater.slot) && 
-    //                 theater.slot.some(slot => slot.movieId === ticket.movieId))
+
  
     return (
 
@@ -60,7 +67,8 @@ const TheaterSlot = (props) => {
                     </div>
                     
                 )
-}})}
+                
+                }})}
 
            
         </div>

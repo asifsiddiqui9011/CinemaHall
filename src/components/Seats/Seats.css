@@ -50,6 +50,7 @@
     margin: 5px;
     color: black;
     text-align: center;
+    border-radius: 3px 3px 0px 0px;
 }
 
 .seat:hover{
