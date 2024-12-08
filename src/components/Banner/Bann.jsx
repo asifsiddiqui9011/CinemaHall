@@ -72,7 +72,7 @@ const Bann = ({movie}) => {
       </div>
     </div>
     {cityselector &&(
-          <div className="theater-toggle-containerr">
+          <div className="theater-toggle-container" >
              <RxCross2 onClick={cityToggleHandle} id="icon"/>
              <City  cityHandler={cityHandler} />
           </div>   

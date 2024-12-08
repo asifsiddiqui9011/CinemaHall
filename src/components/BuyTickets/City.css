@@ -1,13 +1,33 @@
 
 
 .choose-city{
-    height: 70vh;
-    width: 30vw;
+    height: 40vh;
+    width: 25vw;
     border-radius: 15px;
     background-color: white;
     display: flex;
     flex-direction: column;
-
+    overflow: scroll;
+    scrollbar-width: none;
 }
 
+
+  
+  .dropdown-select {
+    width:25vw;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-align: center;
+  }
+  
+  .dropdown-select:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
 

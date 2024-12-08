@@ -15,16 +15,17 @@ const City = ({style,cityHandler}) => {
   
   return (
     
-          <div className="choose-city" style={style}>
-       <select name="city" id="city" value={ticket.city} onChange={cityHandler}>
+    <div className="choose-city" style={style}>
+       <select name="city" id="city" value={ticket.city} onChange={cityHandler} className="dropdown-select">
+        <option value=""> Select your city</option>
         {cities.map((city,index)=>{
           return(
             <option key={index} value={`${city}`}>{city}</option>
           )
         })}
        </select>
-  </div>
-       
+    </div>
+          
   )
 }
 
