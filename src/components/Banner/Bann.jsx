@@ -2,48 +2,49 @@ import React, { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { CinemaContext } from '../../Contex/CinemaContext'
 import { useContext } from 'react'
-import { RxCross2 } from "react-icons/rx";
-import TheaterSlot from "../BuyTickets/TheaterSlot"
-import City from "../BuyTickets/City"
+// import { RxCross2 } from "react-icons/rx";
+// import TheaterSlot from "../BuyTickets/TheaterSlot"
+// import City from "../BuyTickets/City"
 import { useState } from 'react';
 
-const Bann = ({movie}) => {
+const Bann = ({movie,cityToggleHandle}) => {
+
+
     const {setTicket,handleToggle} = useContext(CinemaContext)
 
     
 
 
-    const[city,setCity]=useState('')
+    // const[city,setCity]=useState('')
     // console.log(city,"banner city ")
 
     
-    const[cityselector,setCitySelector] = useState(false);
-    const[slotSelector,setSlotSelector] = useState(false);
+    // const[cityselector,setCitySelector] = useState(false);
+    // const[slotSelector,setSlotSelector] = useState(false);
 
-    const cityToggleHandle = ()=>{
-      setCitySelector(!cityselector)
-    }
+    // const cityToggleHandle = ()=>{
+    //   setCitySelector(!cityselector)
+    // }
 
-    const slotTogglegHandle =()=>{
-      setSlotSelector(!slotSelector)
-    }
+    // const slotTogglegHandle =()=>{
+    //   setSlotSelector(!slotSelector)
+    // }
 
-    const cityHandler = (e)=>{
-      setCity(e.target.value)
-      setTicket((prev)=>({...prev,[e.target.name]:e.target.value}))
-    }
+    // const cityHandler = (e)=>{
+    //   setCity(e.target.value)
+    //   setTicket((prev)=>({...prev,[e.target.name]:e.target.value}))
+    // }
 
-    useEffect(()=>{
-      if(city){
-        slotTogglegHandle();
-        cityToggleHandle();
+    // useEffect(()=>{
+    //   if(city){
+    //     slotTogglegHandle();
+    //     cityToggleHandle();
         
-      }
-    },[city])
+    //   }
+    // },[city])
     
 
   return (
-    <>
     <div className="banner-container" style={{backgroundImage:`url(${movie.imageBackgroundUrl})`}} >
         <div style={{height:"inherit",width:"100vw",backdropFilter:"blur(2px)"}}>
 
@@ -70,8 +71,7 @@ const Bann = ({movie}) => {
         </div>
       </div>
       </div>
-    </div>
-    {cityselector &&(
+      {/* {cityselector &&(
           <div className="theater-toggle-container" >
              <RxCross2 onClick={cityToggleHandle} id="icon"/>
              <City  cityHandler={cityHandler} />
@@ -82,8 +82,8 @@ const Bann = ({movie}) => {
             <RxCross2 onClick={slotTogglegHandle} id="icon" style={{marginRight:"-1120px"}}/>
              <TheaterSlot/>   
              </div>  
-         )}
-    </>
+         )} */}
+    </div>
   )
 }
 
