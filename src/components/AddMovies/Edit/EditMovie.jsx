@@ -27,7 +27,7 @@ const EditMovie = () => {
 
   return (
     <div className="addmovie-container">
-      <h1 className="heading">Add Movie</h1>
+      <h1 className="heading">Update Movie</h1>
       <form onSubmit={updateMovie} className="form">
         <span>
           Movie_Name:{" "}

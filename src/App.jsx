@@ -21,10 +21,7 @@ function App() {
     <>
     <Navbar/>
     <Sidebar/>
-    <div className='display-container'>
-      
-       {/* <AddToScreen/> */}
-      
+    <div className='display-container'>   
        <Routes>
         <Route
           path='/addmovies'
@@ -52,11 +49,11 @@ function App() {
           element={<AllThaterList/>}
         />
          <Route path="/theaterlist" element={<TheaterList />}>
-  <Route path=":id" element={<TheaterDesc />} />
-</Route>
-<Route path="/theaterlist/:id/edit" element={<EditTheater />} />
+         <Route path=":id" element={<TheaterDesc />} />
+         </Route>
+         <Route path="/theaterlist/:id/edit" element={<EditTheater />} />
 
-       </Routes>
+         </Routes>
     </div>
     
      

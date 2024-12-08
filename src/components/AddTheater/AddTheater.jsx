@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import axios from "axios";
 import "./AddTheater.css"
 
@@ -9,33 +9,34 @@ const AddTheater = () => {
 
   const [theater, setTheater] = useState({
     booleanArrays: {
-      n: [],
-      p: [],
-      d: []
+      n: Array(40).fill(false),
+      p: Array(80).fill(false),
+      d: Array(40).fill(false)
     }
   });
 
   const handleNseats = (number) => {
-
-    setTheater((prev) => ({ 
-      ...prev, 
-      booleanArrays: { ...prev.booleanArrays, n: [...prev.booleanArrays, !prev.booleanArrays.n[number]] }
-    }));
-  }
+  setTheater((prev) => { 
+    const newN = [...prev.booleanArrays.n]; 
+    newN[number] = !newN[number]; 
+    return { ...prev, booleanArrays: { ...prev.booleanArrays, n: newN } }; 
+  }); };
 
   const handlePseats = (number) => {
-    setTheater((prev) => ({
-      ...prev,
-      booleanArrays: { ...prev.booleanArrays, p: [...prev.booleanArrays.p, !prev.booleanArrays.p[number]] }
-    }));
-  }
+    setTheater((prev) => { 
+      const newP = [...prev.booleanArrays.p]; 
+      newP[number] = !newP[number]; 
+      return { ...prev, booleanArrays: { ...prev.booleanArrays, p: newP } }; 
+    }); 
+  };
 
   const handleDseats = (number) => {
-    setTheater((prev) => ({
-      ...prev,
-      booleanArrays: { ...prev.booleanArrays, d: [...prev.booleanArrays.d, !prev.booleanArrays.d[number]] }
-    }));
-  }
+    setTheater((prev) => { 
+      const newD= [...prev.booleanArrays.d]; 
+      newD[number] = !newD[number]; 
+      return { ...prev, booleanArrays: { ...prev.booleanArrays, d: newD } }; 
+    }); };
+  
 
   const changeHandler = (e) => {
     setTheater((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -51,6 +52,10 @@ const AddTheater = () => {
       console.error("Error creating theater", error.response?.data || error.message);
     }
   }
+
+  useEffect(() => { 
+    console.log(theater);  
+    }, [theater]);
 
   return (
     <div className="theater-container">
@@ -68,6 +73,11 @@ const AddTheater = () => {
             </span>
             <button type="submit">Add Theater</button>
           </form>
+          {/* <div> 
+          <h1>Theater Values</h1> 
+          {Object.entries(theater.booleanArrays).map(([key, value]) => ( 
+            <div key={key}> <strong>{key}:</strong> {value.join(', ') || "No values"} </div> ))}
+           </div> */}
       </div>
       <div className="slots-seats-container">
           <div className="seating-container">

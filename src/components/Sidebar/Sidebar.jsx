@@ -17,7 +17,7 @@ const Sidebar = () => {
             </div>
         </Link>
        :''} 
-       {!Authorization ? 
+       {Authorization ? 
         <Link to={"addtheater"}>
             <div className="icons">
             <h2>Add Theater</h2>
@@ -30,7 +30,7 @@ const Sidebar = () => {
             </div >
         </Link>
         
-       {Authorization ? <Link to={"alltheaterlist"}>
+       {!Authorization ? <Link to={"alltheaterlist"}>
             <div className="icons">
             <h3> All Theater List</h3>
             </div>
