@@ -8,6 +8,8 @@ import { CinemaContext } from "../../Contex/CinemaContext"
 import Ticket from "../../components/Tickets/Ticket"
 import Tkts from "../../components/T/Tkts"
 import Loader from "../../components/Loader/Loader"
+import Banner from "../../components/Banner/Banner"
+import Txtlogo from "../../components/Tickets/Txtlogo"
 
 
 // const Recent = lazy(()=>import("../../components/Recent/Recent"))
@@ -15,9 +17,9 @@ import Loader from "../../components/Loader/Loader"
 const Recent = lazy(() => new Promise(resolve => {
   setTimeout(() => resolve(import('../../components/Recent/Recent')), 2000);
 }));
-const Banner = lazy(() => new Promise(resolve => {
-  setTimeout(() => resolve(import('../../components/Banner/Banner')), 4000);
-}));
+// const Banner = lazy(() => new Promise(resolve => {
+//   setTimeout(() => resolve(import('../../components/Banner/Banner')), 4000);
+// }));
 const ComingSoon = lazy(() => new Promise(resolve => {
   setTimeout(() => resolve(import('../../components/ComingSoon/ComingSoon')), 2000);
 }));
@@ -43,11 +45,11 @@ const Home = () => {
   
   return (
     <div>
-        <Suspense fallback={<Loader/>}>
+        {/* <Suspense fallback={<Loader/>}>
           <Banner/>
-        </Suspense>
-        <Tkts/>
-      
+        </Suspense> */}
+        <Banner/>
+        <Txtlogo/>
         <Suspense fallback={<Loader/>}>
         <Recent/>
         <ComingSoon/>

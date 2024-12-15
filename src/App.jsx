@@ -9,6 +9,7 @@ import MovieDesc from './components/MovieDesc/MovieDesc';
 import TheaterSlot from './components/BuyTickets/TheaterSlot';
 import City from './components/BuyTickets/City';
 import Loader from './components/Loader/Loader';
+import Tkts from './components/T/Tkts';
 function App() 
 {
   
@@ -36,6 +37,10 @@ function App()
       <Route
         path='/description/:movieId'
         element={<MovieDesc/>}
+      />
+      <Route
+        path='/tickets'
+        element={<Tkts/>}
       />
      </Routes>
      <Footer/>

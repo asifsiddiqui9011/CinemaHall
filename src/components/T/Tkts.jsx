@@ -17,7 +17,7 @@ const Tkts = () => {
 
   if (!allTicket.length) {
     return (
-      <div className='tkt-container'>
+      <div className='tkt-container' style={{height:"400px",color:"white"}}>
         <h1>No tickets found</h1>
       </div>
     );

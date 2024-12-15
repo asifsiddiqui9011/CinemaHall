@@ -1,4 +1,4 @@
-.banner-container{
+/* .banner-container{
     border: 2px solid black;
     min-height: 88vh;
     display: flex;
@@ -10,20 +10,53 @@
    box-shadow: inset 0px -150px 80px 10px  rgba(0,0,0,1.5);
     z-index: 0;
     margin-bottom: 60px;
-    min-width:350px;
+    min-width:350px;   
+} */
 
-    
-}
-
-
+.banner-container {
+    position: relative;
+    border: 2px solid black;
+    min-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 0;
+    margin-bottom: 60px;
+    min-width: 350px;
+    overflow: hidden; /* Prevent overflow outside the container */
+  }
+  
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the container */
+  }
+  
+  .banner-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%; /* Adjust height to control the overlay size */
+    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    z-index: 1; /* Place the overlay above the image */
+  }
+  
+  
 .banner-flow{
     /* width: 90vw; */
     display: flex;
     justify-content:start;
     gap: 50px;
     position: relative;
-    top: 50px;
+    top: 25vh;
     /* flex-wrap: wrap; */
+    z-index: 2;
     padding:0px 100px;
 }
 
@@ -45,17 +78,31 @@
     }
     
 }
-.flow-img{
+.flow-img {
     /* background-color: aqua; */
-    min-height: 400px;
+    min-height: 380px;
     min-width: 250px;
     max-width: 350px;
-
     border-radius: 15px;
     margin-bottom: 60px;
-    background-image: url("../../../public/card-image.jpg");
-    background-size: cover;
-}
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    overflow: hidden; 
+    position: relative; 
+  }
+  
+  .flow-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 15px; 
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  
 
 .flow-description{
    min-height: 300px;

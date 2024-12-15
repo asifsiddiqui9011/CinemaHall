@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { CinemaContext } from '../../Contex/CinemaContext'
 import { useContext } from 'react'
-// import { RxCross2 } from "react-icons/rx";
-// import TheaterSlot from "../BuyTickets/TheaterSlot"
-// import City from "../BuyTickets/City"
+import { lazy } from 'react'
+
 import { useState } from 'react';
+//import LazyImage from '../LazyImage/LazyImage';
+const LazyImage = lazy(()=>import('../LazyImage/LazyImage'))
 
 const Bann = ({movie,cityToggleHandle}) => {
 
@@ -13,45 +14,47 @@ const Bann = ({movie,cityToggleHandle}) => {
     const {setTicket,handleToggle} = useContext(CinemaContext)
 
     
-
-
-    // const[city,setCity]=useState('')
-    // console.log(city,"banner city ")
-
-    
-    // const[cityselector,setCitySelector] = useState(false);
-    // const[slotSelector,setSlotSelector] = useState(false);
-
-    // const cityToggleHandle = ()=>{
-    //   setCitySelector(!cityselector)
-    // }
-
-    // const slotTogglegHandle =()=>{
-    //   setSlotSelector(!slotSelector)
-    // }
-
-    // const cityHandler = (e)=>{
-    //   setCity(e.target.value)
-    //   setTicket((prev)=>({...prev,[e.target.name]:e.target.value}))
-    // }
-
-    // useEffect(()=>{
-    //   if(city){
-    //     slotTogglegHandle();
-    //     cityToggleHandle();
-        
-    //   }
-    // },[city])
-    
-
+    // style={{backgroundImage:`url(${movie.imageBackgroundUrl})`}} 
   return (
-    <div className="banner-container" style={{backgroundImage:`url(${movie.imageBackgroundUrl})`}} >
-        <div style={{height:"inherit",width:"100vw",backdropFilter:"blur(2px)"}}>
+    <div className="banner-container" >
+
+{/* <img src={movie.imageBackgroundUrl} alt="Movie Background" className="background-image" loading='lazy' /> */}
+
+<Suspense fallback={<h1>loading.....</h1>}>
+    <LazyImage
+      src={movie.imageBackgroundUrl}
+      alt="Movie Background"
+      className="background-image"
+      style={{
+        position: 'absolute',
+        zIndex: '-1',
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+      }}
+    />
+</Suspense>
+
+<div style={{minHeight:"88vh",width:"100vw",backdropFilter:"blur(2px)", zIndex:"5"}}>
 
        
       <div className="banner-flow">
-        <div className="flow-img" style={{backgroundImage:`url(${movie.imageMainUrl})`}}>
+        <div className="flow-img" >
 
+        <Suspense fallback={<h1>loading.....</h1>}>
+            <LazyImage
+                src={movie.imageMainUrl}
+                alt="movie image"
+                style={{
+                  position: 'absolute',
+                  zIndex: '-1',
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                }}
+              />
+          </Suspense>
+             {/* <img src={movie.imageMainUrl} alt="movie image" loading='lazy'/> */}
         </div>
         <div className="flow-description">
             <h1>
@@ -71,18 +74,6 @@ const Bann = ({movie,cityToggleHandle}) => {
         </div>
       </div>
       </div>
-      {/* {cityselector &&(
-          <div className="theater-toggle-container" >
-             <RxCross2 onClick={cityToggleHandle} id="icon"/>
-             <City  cityHandler={cityHandler} />
-          </div>   
-        )}
-        { slotSelector&&(
-          <div className="theater-toggle-containerr">
-            <RxCross2 onClick={slotTogglegHandle} id="icon" style={{marginRight:"-1120px"}}/>
-             <TheaterSlot/>   
-             </div>  
-         )} */}
     </div>
   )
 }

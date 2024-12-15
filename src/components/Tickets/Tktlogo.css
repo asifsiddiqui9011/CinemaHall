@@ -1,0 +1,28 @@
+.tctlogo-container{
+    width: 100vw;
+    /* height: 150px ; */
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  /* background-image: linear-gradient(rgba(246, 243, 243, 0.479),rgba(255, 0, 255, 0.31),black); */
+  text-align: center;
+  color: white;
+  gap: 10px;
+}
+
+
+
+
+.tctlogo{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 10px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:100px;
+    color: white;
+    background-image: linear-gradient(rgb(171, 44, 255),rgb(213, 192, 192));
+}
