@@ -3,7 +3,7 @@ import "./Ticket.css"
 import { CinemaContext } from "../../Contex/CinemaContext"
 import axios from "axios"
 
-const Ticket = ({ticket,style}) => {
+const Ticket = ({ticket,style,expired}) => {
 
   const{fetchedUserData,url} = useContext(CinemaContext)
 
@@ -46,7 +46,9 @@ const Ticket = ({ticket,style}) => {
             <p><b>Total_seats_booked:</b> {ticket.total_seats_booked}</p>
             <p>Seats: {ticket.seats.join('  ')}</p>
             <p>Total:{ticket.totalPrice}</p>
-            <button onClick={()=>{cancelTicket(ticket._id)}} className="cancel-tkt-btn">Cancel Ticket</button>
+            {expired ==true ?<h1 style={{color:"grey",margin:"auto"}}>Date Passed</h1>:
+            <button onClick={()=>{cancelTicket(ticket._id)}} className="cancel-tkt-btn">Cancel Ticket</button>}
+            {}
       </div>
  
   )

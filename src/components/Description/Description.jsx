@@ -75,6 +75,7 @@ const Description =()=>{
 
     // console.log(selectSeat,"selectseatdesc")
     const bookTicket = async ()=>{
+        console.log(booking,"bookingdata")
         try {
           const response = await axios.post(`${url}/bookTicket/${movieId}/${theaterId}/${slotId}`,booking
             ,{ headers: { 'auth-token': `${localStorage.getItem('auth-token')}` }}
@@ -91,11 +92,11 @@ const Description =()=>{
       }
 //issueuss
       useEffect(()=>{
-        if(booking.ticket){
+        if(booking.ticket.totalPrice){
           console.log(booking,"book")
           bookTicket()
         }
-      },[booking.ticket])
+      },[booking.ticket.totalPrice])
     return(
         <div className="main-description">
             <div className="timing-bar">

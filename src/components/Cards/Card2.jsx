@@ -1,9 +1,12 @@
+
 import "./Card2.css"
+
 
 const Card2 = (props) => {
   return (
-    <div className="card" style={{backgroundImage:`url(${props.bgimg})`}}>
-       <img src={props.image} alt="" className="card2-img" />
+    <div className="card" >
+      <img src={props.bgimg} alt="backgroundimage" className="back-img" loading="lazy" />
+       <img src={props.image} alt="" className="card2-img" loading="lazy" />
        
         <div className="card-dis"> 
           <h3>{props.movieName}</h3>

@@ -6,6 +6,7 @@ import { useEffect } from "react"
 import { useParams } from "react-router-dom"
 
 import { RiSofaFill } from "react-icons/ri";
+import Loader from "../Loader/Loader"
 
 
 const Seats = () => {
@@ -93,7 +94,7 @@ const Seats = () => {
   let D;
 
   if(!seats){
-    return(<div>Loading.........</div>)
+    return(<Loader/>)
   }else if (seats){
    N = addMissingKeys(seats.n,39)
    P = addMissingKeys(seats.p,79);

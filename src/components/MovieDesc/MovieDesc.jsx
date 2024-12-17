@@ -7,14 +7,22 @@ import City from "../BuyTickets/City";
 import TheaterSlot from "../BuyTickets/TheaterSlot";
 import { CinemaContext } from "../../Contex/CinemaContext";
 import { RxCross2 } from "react-icons/rx";
+import LazyImage from "../LazyImage/LazyImage";
+import Loader from "../Loader/Loader";
 
 const MovieDesc = () => {
     
 
 
-  const {slotToggle,cityToggle,cityToggleHandler,setTicket,ticket,slotToggleHandler,url,handleToggle} = useContext(CinemaContext)
+  const {setTicket,url,handleToggle,allMovies} = useContext(CinemaContext)
+
   let { movieId } = useParams();
-  const [movie, setMovie] = useState({});
+  
+  const movie = allMovies.find((e) => e._id === movieId);
+
+  if (!movie){
+    return <Loader/>
+  }
   
   const [city,setCity] = useState('')
   console.log(city,"moviedesc city")
@@ -23,23 +31,13 @@ const MovieDesc = () => {
     setTicket((prev)=>({...prev,[e.target.name]:e.target.value}))
   }
   
-  const fetchMovie = async () => {
-    try {
-      const response = await axios.get(`${url}/movies/${movieId}`);
-      setMovie(response.data);
-    } catch (err) {
-      console.log(err);
-    } finally {
-      console.log("API called");
-    }
-  };
+  
   
   useEffect(() => {
     if(city){
       setlocation(false)
       setTheaterToggle(true)
     }
-      fetchMovie();
 
   },[movieId,city]);
   
@@ -57,12 +55,26 @@ const MovieDesc = () => {
 
     
   return (
-    <div className="moviedesc-container" style={{backgroundImage:`url(${movie.imageBackgroundUrl})`}}>
+    <div className="moviedesc-container" >
+      <img src={movie.imageBackgroundUrl} alt="Background" className="background-image" />
+                    
+
         <div className="blur">
             <div className="movie-details">
-                    
-                    <img src={movie.imageMainUrl} alt="" className="movie-card" />
-                   
+    
+                    <LazyImage
+                              src={movie.imageMainUrl}
+                              alt="Movie Background"
+                              className="movie-card"
+                              style={{
+                                position: 'relative',
+                                zIndex: '-1',
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover',
+                              }}
+                            />
+           
                     <div className="movie-title">
                       <h3>{movie.movieName}</h3>
                          <h3>{movie.genre}</h3>
@@ -92,14 +104,7 @@ const MovieDesc = () => {
                 {movie.releaseDate.slice(0,10) ||""}  {movie.releaseDate.slice(0,10) ||""}  */}
             </div>
         </div>
-{/*       
-        {location &&(
-          <div className="city-toggle-container">
-               <RxCross2 onClick={()=>{setlocation(false)}} id="icon"/>
-                <City/>   
-          </div>
-             
-        )} */}
+
         {location==true ?(
           <div className="city-toggle-container">
                <RxCross2 onClick={()=>{setlocation(false)}} id="icon"/>
@@ -107,13 +112,7 @@ const MovieDesc = () => {
           </div>
              
         ):''}
-        {/* {theatertoggle==true &&(
-           
-             <div className="theater-toggle-containerr">
-               <RxCross2 onClick={theaterToggleaHandler} id="icon"/>
-               <TheaterSlot/>    
-            </div>  
-         )} */}
+        
          {theatertoggle==true ?(
            
            <div className="theater-toggle-containerr">

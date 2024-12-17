@@ -1,4 +1,4 @@
-.card{
+/* .card{
     height: 78vh;
     width: 90%;
     min-width: 320px;
@@ -15,7 +15,37 @@
     align-items:end;
     justify-content: space-around;
     box-shadow: inset 20px 20px 40px rgba(0,0,0,0.8);
+ } */
+
+ .card {
+   position: relative; /* Ensures the child elements can be positioned absolutely */
+   height: 78vh;
+   width: 90%;
+   min-width: 320px;
+   border-radius: 15px;
+   text-align: end;
+   margin: 5px;
+   padding: 5px;
+   margin-left: 30px;
+   margin-top: 20px;
+   color: white;
+   display: flex;
+   align-items: end;
+   justify-content: space-around;
+   overflow: hidden; /* Ensure content doesn't overflow the container */
  }
+ 
+ .back-img {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   z-index: -1; /* Places the image behind other content */
+   box-shadow: inset 20px 20px 40px rgba(0, 0, 0, 0.8); /* Apply inset box-shadow to the image */
+ }
+ 
 
  @media (max-width:1000px) {
     .card{
@@ -46,3 +76,12 @@
     border-radius: 10px;
 
   }
+
+  .background-image {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   object-fit: cover; /* Ensures the image covers the container */
+ }

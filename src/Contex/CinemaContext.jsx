@@ -15,6 +15,11 @@ const CinemaContextProvider = (props) => {
 
 
   const url = 'https://cinemahall.onrender.com/api';
+  // const url = 'http://localhost:4000/api';
+  
+    const {movieId} = useParams();
+    const {theaterId} = useParams();
+    const {slotId} = useParams();
     
 const [allTheater,setAllTheater] = useState([]) 
 const [allMovies,setAllMovies] = useState([])
@@ -27,29 +32,7 @@ const [fetchedUserData, setFetchedUserData] = useState(null); // Correctly initi
 console.log(fetchedUserData,"fetchuser data")
 
 
-//   const fetchUser = async ()=>{
-  
-//     const response =  await   fetch('http://localhost:4000/api/getuser',{
-//         method:"GET",
-//         headers:{
-//             Accept:'applocation/form-data',
-//             'auth-token':`${localStorage.getItem('auth-token')}`,
-//             'Content-Type':'application/json',
-//         },
-//         body:JSON.stringify(),
-//     })
-//     .then((response)=>response.json())
-//     .then((data)=>setUserData(data));
-       
-//     console.log(response,"ress")
-//  }
 
-//  useEffect(() => {
- 
- 
-//     fetchUser();
-  
-// }, []); 
 const fetchUser = async () => {
   try {
     const response = await fetch(`${url}/getuser`, {
@@ -72,7 +55,6 @@ const fetchUser = async () => {
 useEffect(() => {
   fetchUser();
 }, []);
-
 
 
 const [allTicket, setAllTicket] = useState([]);
@@ -129,13 +111,7 @@ const[selectedScreen,setSelectedScreen] = useState({})
 const[selectedSlot,setSelectedSlot] = useState({})
 
 
-// const[cityToggle,setCityToggle]= useState(false)  
 
-
-// const[slotToggle,setSlotToggle]= useState(false)  
-// const slotToggleHandler = ()=>{
-//     setSlotToggle(!slotToggle)
-// }
     
 const[ticket,setTicket] = useState({
    date:new Date().toISOString().slice(0, 10),
@@ -149,14 +125,7 @@ const TicketHandler = (e)=>{
 }
 
 
-// const cityToggleHandler = (e)=>{
-//   setCityToggle(!cityToggle)
-// if(e){
-//   setTicket((prev)=>({...prev,movieId:e}))
-// }
-// }
 
-// const movie = slot.slot1.movie;
 
   
   const [nSeat, setNSeats] = useState(selectedSlot.n);
@@ -236,6 +205,11 @@ const TicketHandler = (e)=>{
   const handlebooking =  ()=>{
     setbooking((prev)=>({...prev,seatNumber:selectSeat}))
     setbooking((prev)=>({...prev,ticket:ticket}))
+    // if(booking.ticket){
+    //   bookTicket();
+    //   console.log("booked")
+    // }
+   
   }
 
 
