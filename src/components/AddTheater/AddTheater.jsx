@@ -9,10 +9,11 @@ const AddTheater = () => {
 
   const [theater, setTheater] = useState({
     booleanArrays: {
-      n: Array(40).fill(false),
-      p: Array(80).fill(false),
-      d: Array(40).fill(false)
-    }
+      n: Array(40).fill(true),
+      p: Array(80).fill(true),
+      d: Array(40).fill(true)
+    },
+    screenType:"2D"
   });
 
   const handleNseats = (number) => {
@@ -47,15 +48,16 @@ const AddTheater = () => {
     try {
       const response = await axios.post('http://localhost:4000/api/screens',theater,
         {headers:{'auth-token':`${localStorage.getItem('auth-token')}`}});
-      console.log("Theater created successfully", response.data);
+      console.log("Theater created successfully", response.data)
+      alert("Added Successfully");
     } catch (error) {
       console.error("Error creating theater", error.response?.data || error.message);
     }
   }
 
-  useEffect(() => { 
-    console.log(theater);  
-    }, [theater]);
+  // useEffect(() => { 
+  //   console.log(theater);  
+  //   }, [theater]);
 
   return (
     <div className="theater-container">
@@ -85,19 +87,19 @@ const AddTheater = () => {
             <div>
                 <div className="normal">
                   {Array.from({ length: 40 }, (_, i) => i + 1).map((index) => (
-                    <input type="checkbox" key={index-1} onClick={() => { handleNseats(index-1) }} />
+                    <input type="checkbox" defaultChecked={theater.booleanArrays.n[index-1]} key={index-1} onClick={() => { handleNseats(index-1) }} />
                   ))}
                 </div>
                 <div className="premium">
                   {Array.from({ length: 80 }, (_, i) => i + 1).map((index) => (
                     <>
-                    <input type="checkbox" key={index-1} onClick={() => { handlePseats(index-1) }} />
+                    <input type="checkbox" key={index-1} defaultChecked={theater.booleanArrays.p[index-1]}  onClick={() => { handlePseats(index-1) }} />
                     </>
                   ))}
                 </div>
                 <div className="delux">
                   {Array.from({ length: 40 }, (_, i) => i + 1).map((index) => (
-                    <input type="checkbox" key={index-1} onClick={() => { handleDseats(index-1) }} />
+                    <input type="checkbox" key={index-1} defaultChecked={theater.booleanArrays.d[index-1]} onClick={() => { handleDseats(index-1) }} />
                   ))}
                 </div>
             </div>

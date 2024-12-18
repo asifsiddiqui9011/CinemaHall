@@ -20,7 +20,9 @@ function App() {
   return (
     <>
     <Navbar/>
+    
     <Sidebar/>
+    {localStorage.getItem('auth-token') == null ?<div style={{textAlign:"center",alignContent:"center", height:"90vh", width:"auto"}}><h1 style={{paddingTop:"100px"}}>Please authenticate to access the admin panel........</h1></div>:
     <div className='display-container'>   
        <Routes>
         <Route
@@ -55,7 +57,7 @@ function App() {
 
          </Routes>
     </div>
-    
+    }
      
     </>
   )

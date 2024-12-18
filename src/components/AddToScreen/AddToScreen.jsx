@@ -21,6 +21,7 @@ const AddToScreen = () => {
       const response = await axios.patch(`http://localhost:4000/api/updateMovieToSlot?movieId=${mainId}&slotId=${slotId}`);
       if(response.data.success){
         console.log("Movie successfully Added")
+        alert("Movie Added to screen successfully")
         getAllScreen()
         slotsetter()
       }
@@ -30,6 +31,7 @@ const AddToScreen = () => {
       const response = await axios.delete(`http://localhost:4000/api/deleteMovieFromSlot/${id}`);
       if(response.data.success){
         console.log("successfully deleted")
+        alert("Movie remove from screen successfully")
         getAllScreen()
         slotsetter()
       }

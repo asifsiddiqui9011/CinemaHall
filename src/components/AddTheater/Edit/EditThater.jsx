@@ -62,8 +62,11 @@ const EditTheater = () => {
   const updateTheater = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.put(`http://localhost:4000/api/screens/${id}`, editTheater);
-      console.log("Theater updated successfully", response.data);
+      const response = await axios.put(`http://localhost:4000/api/screens/${id}`, editTheater,
+        {headers:{'auth-token':`${localStorage.getItem('auth-token')}`}}
+      );
+      console.log("Theater updated successfully", response.data)
+      alert("Update successsfully");
     } catch (error) {
       console.error("Error updating theater", error.response?.data || error.message);
     }

@@ -12,6 +12,8 @@ export const AdminContext = createContext(null);
 const AdminContextProvider = (props) => {
     
 const [allTheater,setAllTheater] = useState([]) 
+const [ownerTheater,setOwnerTheater] = useState([]) 
+
 const [userData,setUserData] = useState({})
 
 
@@ -27,6 +29,19 @@ const getAllScreen = async()=>{
     }); 
 }
 
+const getOwnerScreen= async()=>{
+  axios.get("http://localhost:4000/api/ownerscreens",{
+    headers: {
+      'auth-token': localStorage.getItem('auth-token') // Get the token from local storage
+    }
+  })
+  .then((response) => {
+    setOwnerTheater(response.data);
+  })
+  .catch((error) => {
+      console.error("There was an error fetching the owner Thaters", error);
+  }); 
+}
 
 const fetchUserData = async () => {
     try {
@@ -52,7 +67,7 @@ const fetchUserData = async () => {
   
 useEffect(()=>{
     getAllScreen()
-   
+    getOwnerScreen();
     fetchUserData()
     
      
@@ -85,7 +100,7 @@ const editModelToggler =()=>{
 const [editMovie, setEditMovie] = useState({});
  
 
-   const contextValue = {Authorization,userData,setUserData,editModel,editModelToggler,allTheater,getAllScreen,editMovie, setEditMovie,selectedTheater,handleSelectTheater}
+   const contextValue = {ownerTheater,Authorization,userData,setUserData,editModel,editModelToggler,allTheater,getAllScreen,editMovie, setEditMovie,selectedTheater,handleSelectTheater}
     return (
         <AdminContext.Provider value={contextValue}>
             {props.children}

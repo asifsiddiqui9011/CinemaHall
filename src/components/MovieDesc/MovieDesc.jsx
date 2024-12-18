@@ -26,7 +26,7 @@ const MovieDesc = () => {
       const fetchMovie = async () => {
         try {
           const response = await axios.get(`http://localhost:4000/api/movies/${mainId}`);
-          setMovie(response.data);
+          setMovie(response.data)
           setLoading(false);
         } catch (err) {
           setError("Error fetching movie data");
@@ -53,7 +53,8 @@ const MovieDesc = () => {
     const deleteMovie = async()=>{
        try {
          await axios.delete(`http://localhost:4000/api/movies/${mainId}`)
-         console.log('movie Deleted successfully');
+         console.log('movie Deleted successfully')
+         alert("Movie Deleted successfully");
        } catch (error) {
          console.error('Error deleting movie', error);
        }finally {
