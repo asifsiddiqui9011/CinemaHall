@@ -112,6 +112,15 @@
   transition: all .35s;
  }
 
+ .buyticketbtn:hover{
+    background-color: rgba(137, 43, 226, 0.59);
+    color: white;
+ }
+
+ .buyticketbtn:focus:active{
+    background-color: blueviolet;
+ }
+
  .btn-div{
     display: flex;
     justify-content: center;
