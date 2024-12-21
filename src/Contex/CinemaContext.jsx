@@ -17,9 +17,6 @@ const CinemaContextProvider = (props) => {
   const url = 'https://cinemahall.onrender.com/api';
   // const url = 'http://localhost:4000/api';
   
-    const {movieId} = useParams();
-    const {theaterId} = useParams();
-    const {slotId} = useParams();
     
 const [allTheater,setAllTheater] = useState([]) 
 const [allMovies,setAllMovies] = useState([])

@@ -8,7 +8,7 @@
 
 .timing-bar{
   background-color: white;
-    min-height: 15vh;
+    min-height: 10vh;
     max-height: fit-content;
     display: flex;
     justify-content: space-around;

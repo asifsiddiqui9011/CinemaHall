@@ -187,6 +187,12 @@ const Seats = () => {
         })} 
 
        </div>
+
+       <div className="seat-d-container">
+        <div className="seat-display-n">N</div>
+        <div className="seat-display-p">P</div>
+        <div className="seat-display-d">D</div>
+       </div>
     </div>
   )
 }
