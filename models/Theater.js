@@ -70,7 +70,7 @@ const mongoose = require("mongoose");
 
 const seatSchema = {
   isBooked: { type: Boolean, default: false },
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", default: null },
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: "User",required:true },
   movieMainId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Movie",
@@ -89,49 +89,49 @@ const screenSchema = new mongoose.Schema({
   userName: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "adminUser",
-    default: null,
+    required:true,
   },
   
   numberOfBookings: { type: Number, default: 0 },
   available: { type: Boolean, default: true },
-  slots: {
-    slot1: {
-      type: Array,
-      default: function () {
-        return Array.from({ length: this.capacity }, (_, index) => ({
-          isBooked: false,
-          seatNumber: index + 1,
-          userId: null,
-          movieMainId: null,
-          date: null,
-        }));
-      },
-    },
-    slot2: {
-      type: Array,
-      default: function () {
-        return Array.from({ length: this.capacity }, (_, index) => ({
-          isBooked: false,
-          seatNumber: index + 1,
-          userId: null,
-          movieMainId: null,
-          date: null,
-        }));
-      },
-    },
-    slot3: {
-      type: Array,
-      default: function () {
-        return Array.from({ length: this.capacity }, (_, index) => ({
-          isBooked: false,
-          seatNumber: index + 1,
-          userId: null,
-          movieMainId: null,
-          date: null,
-        }));
-      },
-    },
-  },
+  // slots: {
+  //   slot1: {
+  //     type: Array,
+  //     default: function () {
+  //       return Array.from({ length: this.capacity }, (_, index) => ({
+  //         isBooked: false,
+  //         seatNumber: index + 1,
+  //         userId: null,
+  //         movieMainId: null,
+  //         date: null,
+  //       }));
+  //     },
+  //   },
+  //   slot2: {
+  //     type: Array,
+  //     default: function () {
+  //       return Array.from({ length: this.capacity }, (_, index) => ({
+  //         isBooked: false,
+  //         seatNumber: index + 1,
+  //         userId: null,
+  //         movieMainId: null,
+  //         date: null,
+  //       }));
+  //     },
+  //   },
+  //   slot3: {
+  //     type: Array,
+  //     default: function () {
+  //       return Array.from({ length: this.capacity }, (_, index) => ({
+  //         isBooked: false,
+  //         seatNumber: index + 1,
+  //         userId: null,
+  //         movieMainId: null,
+  //         date: null,
+  //       }));
+  //     },
+  //   },
+  // },
   booleanArrays: {
     n: { type: [Boolean], default: [] },
     p: { type: [Boolean], default: [] },

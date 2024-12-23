@@ -22,6 +22,28 @@ const generateMainId = () => {
 exports.createMovie = async (req, res) => {
   try {
     // Ensure that the required fields in the request body are properly formatted
+    const {
+      movieName,
+      genre,
+      duration,
+      releaseDate,
+      tags,
+      trailerLink,
+      description,
+      language,
+      directors,
+      certification,
+      videoDimension,
+      mainCasts,
+      lastScreenDate,
+      industry,
+      imageMainUrl,
+      imageBackgroundUrl,
+    } = req.body;
+    if ( !movieName || !genre || !duration || !releaseDate || !tags   || !trailerLink || !description  || !language || !directors   || !
+      certification || !videoDimension || !mainCasts || !lastScreenDate || !industry || !imageMainUrl || !imageBackgroundUrl) {
+      return res.status(400).json({ message: 'Missing required parameters' });
+    }
     const movieData = {
       ...req.body,
       mainId: generateMainId(), // Generate a unique mainId
@@ -52,6 +74,7 @@ exports.getAllMovies = async (req, res) => {
 
 exports.getMovieById = async (req, res) => {
   try {
+
     const id = req.params.id;
     const movie = await Movie.findById(id).exec();
     if (!movie) {

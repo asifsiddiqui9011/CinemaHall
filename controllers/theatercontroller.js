@@ -20,6 +20,17 @@ exports.getScreenById = async (req, res) => {
   }
 };
 
+exports.getOwnerScreens = async (req, res) => {
+  try {
+    const userId = req.user.userId;
+    const screen = await Screen.find({userName:userId});
+    if (!screen) return res.status(404).json({ message: "Screen not found" });
+    res.status(200).json(screen);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 
 function generateMainId() {
   const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -32,7 +43,7 @@ function generateMainId() {
 
 exports.createScreen = async (req, res) => {
 
-  const userName = req.userId.userId
+  const userName = req.user.userId;
   console.log(userName,"userid")
   const screenData = { ...req.body, mainId: generateMainId(),userName}; 
   const screen = new Screen(screenData);
@@ -48,9 +59,10 @@ exports.createScreen = async (req, res) => {
 
 exports.updateScreen = async (req, res) => {
   try {
+    const userName = req.user.userId;
     const updatedScreen = await Screen.findByIdAndUpdate(
       req.params.id,
-      req.body,
+     {...req.body, userName},
       { new: true }
     );
     if (!updatedScreen)

@@ -248,7 +248,7 @@ exports.deleteMovieFromSlot =  async (req, res) => {
     const user_id = req.user.id; // Placeholder user_id
   
     try {
-      if (!slotId || !ticket || !screenId || !user_id) {
+      if (!slotId || !ticket || !screenId || !user_id || !movieId) {
         return res.status(400).json({ message: 'Missing required parameters' });
       }
   
