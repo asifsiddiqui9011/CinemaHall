@@ -1,8 +1,6 @@
 import './Recent.css'
 import { GrNext } from "react-icons/gr";
 import { GrPrevious } from "react-icons/gr";
-//import Card2 from '../Cards/Card2'
-//import Card3 from '../Cards/Card3'
 import { Link } from 'react-router-dom';
 import { Suspense, useContext } from 'react';
 import { CinemaContext } from '../../Contex/CinemaContext';
@@ -10,12 +8,12 @@ import { lazy } from 'react';
 import Loader from '../Loader/Loader'
 
 
-// const Card2 = lazy(() => import('../Cards/Card2'));
-// const Card3 = lazy(() => import('../Cards/Card3'));
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const Card2 = lazy(() => import('../Cards/Card2'));
+const Card3 = lazy(() => import('../Cards/Card3'));
+// const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-const Card2 = lazy(() => delay(1000).then(() => import('../Cards/Card2')));
-const Card3 = lazy(() => delay(2000).then(() => import('../Cards/Card3')));
+// const Card2 = lazy(() => delay(500).then(() => import('../Cards/Card2')));
+// const Card3 = lazy(() => delay(500).then(() => import('../Cards/Card3')));
 
 const  Recent=()=>{
     

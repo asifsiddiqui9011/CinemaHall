@@ -32,8 +32,8 @@ const LazyImage = ({ src, alt, className, style }) => {
           style={{
             opacity: loaded ? 1 : 0,
             transition: 'opacity 0.5s ease-in-out',
-            width: '100%',
-            height: 'auto',
+            // width: '100%',
+            // height: '100%',
           }}
           onLoad={() => setLoaded(true)}
           onError={() => console.error(`Failed to load image: ${src}`)}

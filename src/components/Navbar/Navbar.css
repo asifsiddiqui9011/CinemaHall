@@ -4,8 +4,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* padding: 0px 100px ; */
-    /* color: white; */
     margin:-10px -8px 0px -8px;
     position: fixed;
     z-index: 7;
@@ -65,7 +63,7 @@
 }
 
 .navbar-scrolled{
-   /* backdrop-filter: blur(20px); */
+  
    background-color: black;
 }
 
@@ -93,7 +91,7 @@
 
 
   .navbar-scrolled{
-    /* padding-left: 10px; */
+    
   }
 
   .navbar{
@@ -119,7 +117,7 @@
   border: none;
 }
 
-/* Keyframe Animation for Sliding */
+Keyframe Animation for Sliding
 @keyframes slideInFromLeft {
   from {
     transform: translateX(-100%);
@@ -131,7 +129,7 @@
   }
 }
 
-/* For the container when menu is toggled open */
+
 .nav-btns-container.open {
   display: flex;
   position: absolute;
@@ -142,8 +140,10 @@
   color: white;
   flex-direction: column;
   height: fit-content;
-  animation: slideInFromLeft 1s ease-in-out; /* Apply sliding animation */
+  animation: slideInFromLeft 1s ease-in-out; 
   z-index: 1000;
 }
 
+ 
 
+ 

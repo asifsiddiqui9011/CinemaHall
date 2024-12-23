@@ -1,8 +1,10 @@
 .card_1{
-   max-height: 220px;
-   max-width: 340px;
-   min-width: 200px;
-   min-height: 120px;
+   /* max-height: 220px;
+   max-width: 340px; */
+   /* min-width: 200px; */
+   /* min-height: 120px; */
+   height: 220px;
+   width: 340px;
    border-radius: 15px;
    text-align:justify;
    margin:10px;
@@ -23,6 +25,10 @@
     .card-text h3,p{
       font-size: medium;
       margin: 2px;
+   }
+   .card_1{
+      height: 200px;
+      width: 145px;
    }
    
 }

@@ -85,6 +85,7 @@
     max-width: 350px;
     border-radius: 15px;
     margin-bottom: 60px;
+    max-height: fit-content;
     display: flex;
     align-items: center;
     justify-content: center; 
