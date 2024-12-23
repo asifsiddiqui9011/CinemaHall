@@ -84,9 +84,28 @@
 import { useState } from "react";
 import "./AddMovies.css";
 import axios from "axios";
-
+import imageselect from "../../assets/imageselector.jpg"
+ 
 const AddMovies = () => {
-  const [movie, setMovie] = useState({});
+
+
+  const [mainImg, setMainImg] = useState(false);
+  const [bgImg, setBgImg] = useState(false);
+
+  const [movie, setMovie] = useState({
+    imageMainUrl:"",
+    imageBackgroundUrl:"",
+  });
+
+
+  const mainImgHandler = (e)=>{
+    
+    setMainImg(e.target.files[0]);
+         
+}
+
+const bgImgHandler = (e)=>{
+  setBgImg(e.target.files[0]);}
 
   const changeHandler = (e) => {
     setMovie((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -94,16 +113,45 @@ const AddMovies = () => {
 
   const addMovie = async (event) => {
     event.preventDefault();
-    console.log(movie,"movie")
-    try {
-      const response = await axios.post('http://localhost:4000/api/movies', movie);
-      console.log("TMovie Added Successfully", response.data);
-      alert("Movie added successfully!")
-    } catch (error) {
-      console.error("Error Adding movie", error.response?.data || error.message);
-    }
-  };
+    console.log(movie, "movie");
 
+    let responseData = {};
+    let newMovie = { ...movie };
+
+    let formData = new FormData();
+    formData.append('newMovie', mainImg);
+    formData.append('newMovie', bgImg);
+
+    console.log(formData, "formdata");
+        try {
+          const uploadResponse = await fetch('http://localhost:4000/upload', {
+            method: 'POST',
+            body: formData,
+          });
+          responseData = await uploadResponse.json();
+          console.log(responseData, "response data");
+    
+          if (responseData.success) {
+            newMovie.imageMainUrl = responseData.image_urls[0];
+            newMovie.imageBackgroundUrl = responseData.image_urls[1];
+    
+            console.log(newMovie, "product saved data ", responseData.image_urls, responseData);
+    
+            try {
+              const response = await axios.post('http://localhost:4000/api/movies', newMovie);
+              console.log("Movie Added Successfully", response.data);
+              alert("Movie added successfully!");
+            } catch (error) {
+              console.error("Error Adding movie", error.response?.data || error.message);
+            }
+          } else {
+            alert("Failed to upload images");
+          }
+        } catch (error) {
+          console.error("Error uploading images", error);
+          alert("Error uploading images");
+        }
+      };
   return (
     <div className="addmovie-container">
       <h1 className="heading">Add Movie</h1>
@@ -117,6 +165,7 @@ const AddMovies = () => {
             name="movieName"
             id="movieName"
             onChange={changeHandler}
+            required
           />
         </span>
         <span>
@@ -127,6 +176,7 @@ const AddMovies = () => {
             name="duration"
             id="duration"
             onChange={changeHandler}
+            required
           />
         </span>
         <span>
@@ -137,6 +187,7 @@ const AddMovies = () => {
             name="releaseDate"
             id="releaseDate"
             onChange={changeHandler}
+            required
           />
         </span>
         <span>
@@ -147,9 +198,10 @@ const AddMovies = () => {
             name="lastScreenDate"
             id="lastScreenDate"
             onChange={changeHandler}
+            required
           />
         </span>
-        <span>
+        {/* <span>
           Main_Image:{" "}
           <input
             type="text"
@@ -168,7 +220,7 @@ const AddMovies = () => {
             id="imageBackgroundUrl"
             onChange={changeHandler}
           />
-        </span>
+        </span> */}
         <span>
           Trailer Link{" "}
           <input
@@ -177,6 +229,7 @@ const AddMovies = () => {
             name="trailerLink"
             id="trailerLink"
             onChange={changeHandler}
+            required
           />
         </span>
         <span>
@@ -187,6 +240,7 @@ const AddMovies = () => {
             name="directors"
             id="directors"
             onChange={changeHandler}
+            required
           />
         </span>
         <span>
@@ -197,6 +251,7 @@ const AddMovies = () => {
             name="mainCasts"
             id="mainCasts"
             onChange={changeHandler}
+            required
           />
         </span>
         <span>
@@ -207,6 +262,7 @@ const AddMovies = () => {
             name="genre"
             id="genre"
             onChange={changeHandler}
+            required
           />
         </span>
 
@@ -217,6 +273,7 @@ const AddMovies = () => {
             id="industry"
             value={movie.industry || ""}
             onChange={changeHandler}
+            required
           >
             <option value="Bollywood">Bollywood</option>
             <option value="Hollywood">Hollywood</option>
@@ -231,6 +288,7 @@ const AddMovies = () => {
             name="videoDimension"
             id="videoDimension"
             onChange={changeHandler}
+            required
           >
             <option value="2D">2D</option>
             <option value="3D">3D</option>
@@ -242,8 +300,9 @@ const AddMovies = () => {
           <select
             name="language"
             id="language"
-            value={movie.language || ""}
+            value={movie.language || "english"}
             onChange={changeHandler}
+            required
           >
             <option value="English">English</option>
             <option value="Hindi">Hindi</option>
@@ -260,6 +319,7 @@ const AddMovies = () => {
             id="certification"
             value={movie.certification || ""}
             onChange={changeHandler}
+            required
           >
             <option value="U/A">U/A</option>
             <option value="U">U</option>
@@ -273,6 +333,7 @@ const AddMovies = () => {
             id="tags"
             placeholder="Add Movie Tags"
             onChange={changeHandler}
+            required
           ></textarea>
         </span>
         <span>
@@ -283,11 +344,27 @@ const AddMovies = () => {
             name="description"
             id="description"
             onChange={changeHandler}
+            required
           />
         </span>
 
+        <label htmlFor="mainImg">
+            <img src={mainImg?URL.createObjectURL(mainImg):imageselect} alt="mainImg" className="input-image"/>   
+        </label>
+        <input onChange= {mainImgHandler} type="file" name="mainImg" id="mainImg" hidden required/>
+        <label htmlFor="bgImg">
+            <img src={bgImg?URL.createObjectURL(bgImg):imageselect} alt="bgImg" className="input-image"/>   
+    
+       </label>
+        <input onChange= {bgImgHandler} type="file" name="bgImg" id="bgImg" hidden required/>
+<br />
         <button type="submit">Add Movie</button>
       </form>
+
+     
+
+
+
     </div>
   );
 };

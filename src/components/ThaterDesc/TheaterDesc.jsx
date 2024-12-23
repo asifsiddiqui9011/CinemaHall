@@ -35,6 +35,7 @@ const TheaterDesc = () => {
         console.log('Signup successful:', response.data.success);
         if(response.data.success){
           console.log("successfully added")
+          alert("slot successfully added")
         }
       }
     const deleteSlot =async (slotId)=>{
@@ -42,6 +43,7 @@ const TheaterDesc = () => {
         const response = await axios.delete(`http://localhost:4000/api/deleteslot?theater_id=${selectedTheater._id}&slotId=${slotId}`);
         if(response.data.success){
           console.log("successfully deleted")
+          alert("slot successfully deleted")
         }
       }
 
@@ -50,6 +52,7 @@ const TheaterDesc = () => {
           const response = await axios.delete(`http://localhost:4000/api/deleteMovieFromSlot/${id}`);
           if(response.data.success){
             console.log("successfully deleted")
+            alert("successfully deleted")
           }
         } catch (error) {
          console.log(error,id)
@@ -61,6 +64,7 @@ const TheaterDesc = () => {
           const response = await axios.delete(`http://localhost:4000/api/screens/${id}`);
           if(response.data.success){
             console.log("successfully deleted")
+            alert("successfully deleted")
           }
         } catch (error) {
          console.log(error)
@@ -104,28 +108,13 @@ const TheaterDesc = () => {
                          
                           <button onClick={()=>{deleteFromScreen(slot._id)}}>Remove Movie</button>
                          <button>edit</button> 
-                         <button onClick={()=>{deleteSlot(slot._id)}}>Delete slot</button>
+                         <button onClick={()=>{deleteSlot(slot)}}>Delete slot</button>
                       </div>
                         )
                       })
          )}
             
-          {/* <div className="slots-desc">
-              <h3>Slot1 9:00-12:00</h3>
-              <h3>Stree (Hin)</h3>
-              <h3>2D</h3>
-              <button>Remove Movie</button>
-              <button>edit</button>
-              <button>Delete slot</button>
-          </div>
-          <div className="slots-desc">
-              <h3>Slot1 9:00-12:00</h3>
-              <h3>2D</h3>
-              <h3>____Available_____</h3>                 
-              <button>Add Movie</button>
-              <button>edit</button>
-              <button>Delete slot</button>
-          </div> */}
+          
         </div>
   </div>
 
