@@ -7,7 +7,8 @@ const Ticket = ({ticket,style,expired}) => {
 
   const{fetchedUserData,url} = useContext(CinemaContext)
 
-  console.log(ticket,"tt")
+  console.log(ticket,"tt",ticket.screenId)
+
 
   const cancelTicket = async (ticketId) => {
     try {
@@ -39,8 +40,8 @@ const Ticket = ({ticket,style,expired}) => {
      <div className="ticket-card" style={style}>
             <p>UserNAme: {fetchedUserData.name} {ticket.cancellation}</p>
             <p>MovieNAme: {ticket.movieId.movieName}</p>
-            <p>Theater name: {ticket.screenId.name}</p>
-            <p>Location: {ticket.screenId.location}</p>
+            {/* <p>Theater name: {ticket.screenId.name}</p> */}
+            {/* <p>Location: {ticket.screenId.location}</p> */}
             <p>Slot: {ticket.slotId.time} {ticket.slotId.start} {ticket.slotId.end}</p>
             <p>Date: {ticket.date}</p>
             <p><b>Total_seats_booked:</b> {ticket.total_seats_booked}</p>
