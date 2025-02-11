@@ -9,7 +9,7 @@ import { Link } from "react-router-dom"
 
 const MovieDesc = () => {
     
-    const { setEditMovie,Authorization} = useContext(AdminContext)
+    const { setEditMovie,userData} = useContext(AdminContext)
 
 
     const { mainId } = useParams(); // Get the movie ID from the URL
@@ -72,13 +72,13 @@ const MovieDesc = () => {
                         <h3>{movie.industry}</h3>
                         <h3>Retings:9.5/10</h3>
                        
-                        {!Authorization?
-                         <div>
-                         <Link to={`edit`}><button onClick={()=>{setEditMovie(movie)}}>Edit</button></Link>
-                         <button onClick={()=>{deleteMovie(movie._id)}}>Delete</button>
-                         </div>: <button onClick={Toggle}>Add to your Screen</button>}
-                       
-                       
+                        {userData.role === "admin" || userData.role === "superadmin" ?
+                            <div>
+                            <Link to={`edit`}><button onClick={()=>{setEditMovie(movie)}}>Edit</button></Link>
+                            <button onClick={()=>{deleteMovie(movie._id)}}>Delete</button>
+                            </div>
+                        : <button onClick={Toggle}>Add to your Screen</button> }
+  
                     </div>
             </div>
             <div className="theater-schedule">

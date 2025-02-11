@@ -5,7 +5,7 @@ import { AdminContext } from "../../Context/AdminContext"
 
 const Login = (props) => {
   
-  const{userdata,setUserData} = useContext(AdminContext)
+  const{userData,setUserData} = useContext(AdminContext)
   const [authData,setAuthData] = useState ({
    
     email:"",
@@ -23,14 +23,14 @@ const Login = (props) => {
     event.preventDefault()
     try {
       const response = await axios.post('http://localhost:4000/api/adminlogin', authData);
-      console.log('Signup successful:', response.data);
+      // console.log('Signup successful:', response.data);
       if(response.data.success){
         localStorage.setItem('auth-token',response.data.token)
         setUserData({...response.data.user})
         props.toggle()
       }
     } catch (error) {
-      console.error('Signup error:', error);
+      console.error('login error:', error);
     }
   }
 
@@ -39,7 +39,7 @@ const Login = (props) => {
     <div className="login-container">
      
       <div className="login-img-container">
-          <p>Does not have an account Click to <b onClick={props.signup}>SignUp</b></p>
+          <p>Does not have an account <b>Contact to Admin</b></p>
       </div>
       <div className="login-form-container">
         <h2>Login  <hr /></h2>

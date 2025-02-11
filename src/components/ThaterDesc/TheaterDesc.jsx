@@ -103,8 +103,12 @@ const TheaterDesc = () => {
                         return(
                           <div className="slots-desc" key={index}>
                           <h3>Slot{index+1}{slot.start}{slot.end}</h3>
-                          <h3>2D</h3>
-                          <h3>Deadpool (Hin){slot.movieId}</h3>
+                          {slot.movieId &&(
+                            <>
+                          <h3>{slot.movieId.videoDimension}</h3>
+                          <h3>{slot.movieId.movieName} ({slot.movieId.language}){slot.movieId._id}</h3>
+                          </>
+                          )}
                          
                           <button onClick={()=>{deleteFromScreen(slot._id)}}>Remove Movie</button>
                          <button>edit</button> 

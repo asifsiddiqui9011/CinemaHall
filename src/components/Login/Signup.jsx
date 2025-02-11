@@ -1,15 +1,19 @@
 import { useState } from "react"
 import axios from 'axios'
+import { useContext } from "react"
+import { AdminContext } from "../../Context/AdminContext"
 
-const Signup = (props) => {
+const Signup = () => {
 
+  const {allTheaterOwners,userData} = useContext(AdminContext)
   const [signupData,setSignupData] = useState ({
     
     username:"",
     email:"",
     phoneNumber:"",
     password:"",
-    location:""
+    location:"",
+    role:""
 
   })
 
@@ -24,8 +28,8 @@ const Signup = (props) => {
       const response = await axios.post('http://localhost:4000/api/adminsignup', signupData);
       console.log('Signup successful:', response.data.success);
       if(response.data.success){
-        localStorage.setItem('auth-token',response.data.token)
-        props.toggle()
+        allTheaterOwners.push(response.data.user);
+        alert("User Registered Successfully")
       }
     
     } catch (error) {
@@ -36,14 +40,19 @@ const Signup = (props) => {
 
   
   return (
-    <div className="login-container">
-     
-      <div className="login-img-container">
-            <p>Already! have an account Click to <b onClick={props.login}>Login</b></p>
-      </div>
-      <div className="login-form-container">
-        <h2>SignUp<hr /></h2>
+    
+      <div className="login-form-container signupform">
           <form  onSubmit={sign} className="login-form">
+          <h2>Register Users<hr /></h2>
+          <span>
+              <p>Role: </p>
+              <select name="role" id="role" className="login-input" value={signupData.role} onChange={changeHandler} required>
+                <option value="">Select role</option>
+                <option value="theater_owner">Theater owner</option>
+                {userData.role === "superadmin" &&  <option value="admin">Admin</option>}
+                {userData.role === "superadmin" && <option value="superadmin">superadmin</option>}
+              </select>
+            </span>
           <span>
               <p>FullName: </p>
               <input type="text" placeholder="Enter email" className="login-input" name="username" id="username" value={signupData.name} onChange={changeHandler} required />
@@ -52,6 +61,7 @@ const Signup = (props) => {
               <p>Email: </p>
               <input type="email" placeholder="Enter email" className="login-input" name="email" id="email" value={signupData.email} onChange={changeHandler} required />
             </span>
+           
             <span>
               <p>Mobile: </p>
               <input type="text" placeholder="Enter email" className="login-input" name="phoneNumber" id="phoneNumber" value={signupData.phone} onChange={changeHandler} required />
@@ -64,12 +74,9 @@ const Signup = (props) => {
               <label >Password: </label>
               <input type="password" placeholder="enter password" className="login-input" name="password" id="password" value={signupData.password} onChange={changeHandler} required/>
             </span>
-            <button type="submit">Signup</button>
-           
+            <button type="submit">Register</button> 
           </form>
       </div>
-      
-    </div>
   )
 }
 

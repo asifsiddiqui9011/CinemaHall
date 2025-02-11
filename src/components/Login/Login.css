@@ -34,6 +34,7 @@
     align-items: start;
     justify-content: center;
     color: balck;
+    text-align: center;
  }
  
  span{
@@ -56,4 +57,12 @@
     width: 250px;
     outline: none;
     border: none;
+ }
+
+ .signupform{
+   padding: 10px 0px 10px 40px;
+   margin: auto;
+   box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+   border-radius: 15px;
+   height: 520px;
  }

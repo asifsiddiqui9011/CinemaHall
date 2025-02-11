@@ -6,7 +6,7 @@
     border: 2px soid black;
 }
 
-.select-container{
+/* .select-container{
     margin: 5px;
     border-radius: 15px;
     display: flex;
@@ -19,7 +19,7 @@
     overflow: scroll;
     box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
     padding: 100px 20px 10px;
-} 
+}  */
 
 .select-tag{
     position:absolute;

@@ -7,10 +7,12 @@ import AdminContextProvider from './Context/AdminContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AdminContextProvider>
     <BrowserRouter>
+    <AdminContextProvider>
+    
       <App />
-    </BrowserRouter>
+   
     </AdminContextProvider>
+    </BrowserRouter>
   </React.StrictMode>,
 )
