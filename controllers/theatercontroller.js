@@ -12,7 +12,7 @@ exports.getAllScreens = async (req, res) => {
 
 exports.getScreenById = async (req, res) => {
   try {
-    const screen = await Screen.findById(req.params.id);
+    const screen = await Screen.findById(req.params.id).populate("slot");
     if (!screen) return res.status(404).json({ message: "Screen not found" });
     res.status(200).json(screen);
   } catch (error) {
@@ -23,7 +23,14 @@ exports.getScreenById = async (req, res) => {
 exports.getOwnerScreens = async (req, res) => {
   try {
     const userId = req.user.userId;
-    const screen = await Screen.find({userName:userId});
+    const screen = await Screen.find({userName:userId}).populate({
+      path: "slot",
+      populate: {
+          path: "movieId", // Assuming movieId is the field inside slot that references Movie model
+          model: "Movie",   // Ensure this matches the actual Movie model name in your database
+          select: "_id movieName genre language videoDimension" // Select only the fields you need
+      }
+  });
     if (!screen) return res.status(404).json({ message: "Screen not found" });
     res.status(200).json(screen);
   } catch (error) {

@@ -13,12 +13,17 @@ const adminuserSchema = new mongoose.Schema(
       required: true,
       trim: true,
       unique: true,
-      match: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, // Email format validation
-    },
-    password: {
-      type: String,
-      required: true,
-      minlength: 6, // Minimum length for password
+      // Email format validation
+      },
+      role: {
+        type: String,
+        required: true,
+        enum: ["admin", "superadmin", "theater_owner"], // Role can be 'admin', 'superadmin', or 'theater owner'
+      },
+      password: {
+        type: String,
+        required: true,
+        minlength: 6, // Minimum length for password
     },
     phoneNumber: {
       type: String,
